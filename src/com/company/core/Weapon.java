@@ -1,4 +1,4 @@
-package com.mygdx.game.core;
+package com.company.core;
 
 public class Weapon extends Item{
     private int damageDice;

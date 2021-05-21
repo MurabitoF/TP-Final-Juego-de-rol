@@ -1,6 +1,6 @@
-package com.mygdx.game.core;
+package com.company.core;
 
-public class Armor extends Item{
+public class Armor extends Item {
     private int armor;
 
     public Armor (String name, int armor)

@@ -1,4 +1,4 @@
-package com.mygdx.game.core;
+package com.company.core;
 
 public interface IMagic {
 

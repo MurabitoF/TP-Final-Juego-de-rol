@@ -1,6 +1,6 @@
-package com.mygdx.game.core;
+package com.company.core;
 
-public class Consumible extends Item{
+public class Consumible extends Item {
     String type;
 
     public Consumible (String name, String type)
