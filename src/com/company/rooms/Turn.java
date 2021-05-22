@@ -1,15 +1,19 @@
-package com.company.core;
+package com.company.rooms;
+
+import com.company.character.Character;
 
 public class Turn {
     private int turnNumber;
-    private Character character;
+    private Character source;
+    private Character target;
     private String action;
     private int resultOfAction;
 
-    public Turn (int turnNumber, Character character, String action, int resultOfAction)
+    public Turn (int turnNumber, Character source, Character target,String action, int resultOfAction)
     {
         this.turnNumber = turnNumber;
-        this.character = character;
+        this.source = source;
+        this.source = target;
         this.action = action;
         this.resultOfAction = resultOfAction;
     }
@@ -22,12 +26,20 @@ public class Turn {
         this.turnNumber = turnNumber;
     }
 
-    public Character getCharacter() {
-        return character;
+    public Character getSource() {
+        return source;
     }
 
-    public void setCharacter(Character character) {
-        this.character = character;
+    public void setSource(Character source) {
+        this.source = source;
+    }
+
+    public Character getTarget() {
+        return target;
+    }
+
+    public void setTarget(Character target) {
+        this.target = target;
     }
 
     public String getAction() {

@@ -1,4 +1,4 @@
-package com.company.core;
+package com.company.items;
 
 public class Weapon extends Item{
     private int damageDice;

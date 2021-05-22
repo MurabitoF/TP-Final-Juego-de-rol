@@ -1,4 +1,6 @@
-package com.company.core;
+package com.company.character;
+
+import com.company.items.Item;
 
 import java.util.ArrayList;
 

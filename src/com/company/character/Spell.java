@@ -1,4 +1,4 @@
-package com.company.core;
+package com.company.character;
 
 public class Spell {
     private String name;

@@ -1,4 +1,4 @@
-package com.company.core;
+package com.company.items;
 
 public class Armor extends Item {
     private int armor;

@@ -1,8 +1,10 @@
-package com.company.core;
+package com.company.character;
+
+import com.company.items.Item;
 
 import java.util.ArrayList;
 
-public abstract class Player extends Character{
+public abstract class Player extends Character {
     ArrayList<Item> backpack;
 
     public  Player (String name, int might, int agility, int intelligence, ArrayList<Item> backpack)

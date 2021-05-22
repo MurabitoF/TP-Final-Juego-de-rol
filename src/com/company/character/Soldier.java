@@ -1,15 +1,15 @@
-package com.company.core;
+package com.company.character;
 
-public class Monster extends Enemy{
+public class Soldier extends Enemy{
 
-    public Monster (String name, int might, int agility, int intelligence)
+    public  Soldier (String name, int might, int agility, int intelligence)
     {
         super(name, might, agility, intelligence);
     }
 
-    public void multiAttack()
+    public void parry()
     {
-        
+
     }
 
     @Override

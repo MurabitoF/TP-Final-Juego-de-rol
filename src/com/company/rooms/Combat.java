@@ -1,4 +1,7 @@
-package com.company.core;
+package com.company.rooms;
+
+import com.company.character.Enemy;
+import com.company.character.Player;
 
 import java.util.ArrayList;
 
@@ -36,6 +39,10 @@ public class Combat {
 
     public void setTurns(ArrayList<Turn> turns) {
         this.turns = turns;
+    }
+
+    public boolean isOver(){
+        return false;//cambiar
     }
 
 }

@@ -1,6 +1,6 @@
-package com.company.core;
+package com.company.character;
 
-public abstract class Enemy extends Character{
+public abstract class Enemy extends Character {
 
     public Enemy (String name, int might, int agility, int intelligence)
     {

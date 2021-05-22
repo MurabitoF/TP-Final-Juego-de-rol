@@ -1,12 +1,17 @@
-package com.company.core;
+package com.company.rooms;
+
+import com.company.character.Player;
+import com.company.items.Item;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Room {
-    String name;
-    Item loot;
-    Player player;
-    Combat combat;
+    private String name;
+    private Item loot;
+    private Player player;
+    private Combat combat;
+    private List<Door> doors;
 
     public Room (String name, Item loot, Player player, Combat combat)
     {
@@ -14,6 +19,7 @@ public class Room {
         this.loot = loot;
         this.player = player;
         this.combat = combat;
+        this.doors = new ArrayList<>();
     }
 
     public String getName() {
@@ -46,5 +52,17 @@ public class Room {
 
     public void setCombat(Combat combat) {
         this.combat = combat;
+    }
+
+    public List<Door> getDoors() {
+        return doors;
+    }
+
+    public void setDoors(List<Door> doors) {
+        this.doors = doors;
+    }
+
+    public void openDoor(){
+
     }
 }

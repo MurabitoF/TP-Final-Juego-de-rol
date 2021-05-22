@@ -1,4 +1,4 @@
-package com.company.core;
+package com.company.character;
 
 import java.util.ArrayList;
 

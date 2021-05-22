@@ -1,4 +1,4 @@
-package com.company.core;
+package com.company.character;
 
 public abstract class Character {
 
@@ -73,7 +73,6 @@ public abstract class Character {
     }
 
     public abstract void makeAttack(Character target);
-
 
     public abstract void doDamage(Character target);
 
