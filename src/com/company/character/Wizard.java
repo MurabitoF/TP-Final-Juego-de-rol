@@ -1,6 +1,7 @@
 package com.company.character;
 
 import com.company.items.Item;
+import com.company.rooms.Turn;
 
 import java.util.ArrayList;
 
@@ -14,17 +15,17 @@ public class Wizard extends Player implements IMagic{
     }
 
     @Override
-    public void makeAttack(Character target) {
-
+    public int getArmor() {
+        return 0;
     }
 
     @Override
-    public void doDamage(Character target) {
-
+    public Turn makeAttack(Character target) {
+        return null;
     }
 
     @Override
-    public void castSpell(Character target, Spell spell) {
-
+    public Turn castSpell(Character target, Spell spell) {
+        return null;
     }
 }

@@ -1,6 +1,7 @@
 package com.company.character;
 
 import com.company.items.Item;
+import com.company.rooms.Turn;
 
 import java.util.ArrayList;
 
@@ -33,12 +34,13 @@ public class Rogue extends Player{
     }
 
     @Override
-    public void makeAttack(Character target) {
-
+    public int getArmor() {
+        return 0;
     }
 
     @Override
-    public void doDamage(Character target) {
-
+    public Turn makeAttack(Character target) {
+        return null;
     }
+
 }

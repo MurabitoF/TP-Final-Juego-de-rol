@@ -6,4 +6,6 @@ public abstract class Enemy extends Character {
     {
         super(name, might, agility, intelligence);
     }
+
+    public abstract void makeAction(Character target);
 }

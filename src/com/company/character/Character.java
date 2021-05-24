@@ -1,5 +1,7 @@
 package com.company.character;
 
+import com.company.rooms.Turn;
+
 public abstract class Character {
 
     private String name;
@@ -67,14 +69,9 @@ public abstract class Character {
         this.intelligence = intelligence;
     }
 
-    public int getArmor()
-    {
-    return might; //esto es temporal para que no me marque el error porque molesta
-    }
+    public abstract int getArmor();
 
-    public abstract void makeAttack(Character target);
-
-    public abstract void doDamage(Character target);
+    public abstract Turn makeAttack(Character target);
 
     public int setInitialHp()
     {

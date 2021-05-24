@@ -5,6 +5,7 @@ import com.company.items.Item;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Room {
     private int id;
@@ -72,7 +73,12 @@ public class Room {
         this.doors = doors;
     }
 
-    public void openDoor(){
-
+    public void openDoor(Door choseDoor){
+        if (choseDoor.getDirection().toLowerCase(Locale.ROOT).equals("atras")){
+            choseDoor.getPreviousRoom().setPlayer(this.player);
+        }else {
+            choseDoor.getNextRoom().setPlayer(this.player);
+        }
+        this.player = null;
     }
 }
