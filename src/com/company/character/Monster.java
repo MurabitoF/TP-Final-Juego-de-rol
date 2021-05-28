@@ -10,28 +10,31 @@ public class Monster extends Enemy{
         super(name, might, agility, intelligence);
     }
 
-    public void multiAttack(Character target)
+    public Turn multiAttack(Character target)
     {
         int numOfAttacks = Rules.getRandomNumber(3) + 1;
+        this.setEnergy(this.getEnergy() - 20);
+        Turn turn = new Turn(this, target, "attaqued " + numOfAttacks + " times", 0);
         for (int i = 0; i < numOfAttacks; i++){
-            makeAttack(target);
+            turn.setResultOfAction(turn.getResultOfAction() + makeAttack(target).getResultOfAction());
         }
+        return turn;
     }
 
     @Override
     public int getArmor() {
-        return 0;
+        return 7 + this.getAgility();
     }
 
     @Override
-    public void makeAction(Character taget) {
+    public Turn makeAction(Character taget) {
         int action = Rules.getRandomNumber(100);
 
-        if (action <= 65){
-            makeAttack(taget);
+        if (action <= 65 || this.getEnergy() < 20){
+            return makeAttack(taget);
         }else
         {
-            multiAttack(taget);
+            return multiAttack(taget);
         }
     }
 
@@ -40,9 +43,9 @@ public class Monster extends Enemy{
         if(Rules.getRandomNumber(20) >= target.getArmor()){
             int damage = Rules.getRandomNumber(6) + this.getAgility();
             target.setHitPoints(target.getHitPoints() - damage + this.getAgility());
-            return new Turn(0,this, target, "attack", damage);
+            return new Turn(this, target, "attacked", damage);
         }else{
-            return new Turn(0,this, target, "miss attack", 0);
+            return new Turn(this, target, "miss attack", 0);
         }
     }
 }

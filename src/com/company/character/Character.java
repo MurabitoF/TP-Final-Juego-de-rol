@@ -75,12 +75,12 @@ public abstract class Character {
 
     public int setInitialHp()
     {
-        return 1+this.might; //el 1 es un placeholder solo para tener una idea de como iria
+        return this.might * 5;
     }
 
     public int setInitialEnergy()
     {
-        return 1 + this.intelligence; //igual que con la vida
+        return this.intelligence * 10;
     }
 
 }
