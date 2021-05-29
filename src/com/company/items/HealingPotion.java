@@ -3,16 +3,38 @@ package com.company.items;
 public class HealingPotion extends Consumible {
 
     private String size;
-    private int energyAmount;
+    private int healingAmount;
 
-    public HealingPotion(String name, int uses, String size, int energyAmount) {
-        super(name, uses);
+    public HealingPotion(String name, int id, int uses, String size, int healingAmount) {
+        super(name, id, uses);
         this.size = size;
-        this.energyAmount = energyAmount;
+        this.healingAmount = healingAmount;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public int getHealingAmount() {
+        return healingAmount;
+    }
+
+    public void setHealingAmount(int energyAmount) {
+        this.healingAmount = energyAmount;
     }
 
     @Override
-    public void useConsumible() {
+    public int useConsumible() {
+        return healingAmount;
+    }
 
+    @Override
+    public String toString()
+    {
+        return " " + this.getName() + "\nUsos: " + this.getUses() + "\nTamaño: " + this.getSize() + "\nCantidad de curación: " + this.getHealingAmount();
     }
 }

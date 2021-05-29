@@ -42,7 +42,11 @@ public class Combat {
     }
 
     public boolean isOver(){
-        return false;//cambiar
+        return false;//Se fija si la lista de enemigos esta vacia, en ese caso devuelve verdadero
     }
+
+    public void beginCombat(){}
+
+    private void deleteEnemy(Character enemy){}
 
 }
