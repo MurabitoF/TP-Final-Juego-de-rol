@@ -1,7 +1,10 @@
 package com.company.character;
 
+import com.company.items.Armor;
 import com.company.items.Item;
+import com.company.items.Weapon;
 import com.company.rooms.Turn;
+import com.company.utils.Rules;
 
 import java.util.ArrayList;
 
@@ -35,12 +38,19 @@ public class Warrior extends Player{
 
     @Override
     public int getArmor() {
-        return 0;
+        return 0+this.getMight();
     }
 
     @Override
     public Turn makeAttack(Character target) {
-        return null;
+        if (Rules.getRandomNumber(20)+this.getMight()>target.getArmor() || this.isRaging==true)
+        {
+            int damage = Rules.getRandomNumber(6)+this.getMight();
+            target.setHitPoints(target.getHitPoints()-damage);
+            return new Turn(0,this, target, "attacked ", damage);
+        } else{
+            return new Turn(0, this, target, "missed ", 0);
+        }
     }
 
 

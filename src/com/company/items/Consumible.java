@@ -3,8 +3,8 @@ package com.company.items;
 public abstract class Consumible extends Item {
     private int uses;
 
-    public Consumible(String name, int uses) {
-        super(name);
+    public Consumible(String name, int id, int uses) {
+        super(name, id);
         this.uses = uses;
     }
 
@@ -16,5 +16,5 @@ public abstract class Consumible extends Item {
         this.uses = uses;
     }
 
-    public abstract void useConsumible();
+    public abstract int useConsumible();
 }
