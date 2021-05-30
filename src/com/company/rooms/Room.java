@@ -74,11 +74,7 @@ public class Room {
     }
 
     public void openDoor(Door choseDoor){
-        if (choseDoor.getDirection().toLowerCase(Locale.ROOT).equals("atras")){
-            choseDoor.getPreviousRoom().setPlayer(this.player);
-        }else {
-            choseDoor.getNextRoom().setPlayer(this.player);
-        }
-        this.player = null;
+       choseDoor.getNextRoom().setPlayer(this.player);
+       this.player = null;
     }
 }

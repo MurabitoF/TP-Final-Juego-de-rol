@@ -4,12 +4,13 @@ import com.company.items.Item;
 import com.company.rooms.Turn;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Rogue extends Player{
 
     private boolean isHidden;
 
-    public Rogue (String name, int might, int agility, int intelligence, ArrayList<Item> backpack)
+    public Rogue (String name, int might, int agility, int intelligence, List<Item> backpack)
     {
         super(name, might, agility, intelligence, backpack);
         this.isHidden = false; //Al igual que en Warrior no va a comenzar escondido el personaje

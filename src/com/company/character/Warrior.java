@@ -4,12 +4,13 @@ import com.company.items.Item;
 import com.company.rooms.Turn;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Warrior extends Player{
 
     private boolean isRaging;
 
-    public Warrior (String name, int might, int agility, int intelligence, ArrayList<Item> backpack)
+    public Warrior (String name, int might, int agility, int intelligence, List<Item> backpack)
     {
         super(name, might, agility, intelligence, backpack);
         this.isRaging = false; //Se lo puede poner por defecto en false porque nunca va a empezar con rage
