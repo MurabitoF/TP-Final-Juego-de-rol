@@ -1,8 +1,7 @@
 package com.company.character;
 
 import com.company.rooms.Turn;
-import com.company.utils.Rules;
-import com.sun.javafx.css.Rule;
+import com.company.utils.Tools;
 
 public class Soldier extends Enemy{
 
@@ -24,7 +23,7 @@ public class Soldier extends Enemy{
 
     public Turn defensivePosture()
     {
-        this.armorBonus = 5 + Rules.getRandomNumber(5);
+        this.armorBonus = 5 + Tools.getRandomNumber(5);
         this.setEnergy(this.getEnergy() - 10);
         return new Turn(this, this, "defensive posture", this.armorBonus);
     }
@@ -36,21 +35,20 @@ public class Soldier extends Enemy{
 
     @Override
     public Turn makeAction(Character target) {
-        int action = Rules.getRandomNumber(100);
+        int action = Tools.getRandomNumber(100);
         this.armorBonus = 0;
 
         if (action <= 70 || this.getEnergy() < 10){
             return makeAttack(target);
-        }else
-        {
+        }else{
             return defensivePosture();
         }
     }
 
     @Override
     public Turn makeAttack(Character target) {
-        if(Rules.getRandomNumber(20) >= target.getArmor()){
-            int damage = Rules.getRandomNumber(12) + this.getMight();
+        if(Tools.getRandomNumber(20) >= target.getArmor()){
+            int damage = Tools.getRandomNumber(12) + this.getMight();
             target.setHitPoints(target.getHitPoints() - damage);
             return new Turn(this, target, "attacked", damage);
         }else{
