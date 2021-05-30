@@ -75,7 +75,7 @@ public abstract class Character {
 
     public int setInitialHp()
     {
-        return 20+this.might; //el 1 es un placeholder solo para tener una idea de como iria
+        return 5*this.might; //el 1 es un placeholder solo para tener una idea de como iria
     }
 
     public int setInitialEnergy()
