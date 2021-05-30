@@ -16,8 +16,8 @@ public abstract class Player extends Character {
     {
         super(name,might,agility,intelligence);
         this.backpack = backpack;
-        this.equippedArmor = null;
-        this.equippedWeapon = null;
+        this.equippedArmor = new Armor("Sin armadura", 0, 0);
+        this.equippedWeapon = new Weapon("Desarmado", 0, 0, 1, 2);
         this.exp = 0;
     }
 

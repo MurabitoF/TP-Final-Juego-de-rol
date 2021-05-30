@@ -45,9 +45,9 @@ public class Mage extends Enemy implements IMagic{
         if(Rules.getRandomNumber(20) >= target.getArmor()){
             int damage = Rules.getRandomNumber(4) + this.getMight();
             target.setHitPoints(target.getHitPoints() - damage);
-            return new Turn(0,this, target, "attacked", damage);
+            return new Turn(this, target, "attacked", damage);
         }else{
-            return new Turn(0,this, target, "missed attack", 0);
+            return new Turn(this, target, "missed attack", 0);
         }
     }
 
@@ -56,9 +56,9 @@ public class Mage extends Enemy implements IMagic{
         if(Rules.getRandomNumber(20) >= target.getIntelligence()){
             this.setEnergy(this.getEnergy() - spell.getEnergyCost());
             target.setHitPoints(target.getHitPoints() - spell.getDamage());
-            return new Turn(0,this, target, "Cast: " + spell.getName(), spell.getDamage());
+            return new Turn(this, target, "Cast: " + spell.getName(), spell.getDamage());
         }else{
-            return new Turn(0, this, target, "miss a spell", 0);
+            return new Turn(this, target, "miss a spell", 0);
         }
     }
 }

@@ -26,9 +26,17 @@ public class Warrior extends Player{
         isRaging = raging;
     }
 
-    public void cleaveAttack()
+    public Turn recklessAttack(Character target)
     {
-
+        if (this.getEnergy()>=10 && Rules.getRandomNumber(20)+this.getMight() +getEquippedWeapon().getAttackBonus()>= target.getArmor() || this.isRaging == true)
+        {
+            int damage = Rules.getRandomNumber(this.getEquippedWeapon().getDamageDice()) + (this.getMight()*2) +this.getEquippedWeapon().getDamageBonus();
+            target.setHitPoints(target.getHitPoints()-damage);
+            return new Turn(this, target, "Reckless Attacked ", damage);
+        }else
+        {
+            return new Turn(this, target, "missed ", 0);
+        }
     }
 
     public void rage()
@@ -38,18 +46,18 @@ public class Warrior extends Player{
 
     @Override
     public int getArmor() {
-        return 0+this.getMight();
+        return 5+this.getMight()+this.getEquippedArmor().getArmorBonus();
     }
 
     @Override
     public Turn makeAttack(Character target) {
-        if (Rules.getRandomNumber(20)+this.getMight()>target.getArmor() || this.isRaging==true)
+        if (Rules.getRandomNumber(20)+this.getMight()+getEquippedWeapon().getAttackBonus()>=target.getArmor() || this.isRaging==true)
         {
-            int damage = Rules.getRandomNumber(6)+this.getMight();
+            int damage = Rules.getRandomNumber(6)+this.getMight()+this.getEquippedWeapon().getDamageBonus();
             target.setHitPoints(target.getHitPoints()-damage);
-            return new Turn(0,this, target, "attacked ", damage);
+            return new Turn(this, target, "attacked ", damage);
         } else{
-            return new Turn(0, this, target, "missed ", 0);
+            return new Turn(this, target, "missed ", 0);
         }
     }
 

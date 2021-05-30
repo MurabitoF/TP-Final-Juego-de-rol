@@ -7,13 +7,13 @@ import java.util.ArrayList;
 
 public class Combat {
     private Player player;
-    private Enemy enemy;
+    private ArrayList<Enemy> enemies;
     private ArrayList<Turn> turns;
 
-    public Combat (Player player, Enemy enemy)
+    public Combat (Player player)
     {
         this.player = player;
-        this.enemy = enemy;
+        this.enemies = new ArrayList<>();
         this.turns = new ArrayList<>();
     }
 
@@ -25,12 +25,12 @@ public class Combat {
         this.player = player;
     }
 
-    public Enemy getEnemy() {
-        return enemy;
+    public ArrayList<Enemy> getEnemy() {
+        return enemies;
     }
 
-    public void setEnemy(Enemy enemy) {
-        this.enemy = enemy;
+    public void setEnemy(ArrayList<Enemy> enemy) {
+        this.enemies = enemy;
     }
 
     public ArrayList<Turn> getTurns() {
@@ -41,12 +41,25 @@ public class Combat {
         this.turns = turns;
     }
 
-    public boolean isOver(){
-        return false;//Se fija si la lista de enemigos esta vacia, en ese caso devuelve verdadero
+    public boolean isOver(){ //Se fija si la lista de enemigos esta vacia, en ese caso devuelve verdadero
+        return enemies.isEmpty();
     }
 
-    public void beginCombat(){}
+    public void beginCombat(){
+        while (isOver() == false) {
+            for (Enemy enemy : enemies) {
+                turns.add(player.makeAttack(enemy)); // Temporal. Acá debería ir el menu de acciones del jugador
+                if (enemy.getHitPoints() <= 0) {
+                    deleteEnemy(enemy);
+                } else {
+                    enemy.makeAction(player);
+                }
+            }
+        }
+    }
 
-    private void deleteEnemy(Character enemy){}
+    private void deleteEnemy(Enemy enemy){
+        enemies.remove(enemy);
+    }
 
 }

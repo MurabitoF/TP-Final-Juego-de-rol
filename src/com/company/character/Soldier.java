@@ -42,9 +42,9 @@ public class Soldier extends Enemy{
         if(Rules.getRandomNumber(20) >= target.getArmor()){
             int damage = Rules.getRandomNumber(12) + this.getMight();
             target.setHitPoints(target.getHitPoints() - damage);
-            return new Turn(0,this, target, "attack", damage);
+            return new Turn(this, target, "attack", damage);
         }else{
-            return new Turn(0,this, target, "miss attack", 0);
+            return new Turn(this, target, "miss attack", 0);
         }
     }
 }

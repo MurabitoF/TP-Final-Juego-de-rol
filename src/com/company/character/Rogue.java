@@ -29,14 +29,14 @@ public class Rogue extends Player{
 
     public Turn sneakAttack(Character target)
     {
-        if (Rules.getRandomNumber(20)+this.getAgility()>target.getArmor() || this.isAiming==true)
+        if (this.getEnergy()>=10 && Rules.getRandomNumber(20)+this.getAgility()>target.getArmor() || this.isAiming==true)
         {
             int damage = (Rules.getRandomNumber(6)+this.getAgility())*2;
             target.setHitPoints(target.getHitPoints()-damage);
             this.setEnergy(this.getEnergy()-25);
-            return new Turn(0,this, target, "sneak attacked ", damage);
+            return new Turn(this, target, "sneak attacked ", damage);
         } else{
-            return new Turn(0, this, target, "missed ", 0);
+            return new Turn(this, target, "missed ", 0);
         }
     }
 
@@ -47,18 +47,18 @@ public class Rogue extends Player{
 
     @Override
     public int getArmor() {
-        return 0+this.getAgility();
+        return 5+this.getAgility() + this.getEquippedArmor().getArmorBonus();
     }
 
     @Override
     public Turn makeAttack(Character target) {
-        if (Rules.getRandomNumber(20)+this.getAgility()>target.getArmor() || this.isAiming==true)
+        if (Rules.getRandomNumber(20)+this.getAgility()+getEquippedWeapon().getAttackBonus()>=target.getArmor() || this.isAiming==true)
         {
-            int damage = Rules.getRandomNumber(6)+this.getAgility();
+            int damage = Rules.getRandomNumber(this.getEquippedWeapon().getDamageDice())+this.getAgility()+this.getEquippedWeapon().getDamageBonus();
             target.setHitPoints(target.getHitPoints()-damage);
-            return new Turn(0,this, target, "attacked ", damage);
+            return new Turn(this, target, "attacked ", damage);
         } else{
-            return new Turn(0, this, target, "missed ", 0);
+            return new Turn(this, target, "missed ", 0);
         }
     }
 }

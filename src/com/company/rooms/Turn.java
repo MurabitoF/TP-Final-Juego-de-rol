@@ -8,7 +8,7 @@ public class Turn {
     private String action;
     private int resultOfAction;
 
-    public Turn (int turnNumber, Character source, Character target,String action, int resultOfAction)
+    public Turn (Character source, Character target,String action, int resultOfAction)
     {
         this.source = source;
         this.source = target;
