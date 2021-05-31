@@ -1,19 +1,25 @@
 package com.company.items;
 
 public class Armor extends Item {
-    private int armor;
+    private int armorBonus;
 
-    public Armor (String name, int armor)
+    public Armor (String name, int id, int armor)
     {
-        super(name);
-        this.armor = armor;
+        super(name, id);
+        this.armorBonus = armor;
     }
 
-    public int getArmor() {
-        return armor;
+    public int getArmorBonus() {
+        return armorBonus;
     }
 
-    public void setArmor(int armor) {
-        this.armor = armor;
+    public void setArmorBonus(int armor) {
+        this.armorBonus = armor;
+    }
+
+    @Override
+    public String toString()
+    {
+        return " Armadura: " + this.getName() + "\nBonus de armadura: " + this.getArmorBonus();
     }
 }

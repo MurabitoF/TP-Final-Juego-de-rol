@@ -1,7 +1,11 @@
 package com.company.character;
 
+import com.company.items.Armor;
 import com.company.items.Item;
+import com.company.items.Weapon;
 import com.company.rooms.Turn;
+import com.company.utils.Tools;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,18 +27,49 @@ public class Wizard extends Player implements IMagic{
         this.spellBook = spellBook;
     }
 
+    public Turn recoverEnergy(){
+            if (this.getEnergy()<=this.getEnergy()-this.getIntelligence()*2+1)
+            {
+                this.setEnergy(this.getIntelligence()*2);
+                return new Turn(this, this, "Recovered energy", this.getIntelligence()*2);
+            }else
+            {
+                this.setEnergy(setInitialEnergy());
+                return new Turn(this, this, "Maxed out energy", this.getEnergy());
+            }
+        }
+
+    public void learnSpell (Spell spell)
+    {
+        this.spellBook.add(spell);
+    }
+
     @Override
     public int getArmor() {
-        return 0;
+        return 2+this.getMight() + this.getEquippedArmor().getArmorBonus();
     }
 
     @Override
     public Turn makeAttack(Character target) {
-        return null;
+        if (Tools.getRandomNumber(20)+this.getIntelligence()+getEquippedWeapon().getAttackBonus()>=target.getArmor())
+        {
+            int damage = Tools.getRandomNumber(6)+this.getIntelligence();
+            target.setHitPoints(target.getHitPoints()-damage);
+            return new Turn(this, target, "attacked ", damage);
+        } else{
+            return new Turn(this, target, "missed ", 0);
+        }
     }
 
     @Override
     public Turn castSpell(Character target, Spell spell) {
-        return null;
+        if (this.getEnergy()>=10 && Tools.getRandomNumber(20)+this.getIntelligence() > Tools.getRandomNumber(20)+ target.getIntelligence())
+        {
+            this.setEnergy(this.getEnergy()-spell.getEnergyCost());
+            target.setHitPoints(target.getHitPoints()-spell.getDamage());
+            return new Turn (this, target, "Cast: " + spell.getName(), spell.getDamage());
+        }else {
+            return new Turn (this, target, "Missed a spell", 0);
+        }
     }
 }

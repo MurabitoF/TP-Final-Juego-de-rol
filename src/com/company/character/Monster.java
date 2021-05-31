@@ -43,7 +43,11 @@ public class Monster extends Enemy{
         if(Tools.getRandomNumber(20) >= target.getArmor()){
             int damage = Tools.getRandomNumber(6) + this.getAgility();
             target.setHitPoints(target.getHitPoints() - damage + this.getAgility());
+<<<<<<< HEAD
             return new Turn(this, target, "attacked", damage);
+=======
+            return new Turn(this, target, "attack", damage);
+>>>>>>> 4ba70a6f253a17177914fe4acfff7c64bdcba7d4
         }else{
             return new Turn(this, target, "miss attack", 0);
         }

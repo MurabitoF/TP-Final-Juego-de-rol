@@ -1,47 +1,64 @@
 package com.company.character;
 
+import com.company.items.Armor;
 import com.company.items.Item;
+import com.company.items.Weapon;
 import com.company.rooms.Turn;
-
-import java.util.ArrayList;
+import com.company.utils.Tools;
 import java.util.List;
 
 public class Rogue extends Player{
 
-    private boolean isHidden;
+    private boolean isAiming;
 
     public Rogue (String name, int might, int agility, int intelligence, List<Item> backpack)
     {
         super(name, might, agility, intelligence, backpack);
-        this.isHidden = false; //Al igual que en Warrior no va a comenzar escondido el personaje
+        this.isAiming = false; //Al igual que en Warrior no va a comenzar escondido el personaje
     }
 
-    public boolean isHidden() {
-        return isHidden;
+
+    public boolean isAiming() {
+        return isAiming;
     }
 
-    public void setHidden(boolean hidden) {
-        isHidden = hidden;
+    public void setAiming(boolean aiming) {
+        isAiming = aiming;
     }
 
-    public void sneakAttack()
+    public Turn sneakAttack(Character target)
     {
-
+        if (this.getEnergy()>=10 && Tools.getRandomNumber(20)+this.getAgility()>target.getArmor() || this.isAiming)
+        {
+            int damage = (Tools.getRandomNumber(6)+this.getAgility())*2;
+            target.setHitPoints(target.getHitPoints()-damage);
+            this.setEnergy(this.getEnergy()-25);
+            return new Turn(this, target, "sneak attacked ", damage);
+        } else{
+            return new Turn(this, target, "missed ", 0);
+        }
     }
 
-    public void hide()
+    public Turn aim()
     {
-        this.setHidden(true); //falta establecer el beneficio de esconderse
+        this.setAiming(true); //falta establecer el beneficio de esconderse
+        return new Turn(this, this, "aiming", 0);
     }
 
     @Override
     public int getArmor() {
-        return 0;
+        return 5+this.getAgility() + this.getEquippedArmor().getArmorBonus();
     }
 
     @Override
     public Turn makeAttack(Character target) {
-        return null;
+        if (Tools.getRandomNumber(20)+this.getAgility()+getEquippedWeapon().getAttackBonus()>=target.getArmor() || this.isAiming)
+        {
+            int damage = Tools.getRandomNumber(this.getEquippedWeapon().getDamageDice())+this.getAgility()+this.getEquippedWeapon().getDamageBonus();
+            target.setHitPoints(target.getHitPoints()-damage);
+            return new Turn(this, target, "attacked ", damage);
+        } else{
+            return new Turn(this, target, "missed ", 0);
+        }
     }
-
 }

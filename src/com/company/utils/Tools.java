@@ -125,20 +125,13 @@ public class Tools {
                 System.out.println(room.getDescription());
                 break;
             case 2:
-                //buscar en la mochila
+                room.getPlayer().openBackpack();//esto deberia ser un menu
                 break;
             case 3:
-                //esto no va aca va en el combate, aca va la funcion que inicia el combate
                 if (!room.getCombat().isOver()){
-                    if(room.getPlayer() instanceof Warrior){
-                        warriorCombatMenu(room.getCombat());
-                    }else if(room.getPlayer() instanceof Rogue){
-                        rogueCombatMenu(room.getCombat());
-                    }else {
-                        wizardCombatMenu(room.getCombat());
-                    }
+                    room.getCombat().beginCombat();
                 }else{
-                    //funcion agarrar loot
+                    room.getPlayer().pickupLoot(room.getLoot());
                 }
                 break;
             case 4:
@@ -174,14 +167,14 @@ public class Tools {
                 return combat.getPlayer().makeAttack(target);
                 break;
             case 2:
-                //use item
+                combat.getPlayer().openBackpack();//deberia ser un menu
                 break;
             case 3:
                 target = showEnemies(combat);
-                //return ((Warrior)combat.getPlayer()).cleaveAttack(target);
+                return ((Warrior)combat.getPlayer()).recklessAttack(target);
                 break;
             case 4:
-                //return ((Warrior)combat.getPlayer()).rage();
+                return ((Warrior)combat.getPlayer()).rage();
                 break;
             case 0:
                 pauseMenu();
@@ -212,11 +205,11 @@ public class Tools {
                 //use item
                 break;
             case 3:
-                //return ((Rogue)combat.getPlayer()).hide();
+                return ((Rogue)combat.getPlayer()).aim();
                 break;
             case 4:
                 target = showEnemies(combat);
-                //return ((Rogue)combat.getPlayer()).sneakAttack(target);
+                return ((Rogue)combat.getPlayer()).sneakAttack(target);
                 break;
             case 0:
                 pauseMenu();
@@ -247,13 +240,12 @@ public class Tools {
                 //use item
                 break;
             case 3:
-
-                //return ((Wizard)combat.getPlayer()).recoverEnergy;
+                return ((Wizard)combat.getPlayer()).recoverEnergy();
                 break;
             case 4:
                 target = showEnemies(combat);
                 Spell selectSpell = selectSpellMenu((Wizard)combat.getPlayer());
-                //return ((Wizard)combat.getPlayer()).castSpell(target, selectedSpell);
+                return ((Wizard)combat.getPlayer()).castSpell(target, selectSpell);
                 break;
             case 0:
                 pauseMenu();
