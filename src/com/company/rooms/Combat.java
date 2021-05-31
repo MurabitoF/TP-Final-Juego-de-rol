@@ -4,17 +4,18 @@ import com.company.character.Enemy;
 import com.company.character.Player;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Combat {
     private Player player;
-    private ArrayList<Enemy> enemies;
-    private ArrayList<Turn> turns;
+    private List<Enemy> enemies;
+    private List<Turn> turns;
 
-    public Combat (Player player)
+    public Combat (Player player, List<Enemy> enemies, List<Turn> turns)
     {
         this.player = player;
-        this.enemies = new ArrayList<>();
-        this.turns = new ArrayList<>();
+        this.enemies = enemies;
+        this.turns = turns;
     }
 
     public Player getPlayer() {
@@ -25,19 +26,19 @@ public class Combat {
         this.player = player;
     }
 
-    public ArrayList<Enemy> getEnemy() {
+    public List<Enemy> getEnemy() {
         return enemies;
     }
 
-    public void setEnemy(ArrayList<Enemy> enemy) {
+    public void setEnemy(List<Enemy> enemy) {
         this.enemies = enemy;
     }
 
-    public ArrayList<Turn> getTurns() {
+    public List<Turn> getTurns() {
         return turns;
     }
 
-    public void setTurns(ArrayList<Turn> turns) {
+    public void setTurns(List<Turn> turns) {
         this.turns = turns;
     }
 

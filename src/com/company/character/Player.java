@@ -5,9 +5,10 @@ import com.company.items.Item;
 import com.company.items.Weapon;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Player extends Character {
-    ArrayList<Item> backpack;
+    List<Item> backpack;
     Weapon equippedWeapon;
     Armor equippedArmor;
     int exp;
@@ -21,11 +22,11 @@ public abstract class Player extends Character {
         this.exp = 0;
     }
 
-    public ArrayList<Item> getBackpack() {
+    public List<Item> getBackpack() {
         return backpack;
     }
 
-    public void setBackpack(ArrayList<Item> backpack) {
+    public void setBackpack(List<Item> backpack) {
         this.backpack = backpack;
     }
 
