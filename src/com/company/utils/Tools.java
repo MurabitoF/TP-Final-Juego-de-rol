@@ -181,7 +181,7 @@ public class Tools {
                 //return ((Warrior)combat.getPlayer()).cleaveAttack(target);
                 break;
             case 4:
-                //return ((Warrior)combat.getPlayer()).;
+                //return ((Warrior)combat.getPlayer()).rage();
                 break;
             case 0:
                 pauseMenu();
@@ -212,8 +212,7 @@ public class Tools {
                 //use item
                 break;
             case 3:
-
-                //return ((Rogue)combat.getPlayer()).isHidden();
+                //return ((Rogue)combat.getPlayer()).hide();
                 break;
             case 4:
                 target = showEnemies(combat);
@@ -254,7 +253,7 @@ public class Tools {
             case 4:
                 target = showEnemies(combat);
                 Spell selectSpell = selectSpellMenu((Wizard)combat.getPlayer());
-                return ((Wizard)combat.getPlayer()).castSpell(target, selectedSpell);
+                //return ((Wizard)combat.getPlayer()).castSpell(target, selectedSpell);
                 break;
             case 0:
                 pauseMenu();

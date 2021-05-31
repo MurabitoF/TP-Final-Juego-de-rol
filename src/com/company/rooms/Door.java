@@ -1,5 +1,7 @@
 package com.company.rooms;
 
+import com.company.items.Key;
+
 public class Door {
     private String direction;
     private Room nextRoom;
@@ -43,6 +45,10 @@ public class Door {
 
     public void setSymbol(String symbol) {
         this.symbol = symbol;
+    }
+
+    public void unlockDoor(Key key){
+
     }
 
 }
