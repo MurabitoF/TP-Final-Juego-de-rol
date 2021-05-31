@@ -4,15 +4,14 @@ import com.company.items.Armor;
 import com.company.items.Item;
 import com.company.items.Weapon;
 import com.company.rooms.Turn;
-import com.company.utils.Rules;
-
-import java.util.ArrayList;
+import com.company.utils.Tools;
+import java.util.List;
 
 public class Warrior extends Player{
 
     private boolean isRaging;
 
-    public Warrior (String name, int might, int agility, int intelligence, ArrayList<Item> backpack)
+    public Warrior (String name, int might, int agility, int intelligence, List<Item> backpack)
     {
         super(name, might, agility, intelligence, backpack);
         this.isRaging = false; //Se lo puede poner por defecto en false porque nunca va a empezar con rage
@@ -28,9 +27,9 @@ public class Warrior extends Player{
 
     public Turn recklessAttack(Character target)
     {
-        if (this.getEnergy()>=10 && Rules.getRandomNumber(20)+this.getMight() +getEquippedWeapon().getAttackBonus()>= target.getArmor() || this.isRaging == true)
+        if (this.getEnergy()>=10 && Tools.getRandomNumber(20)+this.getMight() +getEquippedWeapon().getAttackBonus()>= target.getArmor() || this.isRaging)
         {
-            int damage = Rules.getRandomNumber(this.getEquippedWeapon().getDamageDice()) + (this.getMight()*2) +this.getEquippedWeapon().getDamageBonus();
+            int damage = Tools.getRandomNumber(this.getEquippedWeapon().getDamageDice()) + (this.getMight()*2) +this.getEquippedWeapon().getDamageBonus();
             target.setHitPoints(target.getHitPoints()-damage);
             return new Turn(this, target, "Reckless Attacked ", damage);
         }else
@@ -39,9 +38,10 @@ public class Warrior extends Player{
         }
     }
 
-    public void rage()
+    public Turn rage()
     {
         this.setRaging(true); //agregar beneficio de rage
+        return new Turn(this, this, "raging", 0);
     }
 
     @Override
@@ -51,9 +51,9 @@ public class Warrior extends Player{
 
     @Override
     public Turn makeAttack(Character target) {
-        if (Rules.getRandomNumber(20)+this.getMight()+getEquippedWeapon().getAttackBonus()>=target.getArmor() || this.isRaging==true)
+        if (Tools.getRandomNumber(20)+this.getMight()+getEquippedWeapon().getAttackBonus()>=target.getArmor() || this.isRaging)
         {
-            int damage = Rules.getRandomNumber(6)+this.getMight()+this.getEquippedWeapon().getDamageBonus();
+            int damage = Tools.getRandomNumber(6)+this.getMight()+this.getEquippedWeapon().getDamageBonus();
             target.setHitPoints(target.getHitPoints()-damage);
             return new Turn(this, target, "attacked ", damage);
         } else{

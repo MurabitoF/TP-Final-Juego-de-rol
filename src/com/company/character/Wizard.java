@@ -4,32 +4,40 @@ import com.company.items.Armor;
 import com.company.items.Item;
 import com.company.items.Weapon;
 import com.company.rooms.Turn;
-import com.company.utils.Rules;
-import com.sun.javafx.css.Rule;
+import com.company.utils.Tools;
+
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Wizard extends Player implements IMagic{
-    private ArrayList<Spell> spellBook;
+    private List<Spell> spellBook;
 
-    public Wizard (String name, int might, int agility, int intelligence, ArrayList<Item> backpack, ArrayList<Spell> spellBook)
+    public Wizard (String name, int might, int agility, int intelligence, List<Item> backpack, List<Spell> spellBook)
     {
         super(name, might, agility, intelligence, backpack);
         this.spellBook = spellBook;
     }
 
-    public Turn recoverEnergy()
-    {
-        if (this.getEnergy()<=this.getEnergy()-this.getIntelligence()*2+1)
-        {
-            this.setEnergy(this.getIntelligence()*2);
-            return new Turn(this, this, "Recovered energy", this.getIntelligence()*2);
-        }else
-        {
-            this.setEnergy(setInitialEnergy());
-            return new Turn(this, this, "Maxed out energy", this.getEnergy());
-        }
+    public List<Spell> getSpellBook() {
+        return spellBook;
     }
+
+    public void setSpellBook(List<Spell> spellBook) {
+        this.spellBook = spellBook;
+    }
+
+    public Turn recoverEnergy(){
+            if (this.getEnergy()<=this.getEnergy()-this.getIntelligence()*2+1)
+            {
+                this.setEnergy(this.getIntelligence()*2);
+                return new Turn(this, this, "Recovered energy", this.getIntelligence()*2);
+            }else
+            {
+                this.setEnergy(setInitialEnergy());
+                return new Turn(this, this, "Maxed out energy", this.getEnergy());
+            }
+        }
 
     public void learnSpell (Spell spell)
     {
@@ -43,9 +51,9 @@ public class Wizard extends Player implements IMagic{
 
     @Override
     public Turn makeAttack(Character target) {
-        if (Rules.getRandomNumber(20)+this.getIntelligence()+getEquippedWeapon().getAttackBonus()>=target.getArmor())
+        if (Tools.getRandomNumber(20)+this.getIntelligence()+getEquippedWeapon().getAttackBonus()>=target.getArmor())
         {
-            int damage = Rules.getRandomNumber(6)+this.getIntelligence();
+            int damage = Tools.getRandomNumber(6)+this.getIntelligence();
             target.setHitPoints(target.getHitPoints()-damage);
             return new Turn(this, target, "attacked ", damage);
         } else{
@@ -55,7 +63,7 @@ public class Wizard extends Player implements IMagic{
 
     @Override
     public Turn castSpell(Character target, Spell spell) {
-        if (this.getEnergy()>=10 && Rules.getRandomNumber(20)+this.getIntelligence() > Rules.getRandomNumber(20)+ target.getIntelligence())
+        if (this.getEnergy()>=10 && Tools.getRandomNumber(20)+this.getIntelligence() > Tools.getRandomNumber(20)+ target.getIntelligence())
         {
             this.setEnergy(this.getEnergy()-spell.getEnergyCost());
             target.setHitPoints(target.getHitPoints()-spell.getDamage());

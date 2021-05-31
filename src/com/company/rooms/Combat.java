@@ -2,6 +2,9 @@ package com.company.rooms;
 
 import com.company.character.Enemy;
 import com.company.character.Player;
+import com.company.character.Rogue;
+import com.company.character.Warrior;
+import com.company.utils.Tools;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,11 +14,11 @@ public class Combat {
     private List<Enemy> enemies;
     private List<Turn> turns;
 
-    public Combat (Player player, List<Enemy> enemies, List<Turn> turns)
+    public Combat (Player player, List<Enemy> enemies)
     {
         this.player = player;
         this.enemies = enemies;
-        this.turns = turns;
+        this.turns = new ArrayList<>();
     }
 
     public Player getPlayer() {
@@ -26,13 +29,14 @@ public class Combat {
         this.player = player;
     }
 
-    public List<Enemy> getEnemy() {
+    public List<Enemy> getEnemies() {
         return enemies;
     }
 
-    public void setEnemy(List<Enemy> enemy) {
-        this.enemies = enemy;
+    public void setEnemies(List<Enemy> enemies) {
+        this.enemies = enemies;
     }
+
 
     public List<Turn> getTurns() {
         return turns;
@@ -49,7 +53,7 @@ public class Combat {
     public void beginCombat(){
         while (isOver() == false) {
             for (Enemy enemy : enemies) {
-                turns.add(player.makeAttack(enemy)); // Temporal. Acá debería ir el menu de acciones del jugador
+                turns.add(playerAction());
                 if (enemy.getHitPoints() <= 0) {
                     deleteEnemy(enemy);
                 } else {
@@ -61,6 +65,16 @@ public class Combat {
 
     private void deleteEnemy(Enemy enemy){
         enemies.remove(enemy);
+    }
+
+    private Turn playerAction(){
+        if(player instanceof Warrior){
+            return Tools.warriorCombatMenu(this);
+        }else if(player instanceof Rogue){
+            return Tools.rogueCombatMenu(this);
+        }else {
+            return Tools.wizardCombatMenu(this);
+        }
     }
 
 }

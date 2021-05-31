@@ -13,7 +13,8 @@ public abstract class Player extends Character {
     Armor equippedArmor;
     int exp;
 
-    public  Player (String name, int might, int agility, int intelligence, ArrayList<Item> backpack)
+
+    public  Player (String name, int might, int agility, int intelligence, List<Item> backpack)
     {
         super(name,might,agility,intelligence);
         this.backpack = backpack;
@@ -73,7 +74,7 @@ public abstract class Player extends Character {
         this.backpack.add(loot);
     }
 
-    private Item searchBackpack(int id) {
+    public Item searchBackpack(int id) {
         return backpack.get(id);
     }
 

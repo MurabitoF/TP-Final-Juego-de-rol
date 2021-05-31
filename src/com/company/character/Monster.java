@@ -1,7 +1,7 @@
 package com.company.character;
 
 import com.company.rooms.Turn;
-import com.company.utils.Rules;
+import com.company.utils.Tools;
 
 public class Monster extends Enemy{
 
@@ -10,37 +10,44 @@ public class Monster extends Enemy{
         super(name, might, agility, intelligence);
     }
 
-    public void multiAttack(Character target)
+    public Turn multiAttack(Character target)
     {
-        int numOfAttacks = Rules.getRandomNumber(3) + 1;
+        int numOfAttacks = Tools.getRandomNumber(3) + 1;
+        this.setEnergy(this.getEnergy() - 20);
+        Turn turn = new Turn(this, target, "attaqued " + numOfAttacks + " times", 0);
         for (int i = 0; i < numOfAttacks; i++){
-            makeAttack(target);
+            turn.setResultOfAction(turn.getResultOfAction() + makeAttack(target).getResultOfAction());
         }
+        return turn;
     }
 
     @Override
     public int getArmor() {
-        return 0;
+        return 7 + this.getAgility();
     }
 
     @Override
-    public void makeAction(Character taget) {
-        int action = Rules.getRandomNumber(100);
+    public Turn makeAction(Character taget) {
+        int action = Tools.getRandomNumber(100);
 
-        if (action <= 65){
-            makeAttack(taget);
+        if (action <= 65 || this.getEnergy() < 20){
+            return makeAttack(taget);
         }else
         {
-            multiAttack(taget);
+            return multiAttack(taget);
         }
     }
 
     @Override
     public Turn makeAttack(Character target) {
-        if(Rules.getRandomNumber(20) >= target.getArmor()){
-            int damage = Rules.getRandomNumber(6) + this.getAgility();
+        if(Tools.getRandomNumber(20) >= target.getArmor()){
+            int damage = Tools.getRandomNumber(6) + this.getAgility();
             target.setHitPoints(target.getHitPoints() - damage + this.getAgility());
+<<<<<<< HEAD
+            return new Turn(this, target, "attacked", damage);
+=======
             return new Turn(this, target, "attack", damage);
+>>>>>>> 4ba70a6f253a17177914fe4acfff7c64bdcba7d4
         }else{
             return new Turn(this, target, "miss attack", 0);
         }

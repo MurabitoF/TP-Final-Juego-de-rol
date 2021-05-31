@@ -1,49 +1,57 @@
 package com.company.character;
 
 import com.company.rooms.Turn;
-import com.company.utils.Rules;
+import com.company.utils.Tools;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Mage extends Enemy implements IMagic{
 
-    private ArrayList<Spell> spellBook;
+    private List<Spell> spellBook;
 
-    public Mage(String name, int might, int agility, int intelligence, ArrayList<Spell> spellBook) {
+    public Mage(String name, int might, int agility, int intelligence, List<Spell> spellBook) {
         super(name, might, agility, intelligence);
         this.spellBook = spellBook;
     }
 
-    public ArrayList<Spell> getSpellBook() {
+    public List<Spell> getSpellBook() {
         return spellBook;
     }
 
-    public void setSpellBook(ArrayList<Spell> spellBook) {
+    public void setSpellBook(List<Spell> spellBook) {
         this.spellBook = spellBook;
+    }
+
+    public Turn drainEnergy(Character target){
+        int energyDrained = 10 + Tools.getRandomNumber(10);
+        target.setEnergy(target.getEnergy() - energyDrained);
+        this.setEnergy(this.getEnergy() + energyDrained);
+        return new Turn(this, target, "drained energy", energyDrained);
     }
 
     @Override
     public int getArmor() {
-        return 0;
+        return 5 + this.getMight();
     }
 
     @Override
-    public void makeAction(Character target) {
-        int action = Rules.getRandomNumber(100);
+    public Turn makeAction(Character target) {
+        int action = Tools.getRandomNumber(100);
 
-        if (action <= 55){
-            makeAttack(target);
-        }else
-        {
-            int spell = Rules.getRandomNumber(this.spellBook.size()) - 1;
-            castSpell(target, this.spellBook.get(spell));
+        if (action <= 35 || this.getEnergy() < 10){
+            return makeAttack(target);
+        }else if (this.getEnergy() <= this.setInitialEnergy() * 0.3){
+            return drainEnergy(target);
+        }else{
+            int spell = Tools.getRandomNumber(this.spellBook.size()) - 1;
+            return castSpell(target, this.spellBook.get(spell));
         }
     }
 
     @Override
     public Turn makeAttack(Character target) {
-        if(Rules.getRandomNumber(20) >= target.getArmor()){
-            int damage = Rules.getRandomNumber(4) + this.getMight();
+        if(Tools.getRandomNumber(20) >= target.getArmor()){
+            int damage = Tools.getRandomNumber(4) + this.getMight();
             target.setHitPoints(target.getHitPoints() - damage);
             return new Turn(this, target, "attacked", damage);
         }else{
@@ -53,7 +61,7 @@ public class Mage extends Enemy implements IMagic{
 
     @Override
     public Turn castSpell(Character target, Spell spell) {
-        if(Rules.getRandomNumber(20) >= target.getIntelligence()){
+        if(Tools.getRandomNumber(20) + this.getIntelligence() >= 10 + target.getIntelligence()){
             this.setEnergy(this.getEnergy() - spell.getEnergyCost());
             target.setHitPoints(target.getHitPoints() - spell.getDamage());
             return new Turn(this, target, "Cast: " + spell.getName(), spell.getDamage());
