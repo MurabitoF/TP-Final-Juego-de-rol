@@ -47,11 +47,18 @@ public class Combat {
     }
 
     public boolean isOver(){ //Se fija si la lista de enemigos esta vacia, en ese caso devuelve verdadero
-        return enemies.isEmpty();
+        if (player.getHitPoints()<=0)
+        {
+            return false;
+        }else
+        {
+            return enemies.isEmpty();
+        }
+
     }
 
     public void beginCombat(){
-        while (isOver() == false) {
+        while (!isOver()) {
             for (Enemy enemy : enemies) {
                 turns.add(playerAction());
                 if (enemy.getHitPoints() <= 0) {

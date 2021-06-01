@@ -1,8 +1,7 @@
 package com.company.character;
 
-import com.company.items.Armor;
-import com.company.items.Item;
-import com.company.items.Weapon;
+import com.company.items.*;
+import com.company.rooms.Turn;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,20 +54,19 @@ public abstract class Player extends Character {
         this.exp = exp;
     }
 
-    private void equipItem(Item item) {
+    private Turn useItem(Item item) {
         if (item !=null && item instanceof Armor) {
-            backpack.add(this.getEquippedArmor());
-            this.setEquippedArmor((Armor)item);
-            backpack.remove(item);
-        } else {
-            if (item !=null && item instanceof Weapon)
+            this.equipArmor((Armor)item);
+            return new Turn(this,this,"Equipped: " + item.getName(), 0);
+        } else if (item !=null && item instanceof Weapon)
             {
-                backpack.add(this.getEquippedWeapon());
-                this.setEquippedWeapon((Weapon)item);
-                backpack.remove(item);
+                this.equipWeapon((Weapon)item);
+                return new Turn(this,this,"Equipped: " + item.getName(), 0);
+            } else
+            {
+                return this.useConsumible((Consumible) item);
             }
         }
-    }
 
     public void pickupLoot(Item loot) {
         this.backpack.add(loot);
@@ -82,7 +80,50 @@ public abstract class Player extends Character {
     public void openBackpack() {
         for (Item item : backpack)
         {
-            System.out.println(backpack.indexOf(item)+1 + ". " + item.toString());
+            System.out.println(backpack.indexOf(item) + ". " + item.toString());
+        }
+    }
+
+    private void equipArmor(Armor armor)
+    {
+        backpack.add(this.getEquippedArmor());
+        this.setEquippedArmor(armor);
+        backpack.remove(armor);
+    }
+
+    private void equipWeapon(Weapon weapon)
+    {
+        backpack.add(this.getEquippedWeapon());
+        this.setEquippedWeapon(weapon);
+        backpack.remove(weapon);
+    }
+
+    private Turn useConsumible(Consumible potion)
+    {
+        if (potion instanceof HealingPotion)
+        {
+            if (this.getHitPoints()<= this.getHitPoints()-((HealingPotion) potion).getHealingAmount())
+            {
+                this.setHitPoints(((HealingPotion) potion).getHealingAmount());
+                return new Turn(this,this,"Drinked:" + potion.getName(), ((HealingPotion) potion).getHealingAmount());
+            } else
+            {
+                this.setHitPoints(this.setInitialHp());
+                return new Turn(this,this,"Drinked:" + potion.getName(), ((HealingPotion) potion).getHealingAmount());
+
+            }
+        } else
+        {
+            if (this.getEnergy()<=this.getEnergy()-((EnergyPotion)potion).getEnergyAmount())
+            {
+                this.setEnergy(((EnergyPotion) potion).getEnergyAmount());
+                return new Turn(this,this,"Drinked:" + potion.getName(), ((EnergyPotion) potion).getEnergyAmount());
+
+            } else
+            {
+                this.setEnergy(this.setInitialEnergy());
+                return new Turn(this,this,"Drinked:" + potion.getName(), ((EnergyPotion) potion).getEnergyAmount());
+            }
         }
     }
 
