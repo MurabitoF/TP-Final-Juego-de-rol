@@ -4,6 +4,7 @@ import com.company.character.Enemy;
 import com.company.character.Player;
 import com.company.character.Rogue;
 import com.company.character.Warrior;
+import com.company.utils.Menu;
 import com.company.utils.Tools;
 
 import java.util.ArrayList;
@@ -51,7 +52,7 @@ public class Combat {
     }
 
     public void beginCombat(){
-        while (isOver() == false) {
+        while (!isOver()) {
             for (Enemy enemy : enemies) {
                 turns.add(playerAction());
                 if (enemy.getHitPoints() <= 0) {
@@ -69,11 +70,11 @@ public class Combat {
 
     private Turn playerAction(){
         if(player instanceof Warrior){
-            return Tools.warriorCombatMenu(this);
+            return Menu.warriorCombatMenu(this);
         }else if(player instanceof Rogue){
-            return Tools.rogueCombatMenu(this);
+            return Menu.rogueCombatMenu(this);
         }else {
-            return Tools.wizardCombatMenu(this);
+            return Menu.wizardCombatMenu(this);
         }
     }
 

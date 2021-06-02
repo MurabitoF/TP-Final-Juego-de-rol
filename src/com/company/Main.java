@@ -1,11 +1,12 @@
 package com.company;
 
-import com.company.utils.Tools;
+import com.company.utils.Menu;
 
 
 public class Main {
 
     public static void main(String[] args) {
-        Tools.mainMenu();
+
+        Menu.mainMenu();
     }
 }
