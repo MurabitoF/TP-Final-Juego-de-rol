@@ -3,7 +3,7 @@ package com.company.utils;
 import com.company.character.*;
 import com.company.items.Item;
 
-public class Tools {
+public abstract class Tools {
 
     public static final String ERROR_MESSAGE = "Insert a valid option";
 

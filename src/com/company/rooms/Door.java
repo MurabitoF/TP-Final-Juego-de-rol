@@ -47,8 +47,4 @@ public class Door {
         this.symbol = symbol;
     }
 
-    public void unlockDoor(Key key){
-
-    }
-
 }

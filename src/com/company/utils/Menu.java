@@ -2,6 +2,7 @@ package com.company.utils;
 
 import com.company.character.*;
 import com.company.items.Item;
+import com.company.items.Key;
 import com.company.rooms.Combat;
 import com.company.rooms.Door;
 import com.company.rooms.Room;
@@ -11,7 +12,7 @@ import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Menu {
+public abstract class Menu {
 
     public static void mainMenu(){
         Scanner input = new Scanner(System.in);
@@ -42,7 +43,6 @@ public class Menu {
                 System.exit(0);
         }
     }
-
 
     public static void characterSelectMenu(){
         Scanner input = new Scanner(System.in);
@@ -97,7 +97,7 @@ public class Menu {
         Scanner input = new Scanner(System.in);
         int option = -1;
 
-        do {
+        while(true) {
             System.out.println("1. Take look in the room");
             System.out.println("2. Use a item of the backpack");
             if (!room.getCombat().isOver()){
@@ -116,32 +116,30 @@ public class Menu {
                 System.out.println(Tools.ERROR_MESSAGE);
             }
 
-        }while (option < 0 || option > 4);
-
-        switch (option){
-            case 1:
-                System.out.println(room.getDescription());
-                break;
-            case 2:
-                room.getPlayer().openBackpack();//esto deberia ser un menu
-                break;
-            case 3:
-                if (!room.getCombat().isOver()){
-                    room.getCombat().beginCombat();
-                }else{
-                    room.getPlayer().pickupLoot(room.getLoot());
-                }
-                break;
-            case 4:
-                if (room.getCombat().isOver()){
-                    Door selectDoor = selectDoorMenu(room);
-                    room.openDoor(selectDoor);
-                    roomMenu(selectDoor.getNextRoom());
-                }
-                break;
-            case  0:
-                pauseMenu();
-                break;
+            switch (option){
+                case 1:
+                    System.out.println(room.getDescription());
+                    break;
+                case 2:
+                    room.getPlayer().openBackpack();//esto deberia ser un menu
+                    break;
+                case 3:
+                    if (!room.getCombat().isOver()){
+                        room.getCombat().beginCombat();
+                    }else{
+                        room.getPlayer().pickupLoot(room.getLoot());
+                    }
+                    break;
+                case 4:
+                    if (room.getCombat().isOver()){
+                        Door selectDoor = selectDoorMenu(room);
+                        openDoor(selectDoor, room);
+                    }
+                    break;
+                case  0:
+                    pauseMenu();
+                    break;
+            }
         }
     }
 
@@ -302,7 +300,7 @@ public class Menu {
             }catch (InputMismatchException e){
                 System.out.println(Tools.ERROR_MESSAGE);
             }
-        }while (option < 0);
+        }while (option < 0 || option > combat.getEnemies().size());
 
         return combat.getEnemies().get(option);
     }
@@ -323,7 +321,7 @@ public class Menu {
             }catch (InputMismatchException e){
                 System.out.println(Tools.ERROR_MESSAGE);
             }
-        }while (option < 0);
+        }while (option < 0 || option > player.getSpellBook().size());
 
         return player.getSpellBook().get(option);
     }
@@ -344,7 +342,7 @@ public class Menu {
             }catch (InputMismatchException e){
                 System.out.println(Tools.ERROR_MESSAGE);
             }
-        }while (option < 0);
+        }while (option < 0 || option > room.getDoors().size());
 
         return room.getDoors().get(option);
     }
@@ -365,7 +363,7 @@ public class Menu {
             }catch (InputMismatchException e){
                 System.out.println(Tools.ERROR_MESSAGE);
             }
-        }while (option < 0);
+        }while (option < 0 || option > player.getBackpack().size());
 
         return player.getBackpack().get(option);
     }
@@ -396,6 +394,47 @@ public class Menu {
                     break;
             }
         }while (option != 2);
+    }
+
+    public static void openDoor(Door door, Room room){
+        Scanner input = new Scanner(System.in);
+        int option = -1;
+
+        System.out.println("You're standing in front of the " + door.getDirection() + " door");
+
+        do{
+            System.out.println("1. Open door");
+            System.out.println("2. Use a key");
+            System.out.println("3. Back to room");
+
+            try{
+                System.out.println();
+                System.out.println(">>> ");
+                option = input.nextInt();
+            }catch (InputMismatchException e){
+                System.out.println(Tools.ERROR_MESSAGE);
+            }
+
+            switch (option){
+                case 1:
+                    if(door.isLocked()){
+                        System.out.println("The door has a inscription, private is private");
+                        System.out.println("The door is locked, use a key to open it");
+                    }else{
+                        room.openDoor(door);
+                        roomMenu(door.getNextRoom());
+                    }
+                    break;
+                case 2:
+                    Item key = selectItem(room.getPlayer());
+                    if (key instanceof Key && ((Key) key).getSymbol().equals(door.getSymbol())){
+                        door.setLocked(false);
+                    }else {
+                        System.out.println("You can't use this on the door");
+                    }
+                    break;
+            }
+        }while(option != 3);
     }
 }
 
