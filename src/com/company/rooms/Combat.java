@@ -4,6 +4,7 @@ import com.company.character.Enemy;
 import com.company.character.Player;
 import com.company.character.Rogue;
 import com.company.character.Warrior;
+import com.company.utils.Menu;
 import com.company.utils.Tools;
 
 import java.sql.Array;
@@ -77,11 +78,11 @@ public class Combat {
 
     private Turn playerAction(){
         if(player instanceof Warrior){
-            return Tools.warriorCombatMenu(this);
+            return Menu.warriorCombatMenu(this);
         }else if(player instanceof Rogue){
-            return Tools.rogueCombatMenu(this);
+            return Menu.rogueCombatMenu(this);
         }else {
-            return Tools.wizardCombatMenu(this);
+            return Menu.wizardCombatMenu(this);
         }
     }
 
