@@ -6,6 +6,7 @@ import com.company.character.Rogue;
 import com.company.character.Warrior;
 import com.company.utils.Tools;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,5 +84,25 @@ public class Combat {
             return Tools.wizardCombatMenu(this);
         }
     }
+
+    /*private List<Character> rollInitiative()
+    {
+        List<Character> initiative = new ArrayList<>();
+        initiative.add(0,this.player);
+        for (Enemy enemy : this.enemies)
+        {
+            for(Character init : initiative)
+            {
+                if (init.getAgility>enemy.getAgility())
+                {
+                        initiative.add(enemy);
+                } else
+                {
+                    initiative.add(initiative.indexOf(init), enemy);
+                }
+            }
+
+        }
+    }*/  //{monstruo(7), jugador(6), Soldado(6)}
 
 }

@@ -15,6 +15,4 @@ public abstract class Consumible extends Item {
     public void setUses(int uses) {
         this.uses = uses;
     }
-
-    public abstract int useConsumible();
 }

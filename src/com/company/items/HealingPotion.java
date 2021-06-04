@@ -28,11 +28,6 @@ public class HealingPotion extends Consumible {
     }
 
     @Override
-    public int useConsumible() {
-        return healingAmount;
-    }
-
-    @Override
     public String toString()
     {
         return " " + this.getName() + "\nUsos: " + this.getUses() + "\nTamaño: " + this.getSize() + "\nCantidad de curación: " + this.getHealingAmount();
