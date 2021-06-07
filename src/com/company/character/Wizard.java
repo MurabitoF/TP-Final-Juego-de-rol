@@ -15,7 +15,7 @@ public class Wizard extends Player implements IMagic{
 
     public Wizard (String name, int might, int agility, int intelligence, List<Item> backpack, List<Spell> spellBook)
     {
-        super(name, might, agility, intelligence, backpack);
+        super(name, might, agility, intelligence, "Wizard", backpack);
         this.spellBook = spellBook;
     }
 
@@ -46,14 +46,14 @@ public class Wizard extends Player implements IMagic{
 
     @Override
     public int getArmor() {
-        return 2+this.getMight() + this.getEquippedArmor().getArmorBonus();
+        return 5 + this.getAgility() + this.getEquippedArmor().getArmorBonus();
     }
 
     @Override
     public Turn makeAttack(Character target) {
-        if (Tools.getRandomNumber(20)+this.getIntelligence()+getEquippedWeapon().getAttackBonus()>=target.getArmor())
+        if (Tools.getRandomNumber(20)+this.getAgility() + this.getEquippedWeapon().getAttackBonus() >= target.getArmor())
         {
-            int damage = Tools.getRandomNumber(6)+this.getIntelligence();
+            int damage = Tools.getRandomNumber(this.equippedWeapon.getDamageDice())+this.getAgility();
             target.setHitPoints(target.getHitPoints()-damage);
             return new Turn(this, target, "attacked ", damage);
         } else{
@@ -66,7 +66,7 @@ public class Wizard extends Player implements IMagic{
         if (this.getEnergy()>=10 && Tools.getRandomNumber(20)+this.getIntelligence() > Tools.getRandomNumber(20)+ target.getIntelligence())
         {
             this.setEnergy(this.getEnergy()-spell.getEnergyCost());
-            target.setHitPoints(target.getHitPoints()-spell.getDamage());
+            target.setHitPoints(target.getHitPoints() - spell.getDamage());
             return new Turn (this, target, "Cast: " + spell.getName(), spell.getDamage());
         }else {
             return new Turn (this, target, "Missed a spell", 0);

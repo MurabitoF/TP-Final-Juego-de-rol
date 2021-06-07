@@ -13,7 +13,7 @@ public class Warrior extends Player{
 
     public Warrior (String name, int might, int agility, int intelligence, List<Item> backpack)
     {
-        super(name, might, agility, intelligence, backpack);
+        super(name, might, agility, intelligence, "Warrior", backpack);
         this.isRaging = false; //Se lo puede poner por defecto en false porque nunca va a empezar con rage
     }
 
@@ -40,7 +40,7 @@ public class Warrior extends Player{
 
     public Turn rage()
     {
-        this.setRaging(true); //agregar beneficio de rage
+        this.setRaging(true);
         return new Turn(this, this, "raging", 0);
     }
 
@@ -53,7 +53,7 @@ public class Warrior extends Player{
     public Turn makeAttack(Character target) {
         if (Tools.getRandomNumber(20)+this.getMight()+getEquippedWeapon().getAttackBonus()>=target.getArmor() || this.isRaging)
         {
-            int damage = Tools.getRandomNumber(6)+this.getMight()+this.getEquippedWeapon().getDamageBonus();
+            int damage = Tools.getRandomNumber(this.getEquippedWeapon().getDamageDice())+this.getMight()+this.getEquippedWeapon().getDamageBonus();
             target.setHitPoints(target.getHitPoints()-damage);
             return new Turn(this, target, "attacked ", damage);
         } else{

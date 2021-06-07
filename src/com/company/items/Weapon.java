@@ -5,9 +5,9 @@ public class Weapon extends Item{
     private int attackBonus;
     private int damageBonus;
 
-    public Weapon (String name, int id, int attackBonus, int damageBonus, int damageDice)
+    public Weapon (String name, int attackBonus, int damageBonus, int damageDice)
     {
-        super(name, id);
+        super(name, "Weapon");
         this.damageDice = damageDice;
         this.attackBonus = attackBonus;
         this.damageBonus = damageBonus;

@@ -7,7 +7,7 @@ public class Monster extends Enemy{
 
     public Monster (String name, int might, int agility, int intelligence)
     {
-        super(name, might, agility, intelligence);
+        super(name, might, agility, intelligence, "Monster");
     }
 
     public Turn multiAttack(Character target)

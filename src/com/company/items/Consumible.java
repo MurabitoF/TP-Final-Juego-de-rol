@@ -3,8 +3,8 @@ package com.company.items;
 public abstract class Consumible extends Item {
     private int uses;
 
-    public Consumible(String name, int id, int uses) {
-        super(name, id);
+    public Consumible(String name, int uses, String type) {
+        super(name, type);
         this.uses = uses;
     }
 

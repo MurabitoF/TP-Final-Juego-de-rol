@@ -4,23 +4,22 @@ import com.company.items.*;
 import com.company.rooms.Turn;
 import com.company.utils.Tools;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Player extends Character {
+    String type;
     List<Item> backpack;
     Weapon equippedWeapon;
     Armor equippedArmor;
-    int exp;
 
 
-    public  Player (String name, int might, int agility, int intelligence, List<Item> backpack)
+    public  Player (String name, int might, int agility, int intelligence, String type,List<Item> backpack)
     {
         super(name,might,agility,intelligence);
+        this.type = type;
         this.backpack = backpack;
-        this.equippedArmor = new Armor("Sin armadura", 0, 0);
-        this.equippedWeapon = new Weapon("Desarmado", 0, 0, 1, 2);
-        this.exp = 0;
+        this.equippedArmor = new Armor("Unarmored", 0);
+        this.equippedWeapon = new Weapon("Unarmed", 0, 1, 2);
     }
 
     public List<Item> getBackpack() {
@@ -47,15 +46,7 @@ public abstract class Player extends Character {
         this.equippedArmor = equippedArmor;
     }
 
-    public int getExp() {
-        return exp;
-    }
-
-    public void setExp(int exp) {
-        this.exp = exp;
-    }
-
-    private Turn useItem(Item item) {
+    public Turn useItem(Item item, Enemy target) {
         if (item instanceof Armor) {
             this.equipArmor((Armor)item);
             return new Turn(this,this,"Equipped: " + item.getName(), 0);
@@ -65,29 +56,16 @@ public abstract class Player extends Character {
                 return new Turn(this,this,"Equipped: " + item.getName(), 0);
             } else
             {
-                /*if (item instanceof Scroll)
+                if (item instanceof Scroll)
                 {
-                    Enemy target = Tools.showEnemies()
-                    return this.useScroll((Scroll) item);
-                }*/ //En estado pendiente
+                    return this.useScroll((Scroll) item, target);
+                }
                 return this.useConsumible((Consumible) item);
             }
         }
 
     public void pickupLoot(Item loot) {
         this.backpack.add(loot);
-    }
-
-    public Item searchBackpack(int id) {
-        return backpack.get(id);
-    }
-
-
-    public void openBackpack() {
-        for (Item item : backpack)
-        {
-            System.out.println(backpack.indexOf(item) + ". " + item.toString());
-        }
     }
 
     private void equipArmor(Armor armor)
@@ -136,19 +114,19 @@ public abstract class Player extends Character {
         }
     }
 
-    /*private Turn useScroll (Scroll scroll)
+    private Turn useScroll (Scroll scroll, Enemy target)
     {
-        if (this.getEnergy()>=10 && Tools.getRandomNumber(20)+this.getIntelligence() > Tools.getRandomNumber(20)+ target.getIntelligence())
+        if (Tools.getRandomNumber(20) + this.getIntelligence() > Tools.getRandomNumber(20) + target.getIntelligence())
         {
             target.setHitPoints(target.getHitPoints()-scroll.getSpell().getDamage());
             updateUses(scroll);
-            return new Turn (this, target, "Cast: " + spell.getName(), spell.getDamage());
+            return new Turn (this, target, "Use scroll of: " + scroll.getSpell().getName(), scroll.getSpell().getDamage());
         }else {
             return new Turn (this, target, "Missed a spell", 0);
         }
-    }*/ //En estado pendiente
+    }
 
-    private void updateUses (Consumible consumible)
+    public void updateUses (Consumible consumible)
     {
         consumible.setUses(consumible.getUses()-1);
         if (consumible.getUses() == 0)
