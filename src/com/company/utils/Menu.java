@@ -120,7 +120,7 @@ public abstract class Menu {
 
     public static void roomMenu(Room room){
         Scanner input = new Scanner(System.in);
-        Item selectItem = null;
+        Item selectItem;
         int option = -1;
 
         while(true) {
