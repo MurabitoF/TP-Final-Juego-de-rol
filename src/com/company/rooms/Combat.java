@@ -9,6 +9,7 @@ import com.company.utils.Tools;
 
 import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Combat {
@@ -51,7 +52,7 @@ public class Combat {
     public boolean isOver(){ //Se fija si la lista de enemigos esta vacia, en ese caso devuelve verdadero
         if (player.getHitPoints()<=0)
         {
-            return false;
+            return true;
         }else
         {
             return enemies.isEmpty();
@@ -60,13 +61,17 @@ public class Combat {
     }
 
     public void beginCombat(){
+        Iterator<Enemy> enemyIterator = this.enemies.iterator();
         while (!isOver()) {
-            for (Enemy enemy : enemies) {
-                turns.add(playerAction());
+            while(enemyIterator.hasNext()) {
+                Enemy enemy = enemyIterator.next();
+                turns.add(playerAction()); //agregar mostrar turno tras acción
                 if (enemy.getHitPoints() <= 0) {
+                    System.out.println(enemy.getName() + " ha muerto.");
+                    enemyIterator.remove();
                     deleteEnemy(enemy);
                 } else {
-                    enemy.makeAction(player);
+                    turns.add(enemy.makeAction(player));
                 }
             }
         }

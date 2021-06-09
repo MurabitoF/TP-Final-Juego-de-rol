@@ -5,9 +5,9 @@ import com.company.character.Spell;
 public class Scroll extends Consumible{
     Spell spell;
 
-    public Scroll (String name, int id, Spell spell)
+    public Scroll (String name, Spell spell)
     {
-        super(name, id, 1);
+        super(name, 1);
         this.spell = spell;
     }
 
