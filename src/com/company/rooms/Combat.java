@@ -7,7 +7,6 @@ import com.company.character.Warrior;
 import com.company.utils.Menu;
 import com.company.utils.Tools;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.List;
 public class Combat {
     private Player player;
     private List<Enemy> enemies;
-    private List<Turn> turns;
+    private transient List<Turn> turns;
 
     public Combat (Player player, List<Enemy> enemies)
     {
@@ -91,24 +90,26 @@ public class Combat {
         }
     }
 
-    /*private List<Character> rollInitiative()
+    /*
+    private List<Character> rollInitiative()
     {
         List<Character> initiative = new ArrayList<>();
-        initiative.add(0,this.player);
+        initiative.add(this.player);
         for (Enemy enemy : this.enemies)
         {
-            for(Character init : initiative)
-            {
-                if (init.getAgility>enemy.getAgility())
+            int i = 0;
+                while (i < initiative.size() && initiative.get(i).getAgility > enemy.getAgility())
                 {
-                        initiative.add(enemy);
-                } else
-                {
-                    initiative.add(initiative.indexOf(init), enemy);
+                    i++;
                 }
-            }
+                if(initiative.get(i) != null){
+                    initiative.add(i, enemy);
+                }else{
+                    initiative.add(enemy);
+                  }
+
 
         }
-    }*/  //{monstruo(7), jugador(6), Soldado(6)}
+    }*/  //{monstruo(7), jugador(6), Soldado(6), Mage(4)} mountruo(5)
 
 }

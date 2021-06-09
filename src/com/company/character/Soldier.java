@@ -9,7 +9,7 @@ public class Soldier extends Enemy{
 
     public  Soldier (String name, int might, int agility, int intelligence)
     {
-        super(name, might, agility, intelligence);
+        super(name, might, agility, intelligence, "Soldier");
         this.armorBonus = 0;
     }
 
@@ -48,7 +48,7 @@ public class Soldier extends Enemy{
     @Override
     public Turn makeAttack(Character target) {
         if(Tools.getRandomNumber(20) >= target.getArmor()){
-            int damage = Tools.getRandomNumber(12) + this.getMight();
+            int damage = Tools.getRandomNumber(8) + this.getMight();
             target.setHitPoints(target.getHitPoints() - damage);
             return new Turn(this, target, "attacked", damage);
         }else{

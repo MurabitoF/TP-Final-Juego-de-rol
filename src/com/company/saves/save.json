@@ -1,0 +1,99 @@
+[
+  {
+    "id": 1,
+    "description": "esta vacia",
+    "loot": null,
+    "player": {
+      "isRaging": false,
+      "type": "Warrior",
+      "backpack": [
+        {
+          "size": "small",
+          "healingAmount": 40,
+          "uses": 1,
+          "type": "HealingPotion",
+          "name": "potion"
+        },
+        {
+          "damageDice": 2,
+          "attackBonus": 0,
+          "damageBonus": 1,
+          "type": "Weapon",
+          "name": "Desarmado"
+        },
+        {
+          "armorBonus": 0,
+          "type": "Armor",
+          "name": "Sin armadura"
+        }
+      ],
+      "equippedWeapon": {
+        "damageDice": 6,
+        "attackBonus": 3,
+        "damageBonus": 5,
+        "type": "Weapon",
+        "name": "sword"
+      },
+      "equippedArmor": {
+        "armorBonus": 3,
+        "type": "Armor",
+        "name": "armor"
+      },
+      "exp": 0,
+      "name": "a",
+      "hitPoints": 0,
+      "energy": 0,
+      "might": 2,
+      "agility": 3,
+      "intelligence": 5
+    },
+    "combat": {
+      "player": {
+        "isRaging": false,
+        "type": "Warrior",
+        "backpack": [
+          {
+            "size": "small",
+            "healingAmount": 40,
+            "uses": 1,
+            "type": "HealingPotion",
+            "name": "potion"
+          },
+          {
+            "damageDice": 2,
+            "attackBonus": 0,
+            "damageBonus": 1,
+            "type": "Weapon",
+            "name": "Desarmado"
+          },
+          {
+            "armorBonus": 0,
+            "type": "Armor",
+            "name": "Sin armadura"
+          }
+        ],
+        "equippedWeapon": {
+          "damageDice": 6,
+          "attackBonus": 3,
+          "damageBonus": 5,
+          "type": "Weapon",
+          "name": "sword"
+        },
+        "equippedArmor": {
+          "armorBonus": 3,
+          "type": "Armor",
+          "name": "armor"
+        },
+        "exp": 0,
+        "name": "a",
+        "hitPoints": 0,
+        "energy": 0,
+        "might": 2,
+        "agility": 3,
+        "intelligence": 5
+      },
+      "enemies": []
+    },
+    "doors": []
+  }
+]

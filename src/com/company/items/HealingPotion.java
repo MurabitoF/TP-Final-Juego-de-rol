@@ -6,7 +6,7 @@ public class HealingPotion extends Consumible {
     private int healingAmount;
 
     public HealingPotion(String name, int uses, String size, int healingAmount) {
-        super(name, uses);
+        super(name, uses, "HealingPotion");
         this.size = size;
         this.healingAmount = healingAmount;
     }

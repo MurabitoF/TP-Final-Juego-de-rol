@@ -7,5 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="com.google.code.gson:gson:2.8.7" level="project" />
+    <orderEntry type="library" name="org.danilopianini:gson-extras:0.2.2-dev1n+f8657bfc" level="project" />
   </component>
 </module>

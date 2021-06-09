@@ -13,7 +13,7 @@ public class Rogue extends Player{
 
     public Rogue (String name, int might, int agility, int intelligence, List<Item> backpack)
     {
-        super(name, might, agility, intelligence, backpack);
+        super(name, might, agility, intelligence, "Rogue", backpack);
         this.isAiming = false; //Al igual que en Warrior no va a comenzar escondido el personaje
     }
 
