@@ -3,9 +3,9 @@ package com.company.items;
 public class Armor extends Item {
     private int armorBonus;
 
-    public Armor (String name, int id, int armor)
+    public Armor (String name, int armor)
     {
-        super(name, id);
+        super(name);
         this.armorBonus = armor;
     }
 

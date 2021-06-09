@@ -53,7 +53,7 @@ public class Warrior extends Player{
     public Turn makeAttack(Character target) {
         if (Tools.getRandomNumber(20)+this.getMight()+getEquippedWeapon().getAttackBonus()>=target.getArmor() || this.isRaging)
         {
-            int damage = Tools.getRandomNumber(6)+this.getMight()+this.getEquippedWeapon().getDamageBonus();
+            int damage = Tools.getRandomNumber(this.getEquippedWeapon().getDamageDice())+this.getMight()+this.getEquippedWeapon().getDamageBonus();
             target.setHitPoints(target.getHitPoints()-damage);
             return new Turn(this, target, "attacked ", damage);
         } else{

@@ -81,10 +81,10 @@ public abstract class Menu {
 
         switch (option){
             case 1:
-                new Warrior(name, 10, 6, 4, Arrays.asList(Tools.BASIC_WARRIOR_BACKPACK));
+                new Warrior(name, 10, 6, 4, Arrays.asList(Tools.BASIC_MARTIAL_BACKPACK));
                 break;
             case  2:
-                new Rogue(name, 4, 10, 6, Arrays.asList(Tools.BASIC_ROGUE_BACKPACK));
+                new Rogue(name, 4, 10, 6, Arrays.asList(Tools.BASIC_MARTIAL_BACKPACK));
                 break;
 
             case 3:
@@ -121,7 +121,7 @@ public abstract class Menu {
                     System.out.println(room.getDescription());
                     break;
                 case 2:
-                    room.getPlayer().openBackpack();//esto deberia ser un menu
+                    selectItem(room.getPlayer());
                     break;
                 case 3:
                     if (!room.getCombat().isOver()){

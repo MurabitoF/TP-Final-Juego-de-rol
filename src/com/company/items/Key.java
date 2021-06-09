@@ -3,8 +3,8 @@ package com.company.items;
 public class Key extends Item{
     private String symbol;
 
-    public Key(String name, int id, String symbol) {
-        super(name, id);
+    public Key(String name, String symbol) {
+        super(name);
         this.symbol = symbol;
     }
 
