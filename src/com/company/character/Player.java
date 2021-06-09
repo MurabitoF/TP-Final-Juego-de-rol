@@ -122,7 +122,7 @@ public abstract class Player extends Character {
             updateUses(scroll);
             return new Turn (this, target, "Use scroll of: " + scroll.getSpell().getName(), scroll.getSpell().getDamage());
         }else {
-            return new Turn (this, target, "Missed a spell", 0);
+            return new Turn (this, target, "Failed to use a scroll", 0);
         }
     }
 

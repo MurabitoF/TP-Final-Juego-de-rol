@@ -30,7 +30,7 @@ public class Rogue extends Player{
     {
         if (this.getEnergy()>=10 && Tools.getRandomNumber(20)+this.getAgility()>target.getArmor() || this.isAiming)
         {
-            int damage = (Tools.getRandomNumber(6)+this.getAgility())*2;
+            int damage = (Tools.getRandomNumber(this.getEquippedWeapon().getDamageDice())+this.getAgility())*2;
             target.setHitPoints(target.getHitPoints()-damage);
             this.setEnergy(this.getEnergy()-25);
             return new Turn(this, target, "sneak attacked ", damage);

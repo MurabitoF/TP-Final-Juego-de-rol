@@ -92,7 +92,7 @@ public abstract class Menu {
 
         switch (option){
             case 1:
-                Warrior warrior = new Warrior(name, 10, 6, 4, Arrays.asList(Tools.BASIC_WARRIOR_BACKPACK));
+                Warrior warrior = new Warrior(name, 10, 6, 4, Arrays.asList(Tools.BASIC_MARTIAL_BACKPACK));
                 warrior.useItem(warrior.getBackpack().get(0),null);
                 warrior.useItem(warrior.getBackpack().get(0),null);
                 Tools.map.get(0).setPlayer(warrior);
@@ -100,7 +100,7 @@ public abstract class Menu {
                 roomMenu(Tools.map.get(0));
                 break;
             case  2:
-                Rogue rogue = new Rogue(name, 4, 10, 6, Arrays.asList(Tools.BASIC_ROGUE_BACKPACK));
+                Rogue rogue = new Rogue(name, 4, 10, 6, Arrays.asList(Tools.BASIC_MARTIAL_BACKPACK));
                 rogue.useItem(rogue.getBackpack().get(0),null);
                 rogue.useItem(rogue.getBackpack().get(0),null);
                 Tools.map.get(0).setPlayer(rogue);

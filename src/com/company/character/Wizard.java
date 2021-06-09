@@ -51,10 +51,11 @@ public class Wizard extends Player implements IMagic{
 
     @Override
     public Turn makeAttack(Character target) {
-        if (Tools.getRandomNumber(20)+this.getAgility() + this.getEquippedWeapon().getAttackBonus() >= target.getArmor())
+
+        if (Tools.getRandomNumber(20) + this.getAgility() + getEquippedWeapon().getAttackBonus() >= target.getArmor())
         {
-            int damage = Tools.getRandomNumber(this.equippedWeapon.getDamageDice())+this.getAgility();
-            target.setHitPoints(target.getHitPoints()-damage);
+            int damage = Tools.getRandomNumber(this.getEquippedWeapon().getDamageDice()) + this.getMight();
+            target.setHitPoints(target.getHitPoints() - damage);
             return new Turn(this, target, "attacked ", damage);
         } else{
             return new Turn(this, target, "missed ", 0);
