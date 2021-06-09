@@ -13,7 +13,7 @@ public class Warrior extends Player{
 
     public Warrior (String name, int might, int agility, int intelligence, List<Item> backpack)
     {
-        super(name, might, agility, intelligence, backpack);
+        super(name, might, agility, intelligence, "Warrior", backpack);
         this.isRaging = false; //Se lo puede poner por defecto en false porque nunca va a empezar con rage
     }
 
@@ -40,7 +40,7 @@ public class Warrior extends Player{
 
     public Turn rage()
     {
-        this.setRaging(true); //agregar beneficio de rage
+        this.setRaging(true);
         return new Turn(this, this, "raging", 0);
     }
 

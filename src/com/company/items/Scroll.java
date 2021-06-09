@@ -7,7 +7,7 @@ public class Scroll extends Consumible{
 
     public Scroll (String name, Spell spell)
     {
-        super(name, 1);
+        super(name, 1, "Scroll");
         this.spell = spell;
     }
 

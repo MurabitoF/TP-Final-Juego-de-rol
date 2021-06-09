@@ -15,7 +15,7 @@ public class Wizard extends Player implements IMagic{
 
     public Wizard (String name, int might, int agility, int intelligence, List<Item> backpack, List<Spell> spellBook)
     {
-        super(name, might, agility, intelligence, backpack);
+        super(name, might, agility, intelligence, "Wizard", backpack);
         this.spellBook = spellBook;
     }
 
@@ -46,15 +46,16 @@ public class Wizard extends Player implements IMagic{
 
     @Override
     public int getArmor() {
-        return 5+this.getAgility() + this.getEquippedArmor().getArmorBonus();
+        return 5 + this.getAgility() + this.getEquippedArmor().getArmorBonus();
     }
 
     @Override
     public Turn makeAttack(Character target) {
-        if (Tools.getRandomNumber(20)+this.getAgility()+getEquippedWeapon().getAttackBonus()>=target.getArmor())
+
+        if (Tools.getRandomNumber(20) + this.getAgility() + getEquippedWeapon().getAttackBonus() >= target.getArmor())
         {
-            int damage = Tools.getRandomNumber(this.getEquippedWeapon().getDamageDice())+this.getMight();
-            target.setHitPoints(target.getHitPoints()-damage);
+            int damage = Tools.getRandomNumber(this.getEquippedWeapon().getDamageDice()) + this.getMight();
+            target.setHitPoints(target.getHitPoints() - damage);
             return new Turn(this, target, "attacked ", damage);
         } else{
             return new Turn(this, target, "missed ", 0);
@@ -66,7 +67,7 @@ public class Wizard extends Player implements IMagic{
         if (this.getEnergy()>=10 && Tools.getRandomNumber(20)+this.getIntelligence() > Tools.getRandomNumber(20)+ target.getIntelligence())
         {
             this.setEnergy(this.getEnergy()-spell.getEnergyCost());
-            target.setHitPoints(target.getHitPoints()-spell.getDamage());
+            target.setHitPoints(target.getHitPoints() - spell.getDamage());
             return new Turn (this, target, "Cast: " + spell.getName(), spell.getDamage());
         }else {
             return new Turn (this, target, "Missed a spell", 0);

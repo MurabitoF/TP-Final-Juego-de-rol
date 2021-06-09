@@ -10,7 +10,7 @@ public class Mage extends Enemy implements IMagic{
     private List<Spell> spellBook;
 
     public Mage(String name, int might, int agility, int intelligence, List<Spell> spellBook) {
-        super(name, might, agility, intelligence);
+        super(name, might, agility, intelligence, "Mage");
         this.spellBook = spellBook;
     }
 
@@ -61,7 +61,7 @@ public class Mage extends Enemy implements IMagic{
 
     @Override
     public Turn castSpell(Character target, Spell spell) {
-        if(Tools.getRandomNumber(20) + this.getIntelligence() >= 10 + target.getIntelligence()){
+        if(Tools.getRandomNumber(20)+this.getIntelligence() > Tools.getRandomNumber(20)+ target.getIntelligence()){
             this.setEnergy(this.getEnergy() - spell.getEnergyCost());
             target.setHitPoints(target.getHitPoints() - spell.getDamage());
             return new Turn(this, target, "Cast: " + spell.getName(), spell.getDamage());

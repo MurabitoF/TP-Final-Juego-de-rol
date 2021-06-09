@@ -4,7 +4,7 @@ public class Key extends Item{
     private String symbol;
 
     public Key(String name, String symbol) {
-        super(name);
+        super(name, "Key");
         this.symbol = symbol;
     }
 

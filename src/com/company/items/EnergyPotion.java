@@ -6,7 +6,7 @@ public class EnergyPotion extends Consumible{
     private int energyAmount;
 
     public EnergyPotion(String name, int uses, String size, int energyAmount) {
-        super(name, uses);
+        super(name, uses, "EnergyPotion");
         this.size = size;
         this.energyAmount = energyAmount;
     }

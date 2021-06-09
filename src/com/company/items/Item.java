@@ -1,10 +1,12 @@
 package com.company.items;
 
 public abstract class Item {
+    String type;
     String name;
 
-    public Item (String name)
+    public Item (String name, String type)
     {
+        this.type = type;
         this.name = name;
     }
 
