@@ -177,12 +177,12 @@ public abstract class Menu {
                     break;
                 case 5:
                     selectItem = selectItem(room.getPlayer());
-                    while (!(selectItem instanceof Scroll)){
+                    if (!(selectItem instanceof Scroll)){
                         System.out.println("You must choose a scroll");
-                        selectItem = selectItem(room.getPlayer());
+                    }else{
+                        ((Wizard)room.getPlayer()).learnSpell(((Scroll) selectItem).getSpell());
+                        room.getPlayer().updateUses((Consumible) selectItem);
                     }
-                    ((Wizard)room.getPlayer()).learnSpell(((Scroll) selectItem).getSpell());
-                    room.getPlayer().updateUses((Consumible) selectItem);
                     break;
                 case  0:
                     pauseMenu();

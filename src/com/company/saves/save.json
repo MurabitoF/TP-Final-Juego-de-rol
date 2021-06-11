@@ -11,8 +11,19 @@
         "name": "Energy potion"
       },
       "player": {
-        "isAiming": false,
-        "type": "Rogue",
+        "spellBook": [
+          {
+            "name": "Magic Missile",
+            "energyCost": 10,
+            "damage": 4
+          },
+          {
+            "name": "Acid Orb",
+            "energyCost": 15,
+            "damage": 6
+          }
+        ],
+        "type": "Wizard",
         "backpack": [
           {
             "size": "Small",
@@ -35,23 +46,23 @@
           }
         ],
         "equippedWeapon": {
-          "damageDice": 6,
+          "damageDice": 4,
           "attackBonus": 1,
           "damageBonus": 1,
           "type": "Weapon",
-          "name": "Short Sword"
+          "name": "Dagger"
         },
         "equippedArmor": {
-          "armorBonus": 2,
+          "armorBonus": 1,
           "type": "Armor",
-          "name": "Studded Leather"
+          "name": "Leather"
         },
-        "name": "Carlos",
-        "hitPoints": 20,
-        "energy": 60,
-        "might": 4,
-        "agility": 10,
-        "intelligence": 6
+        "name": "Agustin",
+        "hitPoints": 15,
+        "energy": 100,
+        "might": 3,
+        "agility": 7,
+        "intelligence": 10
       },
       "combat": {
         "player": null,
