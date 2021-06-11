@@ -206,7 +206,7 @@ public abstract class Menu {
 
             try{
                 System.out.println();
-                System.out.print(">>>");
+                System.out.print(">>> ");
                 option = input.nextInt();
             }catch (InputMismatchException e){
                 System.out.println(Tools.INPUT_ERROR);
@@ -261,7 +261,7 @@ public abstract class Menu {
 
             try{
                 System.out.println();
-                System.out.print(">>>");
+                System.out.print(">>> ");
                 option = input.nextInt();
             }catch (InputMismatchException e){
                 System.out.println(Tools.INPUT_ERROR);
@@ -316,7 +316,7 @@ public abstract class Menu {
 
             try{
                 System.out.println();
-                System.out.print(">>>");
+                System.out.print(">>> ");
                 option = input.nextInt();
             }catch (InputMismatchException e){
                 System.out.println(Tools.INPUT_ERROR);

@@ -70,6 +70,7 @@ public class Combat {
                     deleteEnemy(enemy);
                 } else {
                     turns.add(enemy.makeAction(player));
+                    System.out.println(turns.get(turns.size() - 1).getTarget().getName());
                 }
             }
         }
