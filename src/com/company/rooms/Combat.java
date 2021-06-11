@@ -5,7 +5,6 @@ import com.company.character.Player;
 import com.company.character.Rogue;
 import com.company.character.Warrior;
 import com.company.utils.Menu;
-import com.company.utils.Tools;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,7 +19,6 @@ public class Combat {
     {
         this.player = player;
         this.enemies = enemies;
-        this.turns = new ArrayList<>();
     }
 
     public Player getPlayer() {
@@ -60,13 +58,14 @@ public class Combat {
     }
 
     public void beginCombat(){
-        Iterator<Enemy> enemyIterator = this.enemies.iterator();
+        this.turns = new ArrayList<>();
         while (!isOver()) {
+            Iterator<Enemy> enemyIterator = this.enemies.iterator();
             while(enemyIterator.hasNext()) {
                 Enemy enemy = enemyIterator.next();
                 turns.add(playerAction()); //agregar mostrar turno tras acción
                 if (enemy.getHitPoints() <= 0) {
-                    System.out.println(enemy.getName() + " ha muerto.");
+                    System.out.println(enemy.getName() + " is dead.");
                     enemyIterator.remove();
                     deleteEnemy(enemy);
                 } else {
@@ -89,27 +88,4 @@ public class Combat {
             return Menu.wizardCombatMenu(this);
         }
     }
-
-    /*
-    private List<Character> rollInitiative()
-    {
-        List<Character> initiative = new ArrayList<>();
-        initiative.add(this.player);
-        for (Enemy enemy : this.enemies)
-        {
-            int i = 0;
-                while (i < initiative.size() && initiative.get(i).getAgility > enemy.getAgility())
-                {
-                    i++;
-                }
-                if(initiative.get(i) != null){
-                    initiative.add(i, enemy);
-                }else{
-                    initiative.add(enemy);
-                  }
-
-
-        }
-    }*/  //{monstruo(7), jugador(6), Soldado(6), Mage(4)} mountruo(5)
-
 }

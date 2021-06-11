@@ -31,7 +31,7 @@ public class Mage extends Enemy implements IMagic{
 
     @Override
     public int getArmor() {
-        return 5 + this.getMight();
+        return 5 + this.getAgility();
     }
 
     @Override
@@ -51,7 +51,7 @@ public class Mage extends Enemy implements IMagic{
     @Override
     public Turn makeAttack(Character target) {
         if(Tools.getRandomNumber(20) >= target.getArmor()){
-            int damage = Tools.getRandomNumber(4) + this.getMight();
+            int damage = Tools.getRandomNumber(4) + this.getAgility();
             target.setHitPoints(target.getHitPoints() - damage);
             return new Turn(this, target, "attacked", damage);
         }else{

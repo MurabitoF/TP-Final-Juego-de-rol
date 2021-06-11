@@ -1,7 +1,5 @@
 package com.company.rooms;
 
-import com.company.items.Key;
-
 public class Door {
     private String direction;
     private Room nextRoom;

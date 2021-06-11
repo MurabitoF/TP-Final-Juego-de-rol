@@ -7,6 +7,7 @@ import com.company.rooms.Door;
 import com.company.rooms.Room;
 import com.company.rooms.Turn;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -36,7 +37,7 @@ public abstract class Menu {
                 characterSelectMenu();
                 break;
             case 2:
-                Tools.loadGame(Tools.SAVE_FILE);
+                Tools.map = Tools.loadGame(Tools.SAVE_FILE);
                 if(Tools.map.isEmpty()){
                     System.out.println("There is no saved game");
                 }else{
@@ -92,7 +93,7 @@ public abstract class Menu {
 
         switch (option){
             case 1:
-                Warrior warrior = new Warrior(name, 10, 6, 4, Arrays.asList(Tools.BASIC_MARTIAL_BACKPACK));
+                Warrior warrior = new Warrior(name, 10, 6, 4, new ArrayList<>(Arrays.asList(Tools.BASIC_MARTIAL_BACKPACK)));
                 warrior.useItem(warrior.getBackpack().get(0),null);
                 warrior.useItem(warrior.getBackpack().get(0),null);
                 Tools.map.get(0).setPlayer(warrior);
@@ -100,7 +101,7 @@ public abstract class Menu {
                 roomMenu(Tools.map.get(0));
                 break;
             case  2:
-                Rogue rogue = new Rogue(name, 4, 10, 6, Arrays.asList(Tools.BASIC_MARTIAL_BACKPACK));
+                Rogue rogue = new Rogue(name, 4, 10, 6, new ArrayList<>(Arrays.asList(Tools.BASIC_MARTIAL_BACKPACK)));
                 rogue.useItem(rogue.getBackpack().get(0),null);
                 rogue.useItem(rogue.getBackpack().get(0),null);
                 Tools.map.get(0).setPlayer(rogue);
@@ -108,7 +109,7 @@ public abstract class Menu {
                 roomMenu(Tools.map.get(0));
                 break;
             case 3:
-                Wizard wizard = new Wizard(name, 3, 7, 10, Arrays.asList(Tools.BASIC_WIZARD_BACKPACK), Arrays.asList(Tools.INITIAL_SPELLBOOK));
+                Wizard wizard = new Wizard(name, 3, 7, 10, new ArrayList<>(Arrays.asList(Tools.BASIC_WIZARD_BACKPACK)), new ArrayList<>(Arrays.asList(Tools.INITIAL_SPELLBOOK)));
                 wizard.useItem(wizard.getBackpack().get(0),null);
                 wizard.useItem(wizard.getBackpack().get(0),null);
                 Tools.map.get(0).setPlayer(wizard);
@@ -122,6 +123,8 @@ public abstract class Menu {
         Scanner input = new Scanner(System.in);
         Item selectItem;
         int option = -1;
+
+        room.getCombat().setPlayer(room.getPlayer());
 
         while(true) {
             System.out.println("1. Take look in the room");
@@ -157,7 +160,6 @@ public abstract class Menu {
                     break;
                 case 3:
                     if (!room.getCombat().isOver()){
-                        room.getCombat().setPlayer(room.getPlayer());
                         room.getCombat().beginCombat();
                         room.setPlayer(room.getCombat().getPlayer());
                         if(room.getPlayer().getHitPoints() <= 0){
@@ -422,8 +424,10 @@ public abstract class Menu {
         int option = -1;
 
         for (int i = 0; i < player.getBackpack().size(); i++){
-            System.out.println("[" + i + "]" + " " + player.getBackpack().get(i).getName());
+            System.out.println("[" + i + "] " + player.getBackpack().get(i));
         }
+
+        System.out.println("[" + player.getBackpack().size() + "] Back to menu");
 
         do {
             try {
@@ -435,7 +439,11 @@ public abstract class Menu {
             }
         }while (option < 0 || option > player.getBackpack().size());
 
-        return player.getBackpack().get(option);
+        if(option < player.getBackpack().size()) {
+            return player.getBackpack().get(option);
+        }else{
+            return null;
+        }
     }
 
     public static void pauseMenu(){
@@ -526,7 +534,13 @@ public abstract class Menu {
 
         switch (option){
             case 1:
-                //funcion cargar
+                Tools.loadGame(Tools.SAVE_FILE);
+                Room playerRoom = Tools.findPlayer();
+                if(playerRoom != null){
+                    roomMenu(playerRoom);
+                }else {
+                    System.out.println("There's a problem with the saving file");
+                }
                 break;
             case 2:
                 System.exit(0);
