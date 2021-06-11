@@ -20,7 +20,6 @@ public class Combat {
     {
         this.player = player;
         this.enemies = enemies;
-        this.turns = new ArrayList<>();
     }
 
     public Player getPlayer() {
@@ -60,13 +59,14 @@ public class Combat {
     }
 
     public void beginCombat(){
-        Iterator<Enemy> enemyIterator = this.enemies.iterator();
+        this.turns = new ArrayList<>();
         while (!isOver()) {
+            Iterator<Enemy> enemyIterator = this.enemies.iterator();
             while(enemyIterator.hasNext()) {
                 Enemy enemy = enemyIterator.next();
                 turns.add(playerAction()); //agregar mostrar turno tras acción
                 if (enemy.getHitPoints() <= 0) {
-                    System.out.println(enemy.getName() + " ha muerto.");
+                    System.out.println(enemy.getName() + " is dead.");
                     enemyIterator.remove();
                     deleteEnemy(enemy);
                 } else {

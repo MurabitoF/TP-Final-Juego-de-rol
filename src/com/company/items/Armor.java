@@ -20,6 +20,6 @@ public class Armor extends Item {
     @Override
     public String toString()
     {
-        return " Armadura: " + this.getName() + "\nBonus de armadura: " + this.getArmorBonus();
+        return "\n\tArmor: " + this.getName() + "\n\tArmor bonus: " + this.getArmorBonus();
     }
 }
