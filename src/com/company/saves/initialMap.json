@@ -10,49 +10,7 @@
         "type": "EnergyPotion",
         "name": "Energy potion"
       },
-      "player": {
-        "isAiming": false,
-        "type": "Rogue",
-        "backpack": [
-          {
-            "size": "Small",
-            "healingAmount": 5,
-            "uses": 3,
-            "type": "HealingPotion",
-            "name": "Healing Potion"
-          },
-          {
-            "armorBonus": 0,
-            "type": "Armor",
-            "name": "Unarmored"
-          },
-          {
-            "damageDice": 2,
-            "attackBonus": 0,
-            "damageBonus": 1,
-            "type": "Weapon",
-            "name": "Unarmed"
-          }
-        ],
-        "equippedWeapon": {
-          "damageDice": 6,
-          "attackBonus": 1,
-          "damageBonus": 1,
-          "type": "Weapon",
-          "name": "Short Sword"
-        },
-        "equippedArmor": {
-          "armorBonus": 2,
-          "type": "Armor",
-          "name": "Studded Leather"
-        },
-        "name": "Carlos",
-        "hitPoints": 20,
-        "energy": 60,
-        "might": 4,
-        "agility": 10,
-        "intelligence": 6
-      },
+      "player": null,
       "combat": {
         "player": null,
         "enemies": [

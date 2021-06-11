@@ -67,7 +67,7 @@ public class Wizard extends Player implements IMagic{
         if (this.getEnergy()>=10 && Tools.getRandomNumber(20)+this.getIntelligence() > Tools.getRandomNumber(20)+ target.getIntelligence())
         {
             this.setEnergy(this.getEnergy()-spell.getEnergyCost());
-            target.setHitPoints(target.getHitPoints() - spell.getDamage());
+            target.setHitPoints(target.getHitPoints() - spell.getDamage() - this.getIntelligence());
             return new Turn (this, target, "Cast: " + spell.getName(), spell.getDamage());
         }else {
             return new Turn (this, target, "Missed a spell", 0);

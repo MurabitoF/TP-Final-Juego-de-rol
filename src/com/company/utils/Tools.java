@@ -2,9 +2,11 @@ package com.company.utils;
 
 import com.company.character.*;
 import com.company.items.*;
+import com.company.rooms.Door;
 import com.company.rooms.Room;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.graph.GraphAdapterBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
 
@@ -21,11 +23,16 @@ public abstract class Tools {
 
     public static final String INPUT_ERROR = "Insert a valid option";
 
-    public static final String SAVE_FILE = "src/com/company/save.json";
-    public static final String INITIAL_MAP_FILE = "src/com/company/initialMap.json";
+    public static final String SAVE_FILE = "src/com/company/saves/save.json";
+    public static final String INITIAL_MAP_FILE = "src/com/company/saves/initialMap.json";
 
-    //agregar lista de items y lista de spells
-    public static final Spell[] SPELL_LIST = {new Spell("Magic Missile", 10, 4), new Spell("Fire Bolt", 10,4), new Spell("Acid Orb", 15,6), new Spell("Shocking Grasp", 15,6), new Spell("Necrotic Ray", 25, 8), new Spell("Ray of Frost", 25, 8), new Spell("Radiant Flame", 30, 10)};
+    public static final Spell[] SPELL_LIST = {new Spell("Magic Missile", 10, 4),
+            new Spell("Fire Bolt", 10,4),
+            new Spell("Acid Orb", 15,6),
+            new Spell("Shocking Grasp", 15,6),
+            new Spell("Necrotic Ray", 25, 8),
+            new Spell("Ray of Frost", 25, 8),
+            new Spell("Radiant Flame", 30, 10)};
 
     public static final Item[] BASIC_MARTIAL_BACKPACK = {new Armor("Studded Leather", 2), new Weapon("Short Sword", 1,1,6), new HealingPotion("Healing Potion",3,"Small",5)};
     public static final Item[] BASIC_WIZARD_BACKPACK = {new Armor("Leather", 1), new Weapon("Dagger", 1,1,4), new HealingPotion("Healing Potion",3,"Small",5)};
@@ -42,6 +49,7 @@ public abstract class Tools {
 
         try {
             GsonBuilder builder = new GsonBuilder().serializeNulls().setPrettyPrinting();
+            new GraphAdapterBuilder().addType(Room.class).registerOn(builder);
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(saveFile));
             Gson gson = builder.create();
             bufferedWriter.write(gson.toJson(map));
@@ -58,13 +66,13 @@ public abstract class Tools {
         if(loadFile.exists()){
             try{
                 RuntimeTypeAdapterFactory<Player> playerFactory = RuntimeTypeAdapterFactory
-                        .of(Player.class, "type")
+                        .of(Player.class, "type", true)
                         .registerSubtype(Warrior.class, "Warrior")
                         .registerSubtype(Rogue.class, "Rogue")
                         .registerSubtype(Wizard.class, "Wizard");
 
                 RuntimeTypeAdapterFactory<Item> itemFactory = RuntimeTypeAdapterFactory
-                        .of(Item.class, "type")
+                        .of(Item.class, "type", true)
                         .registerSubtype(Weapon.class, "Weapon")
                         .registerSubtype(Armor.class, "Armor")
                         .registerSubtype(Key.class, "Key")
@@ -73,7 +81,7 @@ public abstract class Tools {
                         .registerSubtype(Scroll.class, "Scroll");
 
                 RuntimeTypeAdapterFactory<Enemy> enemyFactory = RuntimeTypeAdapterFactory
-                        .of(Enemy.class, "type")
+                        .of(Enemy.class, "type", true)
                         .registerSubtype(Soldier.class, "Soldier")
                         .registerSubtype(Monster.class, "Monster")
                         .registerSubtype(Mage.class, "Mage");
@@ -83,7 +91,10 @@ public abstract class Tools {
                         .registerTypeAdapterFactory(playerFactory)
                         .registerTypeAdapterFactory(itemFactory)
                         .registerTypeAdapterFactory(enemyFactory);
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(loadFile));
+
+                new GraphAdapterBuilder().addType(Room.class).registerOn(builder);
+
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
                 Gson gson = builder.create();
 
                 loadMap = gson.fromJson(bufferedReader, new TypeToken<List<Room>>() {}.getType());
