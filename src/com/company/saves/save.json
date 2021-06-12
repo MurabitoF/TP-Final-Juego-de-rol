@@ -1,2863 +1,579 @@
 [
   {
-    "0x1": {
-      "id": 1,
-      "description": "",
-      "loot": {
-        "size": "Small",
-        "energyAmount": 10,
-        "uses": 3,
-        "type": "EnergyPotion",
-        "name": "Energy potion"
-      },
-      "player": {
-        "spellBook": [
-          {
-            "name": "Magic Missile",
-            "energyCost": 10,
-            "damage": 4
-          },
-          {
-            "name": "Acid Orb",
-            "energyCost": 15,
-            "damage": 6
-          }
-        ],
-        "type": "Wizard",
-        "backpack": [
-          {
-            "size": "Small",
-            "healingAmount": 5,
-            "uses": 3,
-            "type": "HealingPotion",
-            "name": "Healing Potion"
-          },
-          {
-            "armorBonus": 0,
-            "type": "Armor",
-            "name": "Unarmored"
-          },
-          {
-            "damageDice": 2,
-            "attackBonus": 0,
-            "damageBonus": 1,
-            "type": "Weapon",
-            "name": "Unarmed"
-          }
-        ],
-        "equippedWeapon": {
-          "damageDice": 4,
-          "attackBonus": 1,
+    "id": 1,
+    "description": "",
+    "loot": {
+      "size": "Small",
+      "energyAmount": 10,
+      "uses": 3,
+      "type": "EnergyPotion",
+      "name": "Energy potion"
+    },
+    "player": {
+      "spellBook": [
+        {
+          "name": "Magic Missile",
+          "energyCost": 10,
+          "damage": 4
+        },
+        {
+          "name": "Acid Orb",
+          "energyCost": 15,
+          "damage": 6
+        }
+      ],
+      "type": "Wizard",
+      "backpack": [
+        {
+          "size": "Small",
+          "healingAmount": 5,
+          "uses": 3,
+          "type": "HealingPotion",
+          "name": "Healing Potion"
+        },
+        {
+          "armorBonus": 0,
+          "type": "Armor",
+          "name": "Unarmored"
+        },
+        {
+          "damageDice": 2,
+          "attackBonus": 0,
           "damageBonus": 1,
           "type": "Weapon",
-          "name": "Dagger"
-        },
-        "equippedArmor": {
-          "armorBonus": 1,
-          "type": "Armor",
-          "name": "Leather"
-        },
-        "name": "Agustin",
-        "hitPoints": 15,
-        "energy": 100,
-        "might": 3,
-        "agility": 7,
-        "intelligence": 10
-      },
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Front",
-          "nextRoom": "0x2",
-          "isLocked": false,
-          "symbol": "none"
+          "name": "Unarmed"
         }
-      ]
-    },
-    "0x2": {
-      "id": 2,
-      "description": "",
-      "loot": {
-        "spell": {
-          "name": "Necrotic Ray",
-          "energyCost": 25,
-          "damage": 8
-        },
-        "uses": 1,
-        "type": "Scroll",
-        "name": "Scroll of Necrotic Ray"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Front",
-          "nextRoom": "0x3",
-          "isLocked": true,
-          "symbol": "Square"
-        },
-        {
-          "direction": "Left",
-          "nextRoom": "0x4",
-          "isLocked": false,
-          "symbol": "none"
-        },
-        {
-          "direction": "Back",
-          "nextRoom": "0x1",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x3": {
-      "id": 4,
-      "description": "",
-      "loot": {
-        "armorBonus": 3,
-        "type": "Armor",
-        "name": "Hide"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Front",
-          "nextRoom": "0x5",
-          "isLocked": false,
-          "symbol": "none"
-        },
-        {
-          "direction": "Back",
-          "nextRoom": "0x3",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x4": {
-      "id": 3,
-      "description": "",
-      "loot": {
-        "symbol": "Square",
-        "type": "Key",
-        "name": "Square key"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "type": "Monster",
-            "name": "Monster",
-            "hitPoints": 15,
-            "energy": 20,
-            "might": 3,
-            "agility": 5,
-            "intelligence": 2
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Right",
-          "nextRoom": "0x6",
-          "isLocked": false,
-          "symbol": "none"
-        },
-        {
-          "direction": "Back",
-          "nextRoom": "0x2",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x5": {
-      "id": 6,
-      "description": "",
-      "loot": {
-        "size": "Big",
-        "healingAmount": 15,
-        "uses": 5,
-        "type": "HealingPotion",
-        "name": "Potion of healing"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "type": "Monster",
-            "name": "Monster",
-            "hitPoints": 15,
-            "energy": 20,
-            "might": 3,
-            "agility": 5,
-            "intelligence": 2
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Front",
-          "nextRoom": "0x7",
-          "isLocked": true,
-          "symbol": "Circle"
-        },
-        {
-          "direction": "Right",
-          "nextRoom": "0x8",
-          "isLocked": true,
-          "symbol": "Triangle"
-        },
-        {
-          "direction": "Left",
-          "nextRoom": "0x9",
-          "isLocked": false,
-          "symbol": "none"
-        },
-        {
-          "direction": "Back",
-          "nextRoom": "0x5",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x6": {
-      "id": 5,
-      "description": "",
-      "loot": {
-        "damageDice": 10,
-        "attackBonus": 2,
-        "damageBonus": 2,
+      ],
+      "equippedWeapon": {
+        "damageDice": 4,
+        "attackBonus": 1,
+        "damageBonus": 1,
         "type": "Weapon",
-        "name": "War Axe"
+        "name": "Dagger"
       },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Front",
-          "nextRoom": "0xa",
-          "isLocked": false,
-          "symbol": "none"
-        },
-        {
-          "direction": "Back",
-          "nextRoom": "0x6",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x7": {
-      "id": 10,
-      "description": "",
-      "loot": null,
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "type": "Monster",
-            "name": "BBEG",
-            "hitPoints": 30,
-            "energy": 40,
-            "might": 6,
-            "agility": 5,
-            "intelligence": 4
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0xa",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x8": {
-      "id": 9,
-      "description": "",
-      "loot": {
-        "symbol": "Circle",
-        "type": "Key",
-        "name": "Circle key"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0xa",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x9": {
-      "id": 8,
-      "description": "",
-      "loot": {
-        "symbol": "Triangle",
-        "type": "Key",
-        "name": "Triangle key"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0xa",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0xa": {
-      "id": 7,
-      "description": "",
-      "loot": {
-        "spell": {
-          "name": "Radiant Flame",
-          "energyCost": 30,
-          "damage": 10
-        },
-        "uses": 1,
-        "type": "Scroll",
-        "name": "Scroll of Radiant Flame"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0xa",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    }
-  },
-  {
-    "0x1": {
-      "id": 2,
-      "description": "",
-      "loot": {
-        "spell": {
-          "name": "Necrotic Ray",
-          "energyCost": 25,
-          "damage": 8
-        },
-        "uses": 1,
-        "type": "Scroll",
-        "name": "Scroll of Necrotic Ray"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Front",
-          "nextRoom": "0x2",
-          "isLocked": true,
-          "symbol": "Square"
-        },
-        {
-          "direction": "Left",
-          "nextRoom": "0x3",
-          "isLocked": false,
-          "symbol": "none"
-        },
-        {
-          "direction": "Back",
-          "nextRoom": "0x4",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x2": {
-      "id": 4,
-      "description": "",
-      "loot": {
-        "armorBonus": 3,
+      "equippedArmor": {
+        "armorBonus": 1,
         "type": "Armor",
-        "name": "Hide"
+        "name": "Leather"
       },
+      "name": "Agustin",
+      "hitPoints": 15,
+      "energy": 100,
+      "might": 3,
+      "agility": 7,
+      "intelligence": 10
+    },
+    "combat": {
       "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
+      "enemies": [
         {
-          "direction": "Front",
-          "nextRoom": "0x5",
-          "isLocked": false,
-          "symbol": "none"
-        },
-        {
-          "direction": "Back",
-          "nextRoom": "0x2",
-          "isLocked": false,
-          "symbol": "none"
+          "armorBonus": 0,
+          "type": "Soldier",
+          "name": "Soldier",
+          "hitPoints": 25,
+          "energy": 20,
+          "might": 5,
+          "agility": 3,
+          "intelligence": 2
         }
       ]
     },
-    "0x3": {
-      "id": 3,
-      "description": "",
-      "loot": {
-        "symbol": "Square",
-        "type": "Key",
-        "name": "Square key"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "type": "Monster",
-            "name": "Monster",
-            "hitPoints": 15,
-            "energy": 20,
-            "might": 3,
-            "agility": 5,
-            "intelligence": 2
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Right",
-          "nextRoom": "0x6",
-          "isLocked": false,
-          "symbol": "none"
-        },
-        {
-          "direction": "Back",
-          "nextRoom": "0x1",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x4": {
-      "id": 1,
-      "description": "",
-      "loot": {
-        "size": "Small",
-        "energyAmount": 10,
-        "uses": 3,
-        "type": "EnergyPotion",
-        "name": "Energy potion"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Front",
-          "nextRoom": "0x1",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x5": {
-      "id": 6,
-      "description": "",
-      "loot": {
-        "size": "Big",
-        "healingAmount": 15,
-        "uses": 5,
-        "type": "HealingPotion",
-        "name": "Potion of healing"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "type": "Monster",
-            "name": "Monster",
-            "hitPoints": 15,
-            "energy": 20,
-            "might": 3,
-            "agility": 5,
-            "intelligence": 2
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Front",
-          "nextRoom": "0x7",
-          "isLocked": true,
-          "symbol": "Circle"
-        },
-        {
-          "direction": "Right",
-          "nextRoom": "0x8",
-          "isLocked": true,
-          "symbol": "Triangle"
-        },
-        {
-          "direction": "Left",
-          "nextRoom": "0x9",
-          "isLocked": false,
-          "symbol": "none"
-        },
-        {
-          "direction": "Back",
-          "nextRoom": "0x5",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x6": {
-      "id": 5,
-      "description": "",
-      "loot": {
-        "damageDice": 10,
-        "attackBonus": 2,
-        "damageBonus": 2,
-        "type": "Weapon",
-        "name": "War Axe"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Front",
-          "nextRoom": "0xa",
-          "isLocked": false,
-          "symbol": "none"
-        },
-        {
-          "direction": "Back",
-          "nextRoom": "0x6",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x7": {
-      "id": 10,
-      "description": "",
-      "loot": null,
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "type": "Monster",
-            "name": "BBEG",
-            "hitPoints": 30,
-            "energy": 40,
-            "might": 6,
-            "agility": 5,
-            "intelligence": 4
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0xa",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x8": {
-      "id": 9,
-      "description": "",
-      "loot": {
-        "symbol": "Circle",
-        "type": "Key",
-        "name": "Circle key"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0xa",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x9": {
-      "id": 8,
-      "description": "",
-      "loot": {
-        "symbol": "Triangle",
-        "type": "Key",
-        "name": "Triangle key"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0xa",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0xa": {
-      "id": 7,
-      "description": "",
-      "loot": {
-        "spell": {
-          "name": "Radiant Flame",
-          "energyCost": 30,
-          "damage": 10
-        },
-        "uses": 1,
-        "type": "Scroll",
-        "name": "Scroll of Radiant Flame"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0xa",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    }
+    "doors": [
+      {
+        "direction": "Front",
+        "nextRoomId": 2,
+        "isLocked": false,
+        "symbol": "none"
+      }
+    ]
   },
   {
-    "0x1": {
-      "id": 3,
-      "description": "",
-      "loot": {
-        "symbol": "Square",
-        "type": "Key",
-        "name": "Square key"
+    "id": 2,
+    "description": "",
+    "loot": {
+      "spell": {
+        "name": "Necrotic Ray",
+        "energyCost": 25,
+        "damage": 8
       },
+      "uses": 1,
+      "type": "Scroll",
+      "name": "Scroll of Necrotic Ray"
+    },
+    "player": null,
+    "combat": {
       "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "type": "Monster",
-            "name": "Monster",
-            "hitPoints": 15,
-            "energy": 20,
-            "might": 3,
-            "agility": 5,
-            "intelligence": 2
-          }
-        ]
-      },
-      "doors": [
+      "enemies": [
         {
-          "direction": "Right",
-          "nextRoom": "0x2",
-          "isLocked": false,
-          "symbol": "none"
-        },
-        {
-          "direction": "Back",
-          "nextRoom": "0x3",
-          "isLocked": false,
-          "symbol": "none"
+          "spellBook": [
+            {
+              "name": "Magic Missile",
+              "energyCost": 10,
+              "damage": 4
+            },
+            {
+              "name": "Acid Orb",
+              "energyCost": 15,
+              "damage": 6
+            }
+          ],
+          "type": "Mage",
+          "name": "Mage",
+          "hitPoints": 20,
+          "energy": 50,
+          "might": 4,
+          "agility": 3,
+          "intelligence": 5
         }
       ]
     },
-    "0x2": {
-      "id": 5,
-      "description": "",
-      "loot": {
-        "damageDice": 10,
-        "attackBonus": 2,
-        "damageBonus": 2,
-        "type": "Weapon",
-        "name": "War Axe"
+    "doors": [
+      {
+        "direction": "Front",
+        "nextRoomId": 4,
+        "isLocked": true,
+        "symbol": "Square"
       },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          }
-        ]
+      {
+        "direction": "Left",
+        "nextRoomId": 3,
+        "isLocked": false,
+        "symbol": "none"
       },
-      "doors": [
-        {
-          "direction": "Front",
-          "nextRoom": "0x4",
-          "isLocked": false,
-          "symbol": "none"
-        },
-        {
-          "direction": "Back",
-          "nextRoom": "0x2",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x3": {
-      "id": 2,
-      "description": "",
-      "loot": {
-        "spell": {
-          "name": "Necrotic Ray",
-          "energyCost": 25,
-          "damage": 8
-        },
-        "uses": 1,
-        "type": "Scroll",
-        "name": "Scroll of Necrotic Ray"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Front",
-          "nextRoom": "0x5",
-          "isLocked": true,
-          "symbol": "Square"
-        },
-        {
-          "direction": "Left",
-          "nextRoom": "0x1",
-          "isLocked": false,
-          "symbol": "none"
-        },
-        {
-          "direction": "Back",
-          "nextRoom": "0x6",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x4": {
-      "id": 7,
-      "description": "",
-      "loot": {
-        "spell": {
-          "name": "Radiant Flame",
-          "energyCost": 30,
-          "damage": 10
-        },
-        "uses": 1,
-        "type": "Scroll",
-        "name": "Scroll of Radiant Flame"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0x4",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x5": {
-      "id": 4,
-      "description": "",
-      "loot": {
-        "armorBonus": 3,
-        "type": "Armor",
-        "name": "Hide"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Front",
-          "nextRoom": "0x7",
-          "isLocked": false,
-          "symbol": "none"
-        },
-        {
-          "direction": "Back",
-          "nextRoom": "0x5",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x6": {
-      "id": 1,
-      "description": "",
-      "loot": {
-        "size": "Small",
-        "energyAmount": 10,
-        "uses": 3,
-        "type": "EnergyPotion",
-        "name": "Energy potion"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Front",
-          "nextRoom": "0x3",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x7": {
-      "id": 6,
-      "description": "",
-      "loot": {
-        "size": "Big",
-        "healingAmount": 15,
-        "uses": 5,
-        "type": "HealingPotion",
-        "name": "Potion of healing"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "type": "Monster",
-            "name": "Monster",
-            "hitPoints": 15,
-            "energy": 20,
-            "might": 3,
-            "agility": 5,
-            "intelligence": 2
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Front",
-          "nextRoom": "0x8",
-          "isLocked": true,
-          "symbol": "Circle"
-        },
-        {
-          "direction": "Right",
-          "nextRoom": "0x9",
-          "isLocked": true,
-          "symbol": "Triangle"
-        },
-        {
-          "direction": "Left",
-          "nextRoom": "0xa",
-          "isLocked": false,
-          "symbol": "none"
-        },
-        {
-          "direction": "Back",
-          "nextRoom": "0x7",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x8": {
-      "id": 10,
-      "description": "",
-      "loot": null,
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "type": "Monster",
-            "name": "BBEG",
-            "hitPoints": 30,
-            "energy": 40,
-            "might": 6,
-            "agility": 5,
-            "intelligence": 4
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0x4",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x9": {
-      "id": 9,
-      "description": "",
-      "loot": {
-        "symbol": "Circle",
-        "type": "Key",
-        "name": "Circle key"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0x4",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0xa": {
-      "id": 8,
-      "description": "",
-      "loot": {
-        "symbol": "Triangle",
-        "type": "Key",
-        "name": "Triangle key"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0x4",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    }
+      {
+        "direction": "Back",
+        "nextRoomId": 1,
+        "isLocked": false,
+        "symbol": "none"
+      }
+    ]
   },
   {
-    "0x1": {
-      "id": 4,
-      "description": "",
-      "loot": {
-        "armorBonus": 3,
-        "type": "Armor",
-        "name": "Hide"
-      },
+    "id": 3,
+    "description": "",
+    "loot": {
+      "symbol": "Square",
+      "type": "Key",
+      "name": "Square key"
+    },
+    "player": null,
+    "combat": {
       "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
+      "enemies": [
         {
-          "direction": "Front",
-          "nextRoom": "0x2",
-          "isLocked": false,
-          "symbol": "none"
-        },
-        {
-          "direction": "Back",
-          "nextRoom": "0x1",
-          "isLocked": false,
-          "symbol": "none"
+          "type": "Monster",
+          "name": "Monster",
+          "hitPoints": 20,
+          "energy": 20,
+          "might": 4,
+          "agility": 5,
+          "intelligence": 2
         }
       ]
     },
-    "0x2": {
-      "id": 6,
-      "description": "",
-      "loot": {
-        "size": "Big",
-        "healingAmount": 15,
-        "uses": 5,
-        "type": "HealingPotion",
-        "name": "Potion of healing"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "type": "Monster",
-            "name": "Monster",
-            "hitPoints": 15,
-            "energy": 20,
-            "might": 3,
-            "agility": 5,
-            "intelligence": 2
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Front",
-          "nextRoom": "0x3",
-          "isLocked": true,
-          "symbol": "Circle"
-        },
-        {
-          "direction": "Right",
-          "nextRoom": "0x4",
-          "isLocked": true,
-          "symbol": "Triangle"
-        },
-        {
-          "direction": "Left",
-          "nextRoom": "0x5",
-          "isLocked": false,
-          "symbol": "none"
-        },
-        {
-          "direction": "Back",
-          "nextRoom": "0x2",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x3": {
-      "id": 10,
-      "description": "",
-      "loot": null,
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "type": "Monster",
-            "name": "BBEG",
-            "hitPoints": 30,
-            "energy": 40,
-            "might": 6,
-            "agility": 5,
-            "intelligence": 4
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0x6",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x4": {
-      "id": 9,
-      "description": "",
-      "loot": {
-        "symbol": "Circle",
-        "type": "Key",
-        "name": "Circle key"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0x6",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x5": {
-      "id": 8,
-      "description": "",
-      "loot": {
-        "symbol": "Triangle",
-        "type": "Key",
-        "name": "Triangle key"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0x6",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x6": {
-      "id": 7,
-      "description": "",
-      "loot": {
-        "spell": {
-          "name": "Radiant Flame",
-          "energyCost": 30,
-          "damage": 10
-        },
-        "uses": 1,
-        "type": "Scroll",
-        "name": "Scroll of Radiant Flame"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0x6",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    }
+    "doors": [
+      {
+        "direction": "Back",
+        "nextRoomId": 2,
+        "isLocked": false,
+        "symbol": "none"
+      }
+    ]
   },
   {
-    "0x1": {
-      "id": 5,
-      "description": "",
-      "loot": {
-        "damageDice": 10,
-        "attackBonus": 2,
-        "damageBonus": 2,
-        "type": "Weapon",
-        "name": "War Axe"
-      },
+    "id": 4,
+    "description": "",
+    "loot": {
+      "armorBonus": 3,
+      "type": "Armor",
+      "name": "Hide armor"
+    },
+    "player": null,
+    "combat": {
       "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          }
-        ]
-      },
-      "doors": [
+      "enemies": [
         {
-          "direction": "Front",
-          "nextRoom": "0x2",
-          "isLocked": false,
-          "symbol": "none"
+          "armorBonus": 0,
+          "type": "Soldier",
+          "name": "Soldier",
+          "hitPoints": 25,
+          "energy": 20,
+          "might": 5,
+          "agility": 3,
+          "intelligence": 2
         },
         {
-          "direction": "Back",
-          "nextRoom": "0x1",
-          "isLocked": false,
-          "symbol": "none"
+          "spellBook": [
+            {
+              "name": "Magic Missile",
+              "energyCost": 10,
+              "damage": 4
+            },
+            {
+              "name": "Acid Orb",
+              "energyCost": 15,
+              "damage": 6
+            }
+          ],
+          "type": "Mage",
+          "name": "Mage",
+          "hitPoints": 20,
+          "energy": 50,
+          "might": 4,
+          "agility": 3,
+          "intelligence": 5
         }
       ]
     },
-    "0x2": {
-      "id": 7,
-      "description": "",
-      "loot": {
-        "spell": {
-          "name": "Radiant Flame",
-          "energyCost": 30,
-          "damage": 10
-        },
-        "uses": 1,
-        "type": "Scroll",
-        "name": "Scroll of Radiant Flame"
+    "doors": [
+      {
+        "direction": "Right",
+        "nextRoomId": 5,
+        "isLocked": false,
+        "symbol": "none"
       },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0x2",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    }
+      {
+        "direction": "Back",
+        "nextRoomId": 2,
+        "isLocked": false,
+        "symbol": "none"
+      }
+    ]
   },
   {
-    "0x1": {
-      "id": 6,
-      "description": "",
-      "loot": {
-        "size": "Big",
-        "healingAmount": 15,
-        "uses": 5,
-        "type": "HealingPotion",
-        "name": "Potion of healing"
-      },
+    "id": 5,
+    "description": "",
+    "loot": {
+      "damageDice": 10,
+      "attackBonus": 2,
+      "damageBonus": 2,
+      "type": "Weapon",
+      "name": "War Axe"
+    },
+    "player": null,
+    "combat": {
       "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "type": "Monster",
-            "name": "Monster",
-            "hitPoints": 15,
-            "energy": 20,
-            "might": 3,
-            "agility": 5,
-            "intelligence": 2
-          }
-        ]
-      },
-      "doors": [
+      "enemies": [
         {
-          "direction": "Front",
-          "nextRoom": "0x2",
-          "isLocked": true,
-          "symbol": "Circle"
+          "armorBonus": 0,
+          "type": "Soldier",
+          "name": "Soldier",
+          "hitPoints": 25,
+          "energy": 20,
+          "might": 5,
+          "agility": 3,
+          "intelligence": 2
         },
         {
-          "direction": "Right",
-          "nextRoom": "0x3",
-          "isLocked": true,
-          "symbol": "Triangle"
-        },
-        {
-          "direction": "Left",
-          "nextRoom": "0x4",
-          "isLocked": false,
-          "symbol": "none"
-        },
-        {
-          "direction": "Back",
-          "nextRoom": "0x1",
-          "isLocked": false,
-          "symbol": "none"
+          "armorBonus": 0,
+          "type": "Soldier",
+          "name": "Soldier",
+          "hitPoints": 25,
+          "energy": 20,
+          "might": 5,
+          "agility": 3,
+          "intelligence": 2
         }
       ]
     },
-    "0x2": {
-      "id": 10,
-      "description": "",
-      "loot": null,
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "type": "Monster",
-            "name": "BBEG",
-            "hitPoints": 30,
-            "energy": 40,
-            "might": 6,
-            "agility": 5,
-            "intelligence": 4
-          }
-        ]
+    "doors": [
+      {
+        "direction": "Front",
+        "nextRoomId": 6,
+        "isLocked": false,
+        "symbol": "none"
       },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0x5",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x3": {
-      "id": 9,
-      "description": "",
-      "loot": {
-        "symbol": "Circle",
-        "type": "Key",
-        "name": "Circle key"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0x5",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x4": {
-      "id": 8,
-      "description": "",
-      "loot": {
-        "symbol": "Triangle",
-        "type": "Key",
-        "name": "Triangle key"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0x5",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    },
-    "0x5": {
-      "id": 7,
-      "description": "",
-      "loot": {
-        "spell": {
-          "name": "Radiant Flame",
-          "energyCost": 30,
-          "damage": 10
-        },
-        "uses": 1,
-        "type": "Scroll",
-        "name": "Scroll of Radiant Flame"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0x5",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    }
+      {
+        "direction": "Back",
+        "nextRoomId": 4,
+        "isLocked": false,
+        "symbol": "none"
+      }
+    ]
   },
   {
-    "0x1": {
-      "id": 7,
-      "description": "",
-      "loot": {
-        "spell": {
-          "name": "Radiant Flame",
-          "energyCost": 30,
-          "damage": 10
-        },
-        "uses": 1,
-        "type": "Scroll",
-        "name": "Scroll of Radiant Flame"
-      },
+    "id": 6,
+    "description": "",
+    "loot": {
+      "size": "Big",
+      "healingAmount": 15,
+      "uses": 5,
+      "type": "HealingPotion",
+      "name": "Potion of healing"
+    },
+    "player": null,
+    "combat": {
       "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
+      "enemies": [
         {
-          "direction": "Back",
-          "nextRoom": "0x1",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    }
-  },
-  {
-    "0x1": {
-      "id": 8,
-      "description": "",
-      "loot": {
-        "symbol": "Triangle",
-        "type": "Key",
-        "name": "Triangle key"
-      },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0x2",
-          "isLocked": false,
-          "symbol": "none"
+          "type": "Monster",
+          "name": "Monster",
+          "hitPoints": 20,
+          "energy": 20,
+          "might": 4,
+          "agility": 5,
+          "intelligence": 2
         }
       ]
     },
-    "0x2": {
-      "id": 7,
-      "description": "",
-      "loot": {
-        "spell": {
-          "name": "Radiant Flame",
-          "energyCost": 30,
-          "damage": 10
-        },
-        "uses": 1,
-        "type": "Scroll",
-        "name": "Scroll of Radiant Flame"
+    "doors": [
+      {
+        "direction": "Front",
+        "nextRoomId": 7,
+        "isLocked": false,
+        "symbol": "none"
       },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0x2",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    }
+      {
+        "direction": "Back",
+        "nextRoomId": 5,
+        "isLocked": false,
+        "symbol": "none"
+      }
+    ]
   },
   {
-    "0x1": {
-      "id": 9,
-      "description": "",
-      "loot": {
-        "symbol": "Circle",
-        "type": "Key",
-        "name": "Circle key"
+    "id": 7,
+    "description": "",
+    "loot": {
+      "spell": {
+        "name": "Radiant Flame",
+        "energyCost": 30,
+        "damage": 10
       },
+      "uses": 1,
+      "type": "Scroll",
+      "name": "Scroll of Radiant Flame"
+    },
+    "player": null,
+    "combat": {
       "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
+      "enemies": [
         {
-          "direction": "Back",
-          "nextRoom": "0x2",
-          "isLocked": false,
-          "symbol": "none"
+          "armorBonus": 0,
+          "type": "Soldier",
+          "name": "Soldier",
+          "hitPoints": 25,
+          "energy": 20,
+          "might": 5,
+          "agility": 3,
+          "intelligence": 2
+        },
+        {
+          "spellBook": [
+            {
+              "name": "Magic Missile",
+              "energyCost": 10,
+              "damage": 4
+            },
+            {
+              "name": "Acid Orb",
+              "energyCost": 15,
+              "damage": 6
+            }
+          ],
+          "type": "Mage",
+          "name": "Mage",
+          "hitPoints": 20,
+          "energy": 50,
+          "might": 4,
+          "agility": 3,
+          "intelligence": 5
+        },
+        {
+          "spellBook": [
+            {
+              "name": "Magic Missile",
+              "energyCost": 10,
+              "damage": 4
+            },
+            {
+              "name": "Acid Orb",
+              "energyCost": 15,
+              "damage": 6
+            }
+          ],
+          "type": "Mage",
+          "name": "Mage",
+          "hitPoints": 20,
+          "energy": 50,
+          "might": 4,
+          "agility": 3,
+          "intelligence": 5
         }
       ]
     },
-    "0x2": {
-      "id": 7,
-      "description": "",
-      "loot": {
-        "spell": {
-          "name": "Radiant Flame",
-          "energyCost": 30,
-          "damage": 10
-        },
-        "uses": 1,
-        "type": "Scroll",
-        "name": "Scroll of Radiant Flame"
+    "doors": [
+      {
+        "direction": "Front",
+        "nextRoomId": 10,
+        "isLocked": true,
+        "symbol": "Circle"
       },
-      "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
+      {
+        "direction": "Right",
+        "nextRoomId": 9,
+        "isLocked": true,
+        "symbol": "Triangle"
       },
-      "doors": [
-        {
-          "direction": "Back",
-          "nextRoom": "0x2",
-          "isLocked": false,
-          "symbol": "none"
-        }
-      ]
-    }
+      {
+        "direction": "Left",
+        "nextRoomId": 8,
+        "isLocked": false,
+        "symbol": "none"
+      },
+      {
+        "direction": "Back",
+        "nextRoomId": 6,
+        "isLocked": false,
+        "symbol": "none"
+      }
+    ]
   },
   {
-    "0x1": {
-      "id": 10,
-      "description": "",
-      "loot": null,
+    "id": 8,
+    "description": "",
+    "loot": {
+      "symbol": "Triangle",
+      "type": "Key",
+      "name": "Triangle key"
+    },
+    "player": null,
+    "combat": {
       "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "type": "Monster",
-            "name": "BBEG",
-            "hitPoints": 30,
-            "energy": 40,
-            "might": 6,
-            "agility": 5,
-            "intelligence": 4
-          }
-        ]
-      },
-      "doors": [
+      "enemies": [
         {
-          "direction": "Back",
-          "nextRoom": "0x2",
-          "isLocked": false,
-          "symbol": "none"
+          "spellBook": [
+            {
+              "name": "Magic Missile",
+              "energyCost": 10,
+              "damage": 4
+            },
+            {
+              "name": "Acid Orb",
+              "energyCost": 15,
+              "damage": 6
+            }
+          ],
+          "type": "Mage",
+          "name": "Mage",
+          "hitPoints": 20,
+          "energy": 50,
+          "might": 4,
+          "agility": 3,
+          "intelligence": 5
+        },
+        {
+          "spellBook": [
+            {
+              "name": "Magic Missile",
+              "energyCost": 10,
+              "damage": 4
+            },
+            {
+              "name": "Acid Orb",
+              "energyCost": 15,
+              "damage": 6
+            }
+          ],
+          "type": "Mage",
+          "name": "Mage",
+          "hitPoints": 20,
+          "energy": 50,
+          "might": 4,
+          "agility": 3,
+          "intelligence": 5
         }
       ]
     },
-    "0x2": {
-      "id": 7,
-      "description": "",
-      "loot": {
-        "spell": {
-          "name": "Radiant Flame",
-          "energyCost": 30,
-          "damage": 10
-        },
-        "uses": 1,
-        "type": "Scroll",
-        "name": "Scroll of Radiant Flame"
-      },
+    "doors": [
+      {
+        "direction": "Back",
+        "nextRoomId": 7,
+        "isLocked": false,
+        "symbol": "none"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "description": "",
+    "loot": {
+      "symbol": "Circle",
+      "type": "Key",
+      "name": "Circle key"
+    },
+    "player": null,
+    "combat": {
       "player": null,
-      "combat": {
-        "player": null,
-        "enemies": [
-          {
-            "armorBonus": 0,
-            "type": "Soldier",
-            "name": "Soldier",
-            "hitPoints": 25,
-            "energy": 20,
-            "might": 5,
-            "agility": 3,
-            "intelligence": 2
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          },
-          {
-            "spellBook": [
-              {
-                "name": "Magic Missile",
-                "energyCost": 10,
-                "damage": 4
-              },
-              {
-                "name": "Acid Orb",
-                "energyCost": 15,
-                "damage": 6
-              }
-            ],
-            "type": "Mage",
-            "name": "Mage",
-            "hitPoints": 10,
-            "energy": 50,
-            "might": 2,
-            "agility": 3,
-            "intelligence": 5
-          }
-        ]
-      },
-      "doors": [
+      "enemies": [
         {
-          "direction": "Back",
-          "nextRoom": "0x2",
-          "isLocked": false,
-          "symbol": "none"
+          "armorBonus": 0,
+          "type": "Soldier",
+          "name": "Soldier",
+          "hitPoints": 25,
+          "energy": 20,
+          "might": 5,
+          "agility": 3,
+          "intelligence": 2
+        },
+        {
+          "spellBook": [
+            {
+              "name": "Magic Missile",
+              "energyCost": 10,
+              "damage": 4
+            },
+            {
+              "name": "Acid Orb",
+              "energyCost": 15,
+              "damage": 6
+            }
+          ],
+          "type": "Mage",
+          "name": "Mage",
+          "hitPoints": 20,
+          "energy": 50,
+          "might": 4,
+          "agility": 3,
+          "intelligence": 5
         }
       ]
-    }
+    },
+    "doors": [
+      {
+        "direction": "Back",
+        "nextRoomId": 7,
+        "isLocked": false,
+        "symbol": "none"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "description": "",
+    "loot": null,
+    "player": null,
+    "combat": {
+      "player": null,
+      "enemies": [
+        {
+          "type": "Monster",
+          "name": "BBEG",
+          "hitPoints": 35,
+          "energy": 40,
+          "might": 7,
+          "agility": 5,
+          "intelligence": 4
+        }
+      ]
+    },
+    "doors": [
+      {
+        "direction": "Back",
+        "nextRoomId": 7,
+        "isLocked": false,
+        "symbol": "none"
+      }
+    ]
   }
 ]

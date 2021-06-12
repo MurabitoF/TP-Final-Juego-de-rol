@@ -2,6 +2,7 @@ package com.company.rooms;
 
 import com.company.character.Player;
 import com.company.items.Item;
+import com.company.utils.Tools;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +75,12 @@ public class Room {
     }
 
     public void openDoor(Door choseDoor){
-       choseDoor.getNextRoom().setPlayer(this.player);
-       this.player = null;
+       Room nextRoom = Tools.findRoomById(choseDoor.getNextRoomId());
+       if (nextRoom != null){
+           nextRoom.setPlayer(this.player);
+           this.player = null;
+       }else{
+           System.out.println("An error has ocurred");
+       }
     }
 }

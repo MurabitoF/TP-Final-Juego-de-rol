@@ -40,6 +40,15 @@ public abstract class Tools {
 
     public static List<Room> map = new ArrayList<>();
 
+    public static Room findRoomById(int roomId){
+        for (Room room : map) {
+            if (room.getId() == roomId){
+                return room;
+            }
+        }
+        return null;
+    }
+
     public static int getRandomNumber(int limit) {
         return (int) Math.floor(Math.random() * limit + 1);
     }
@@ -49,7 +58,6 @@ public abstract class Tools {
 
         try {
             GsonBuilder builder = new GsonBuilder().serializeNulls().setPrettyPrinting();
-            new GraphAdapterBuilder().addType(Room.class).registerOn(builder);
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(saveFile));
             Gson gson = builder.create();
             bufferedWriter.write(gson.toJson(map));
@@ -91,8 +99,6 @@ public abstract class Tools {
                         .registerTypeAdapterFactory(playerFactory)
                         .registerTypeAdapterFactory(itemFactory)
                         .registerTypeAdapterFactory(enemyFactory);
-
-                new GraphAdapterBuilder().addType(Room.class).registerOn(builder);
 
                 BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
                 Gson gson = builder.create();

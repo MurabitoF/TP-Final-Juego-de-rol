@@ -1,13 +1,10 @@
 package com.company.character;
 
-import com.company.items.Armor;
 import com.company.items.Item;
-import com.company.items.Weapon;
 import com.company.rooms.Turn;
 import com.company.utils.Tools;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Wizard extends Player implements IMagic{
@@ -34,7 +31,7 @@ public class Wizard extends Player implements IMagic{
                 return new Turn(this, this, "Recovered energy", this.getIntelligence()*2);
             }else
             {
-                this.setEnergy(setInitialEnergy());
+                this.setEnergy(setMaxEnergy());
                 return new Turn(this, this, "Maxed out energy", this.getEnergy());
             }
         }
@@ -72,5 +69,12 @@ public class Wizard extends Player implements IMagic{
         }else {
             return new Turn (this, target, "Missed a spell", 0);
         }
+    }
+
+    @Override
+    public String statePlayerInCombat(){
+        String player = this.getName() + "\n";
+        player = player + "HP: " + this.getHitPoints() + "\t Energy: " + this.getEnergy() + "\n";
+        return player;
     }
 }
