@@ -77,4 +77,6 @@ public class Room {
        choseDoor.getNextRoom().setPlayer(this.player);
        this.player = null;
     }
+
+    //hacer toString
 }

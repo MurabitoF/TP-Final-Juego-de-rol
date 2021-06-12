@@ -33,16 +33,16 @@ public class Rogue extends Player{
             int damage = (Tools.getRandomNumber(this.getEquippedWeapon().getDamageDice())+this.getAgility())*2;
             target.setHitPoints(target.getHitPoints()-damage);
             this.setEnergy(this.getEnergy()-25);
-            return new Turn(this, target, "sneak attacked ", damage);
+            return new Turn(this, target, " sneak attacked ", damage);
         } else{
-            return new Turn(this, target, "missed ", 0);
+            return new Turn(this, target, " missed ", 0);
         }
     }
 
     public Turn aim()
     {
         this.setAiming(true); //falta establecer el beneficio de esconderse
-        return new Turn(this, this, "aiming", 0);
+        return new Turn(this, this, " aiming ", 0);
     }
 
     @Override
@@ -56,9 +56,9 @@ public class Rogue extends Player{
         {
             int damage = Tools.getRandomNumber(this.getEquippedWeapon().getDamageDice())+this.getAgility()+this.getEquippedWeapon().getDamageBonus();
             target.setHitPoints(target.getHitPoints()-damage);
-            return new Turn(this, target, "attacked ", damage);
+            return new Turn(this, target, " attacked ", damage);
         } else{
-            return new Turn(this, target, "missed ", 0);
+            return new Turn(this, target, " missed ", 0);
         }
     }
 }

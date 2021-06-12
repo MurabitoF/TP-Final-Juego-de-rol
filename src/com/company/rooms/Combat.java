@@ -64,12 +64,14 @@ public class Combat {
             while(enemyIterator.hasNext()) {
                 Enemy enemy = enemyIterator.next();
                 turns.add(playerAction()); //agregar mostrar turno tras acción
+                System.out.println(turns.get(turns.size()-1).showTurn() + "\n");
                 if (enemy.getHitPoints() <= 0) {
                     System.out.println(enemy.getName() + " is dead.");
                     enemyIterator.remove();
                     deleteEnemy(enemy);
                 } else {
                     turns.add(enemy.makeAction(player));
+                    System.out.println(turns.get(turns.size()-1).showTurn() + "\n");
                 }
             }
         }

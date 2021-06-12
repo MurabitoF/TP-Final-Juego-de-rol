@@ -56,9 +56,9 @@ public class Wizard extends Player implements IMagic{
         {
             int damage = Tools.getRandomNumber(this.getEquippedWeapon().getDamageDice()) + this.getMight();
             target.setHitPoints(target.getHitPoints() - damage);
-            return new Turn(this, target, "attacked ", damage);
+            return new Turn(this, target, " attacked ", damage);
         } else{
-            return new Turn(this, target, "missed ", 0);
+            return new Turn(this, target, " missed ", 0);
         }
     }
 
@@ -68,9 +68,9 @@ public class Wizard extends Player implements IMagic{
         {
             this.setEnergy(this.getEnergy()-spell.getEnergyCost());
             target.setHitPoints(target.getHitPoints() - spell.getDamage() - this.getIntelligence());
-            return new Turn (this, target, "Cast: " + spell.getName(), spell.getDamage());
+            return new Turn (this, target, " casted " + spell.getName(), spell.getDamage());
         }else {
-            return new Turn (this, target, "Missed a spell", 0);
+            return new Turn (this, target, " missed a spell ", 0);
         }
     }
 }

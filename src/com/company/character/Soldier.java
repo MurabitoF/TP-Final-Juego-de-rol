@@ -25,7 +25,7 @@ public class Soldier extends Enemy{
     {
         this.armorBonus = 5 + Tools.getRandomNumber(5);
         this.setEnergy(this.getEnergy() - 10);
-        return new Turn(this, this, "defensive posture", this.armorBonus);
+        return new Turn(this, this, " entered defensive posture ", this.armorBonus);
     }
 
     @Override
@@ -50,9 +50,9 @@ public class Soldier extends Enemy{
         if(Tools.getRandomNumber(20) >= target.getArmor()){
             int damage = Tools.getRandomNumber(8) + this.getMight();
             target.setHitPoints(target.getHitPoints() - damage);
-            return new Turn(this, target, "attacked", damage);
+            return new Turn(this, target, " attacked ", damage);
         }else{
-            return new Turn(this, target, "miss attack", 0);
+            return new Turn(this, target, " missed an attack ", 0);
         }
     }
 }

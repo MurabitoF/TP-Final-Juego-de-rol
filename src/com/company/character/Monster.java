@@ -14,7 +14,7 @@ public class Monster extends Enemy{
     {
         int numOfAttacks = Tools.getRandomNumber(3) + 1;
         this.setEnergy(this.getEnergy() - 20);
-        Turn turn = new Turn(this, target, "attaqued " + numOfAttacks + " times", 0);
+        Turn turn = new Turn(this, target, " attacked " + numOfAttacks + " times ", 0);
         for (int i = 0; i < numOfAttacks; i++){
             turn.setResultOfAction(turn.getResultOfAction() + makeAttack(target).getResultOfAction());
         }
@@ -43,9 +43,9 @@ public class Monster extends Enemy{
         if(Tools.getRandomNumber(20) >= target.getArmor()){
             int damage = Tools.getRandomNumber(6) + this.getAgility();
             target.setHitPoints(target.getHitPoints() - damage + this.getAgility());
-            return new Turn(this, target, "attacked", damage);
+            return new Turn(this, target, " attacked ", damage);
         }else{
-            return new Turn(this, target, "miss attack", 0);
+            return new Turn(this, target, " missed an attack ", 0);
         }
     }
 }

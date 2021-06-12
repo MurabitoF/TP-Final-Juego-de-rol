@@ -167,6 +167,7 @@ public abstract class Menu {
                         }
                     }else{
                         room.getPlayer().pickupLoot(room.getLoot());
+                        System.out.println(room.getPlayer().getName() + " picked up " + room.getLoot().getName());
                     }
                     break;
                 case 4:
@@ -481,9 +482,12 @@ public abstract class Menu {
         System.out.println("You're standing in front of the " + door.getDirection() + " door");
 
         do{
+            System.out.println("0. Back to room");
             System.out.println("1. Open door");
-            System.out.println("2. Use a key");
-            System.out.println("3. Back to room");
+            if (door.isLocked())
+            {
+                System.out.println("2. Use a key");
+            }
 
             try{
                 System.out.println();
@@ -500,19 +504,22 @@ public abstract class Menu {
                         System.out.println("The door is locked, use a key to open it");
                     }else{
                         room.openDoor(door);
+                        System.out.println(room.getPlayer().getName() + " entered the " + door.getDirection() + " door.");
                         roomMenu(door.getNextRoom());
                     }
                     break;
                 case 2:
-                    Item key = selectItem(room.getPlayer());
-                    if (key instanceof Key && ((Key) key).getSymbol().equals(door.getSymbol())){
-                        door.setLocked(false);
-                    }else {
-                        System.out.println("You can't use this on the door");
+                    if (door.isLocked()) {
+                        Item key = selectItem(room.getPlayer());
+                        if (key instanceof Key && ((Key) key).getSymbol().equals(door.getSymbol())) {
+                            door.setLocked(false);
+                        } else {
+                            System.out.println("You can't use this on the door");
+                        }
                     }
                     break;
             }
-        }while(option != 3);
+        }while(option != 0);
     }
 
     public static void deadScreen(){

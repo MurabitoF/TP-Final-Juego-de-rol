@@ -31,17 +31,17 @@ public class Warrior extends Player{
         {
             int damage = Tools.getRandomNumber(this.getEquippedWeapon().getDamageDice()) + (this.getMight()*2) +this.getEquippedWeapon().getDamageBonus();
             target.setHitPoints(target.getHitPoints()-damage);
-            return new Turn(this, target, "Reckless Attacked ", damage);
+            return new Turn(this, target, " reckless attacked ", damage);
         }else
         {
-            return new Turn(this, target, "missed ", 0);
+            return new Turn(this, target, " missed against ", 0);
         }
     }
 
     public Turn rage()
     {
         this.setRaging(true);
-        return new Turn(this, this, "raging", 0);
+        return new Turn(this, this, " raged", 0);
     }
 
     @Override
@@ -55,9 +55,9 @@ public class Warrior extends Player{
         {
             int damage = Tools.getRandomNumber(this.getEquippedWeapon().getDamageDice())+this.getMight()+this.getEquippedWeapon().getDamageBonus();
             target.setHitPoints(target.getHitPoints()-damage);
-            return new Turn(this, target, "attacked ", damage);
+            return new Turn(this, target, " attacked ", damage);
         } else{
-            return new Turn(this, target, "missed ", 0);
+            return new Turn(this, target, " missed ", 0);
         }
     }
 
