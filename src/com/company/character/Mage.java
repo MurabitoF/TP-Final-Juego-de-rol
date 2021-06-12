@@ -40,7 +40,7 @@ public class Mage extends Enemy implements IMagic{
 
         if (action <= 35 || this.getEnergy() < 10){
             return makeAttack(target);
-        }else if (this.getEnergy() <= this.setInitialEnergy() * 0.3){
+        }else if (this.getEnergy() <= this.setMaxEnergy() * 0.3){
             return drainEnergy(target);
         }else{
             int spell = Tools.getRandomNumber(this.spellBook.size()) - 1;

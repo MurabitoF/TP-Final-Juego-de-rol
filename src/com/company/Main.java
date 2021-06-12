@@ -21,13 +21,13 @@ public class Main {
     public static void main(String[] args) {
         Menu.mainMenu();
         /*Soldier soldier = new Soldier("Soldier", 5, 3, 2);
-        Mage mage = new Mage("Mage", 2, 3, 5, Arrays.asList(Tools.INITIAL_SPELLBOOK));
-        Monster monster = new Monster("Monster", 3, 5, 2);
-        Monster boss = new Monster("BBEG", 6, 5, 4);
+        Mage mage = new Mage("Mage", 4, 3, 5, Arrays.asList(Tools.INITIAL_SPELLBOOK));
+        Monster monster = new Monster("Monster", 4, 5, 2);
+        Monster boss = new Monster("BBEG", 7, 5, 4);
 
         EnergyPotion energyPotionSmall = new EnergyPotion("Energy potion", 3, "Small", 10);
         Scroll scrollNecroticRay = new Scroll("Scroll of Necrotic Ray", Tools.SPELL_LIST[4]);
-        Armor armor = new Armor("Hide", 3);
+        Armor armor = new Armor("Hide armor", 3);
         Weapon warAxe = new Weapon("War Axe", 2, 2, 10);
         HealingPotion bigHealigPotion = new HealingPotion("Potion of healing", 5, "Big", 15);
         Scroll scrollRadiantFlame = new Scroll("Scroll of Radiant Flame", Tools.SPELL_LIST[6]);
@@ -81,50 +81,50 @@ public class Main {
         Room room10 = new Room(10, "", null, null, combat10);
 
         //sala1
-        Door door1 = new Door("Front", room2, false, "none");
+        Door door1 = new Door("Front", 2, false, "none");
         List<Door> doors1 = new ArrayList<>();
         doors1.add(door1);
 
         //sala2
-        Door door2 = new Door("Front", room4, true, "Square");
-        Door door3 = new Door("Left", room3, false, "none");
-        Door door4 = new Door("Back", room1, false, "none");
+        Door door2 = new Door("Front", 4, true, "Square");
+        Door door3 = new Door("Left", 3, false, "none");
+        Door door4 = new Door("Back", 1, false, "none");
         List<Door> doors2 = new ArrayList<>();
         doors2.add(door2);
         doors2.add(door3);
         doors2.add(door4);
 
         //sala3
-        Door door5 = new Door("Back", room2, false, "none");
+        Door door5 = new Door("Back", 2, false, "none");
         List<Door> doors3 = new ArrayList<>();
         doors3.add(door5);
 
         //sala4
-        Door door6 = new Door("Right", room5, false, "none");
-        Door door7 = new Door("Back", room2, false, "none");
+        Door door6 = new Door("Right", 5, false, "none");
+        Door door7 = new Door("Back", 2, false, "none");
         List<Door> doors4 = new ArrayList<>();
         doors4.add(door6);
         doors4.add(door7);
 
         //sala5
-        Door door8 = new Door("Front", room6, false, "none");
-        Door door9 = new Door("Back", room4, false, "none");
+        Door door8 = new Door("Front", 6, false, "none");
+        Door door9 = new Door("Back", 4, false, "none");
         List<Door> doors5 = new ArrayList<>();
         doors5.add(door8);
         doors5.add(door9);
 
         //sala6
-        Door door10 = new Door("Front", room7, false, "none");
-        Door door11 = new Door("Back", room5, false, "none");
+        Door door10 = new Door("Front", 7, false, "none");
+        Door door11 = new Door("Back", 5, false, "none");
         List<Door> doors6 = new ArrayList<>();
         doors6.add(door10);
         doors6.add(door11);
 
         //sala7
-        Door door12 = new Door("Front", room10, true, "Circle");
-        Door door13 = new Door("Right", room9, true, "Triangle");
-        Door door14 = new Door("Left", room8, false, "none");
-        Door door15 = new Door("Back", room6, false, "none");
+        Door door12 = new Door("Front", 10, true, "Circle");
+        Door door13 = new Door("Right", 9, true, "Triangle");
+        Door door14 = new Door("Left", 8, false, "none");
+        Door door15 = new Door("Back", 6, false, "none");
         List<Door> doors7 = new ArrayList<>();
         doors7.add(door12);
         doors7.add(door13);
@@ -132,27 +132,27 @@ public class Main {
         doors7.add(door15);
 
         //sala 8
-        Door door16 = new Door("Back", room7, false, "none");
+        Door door16 = new Door("Back", 7, false, "none");
         List<Door> doors8 = new ArrayList<>();
         doors8.add(door16);
 
         //sala 9
-        Door door17 = new Door("Back", room7, false, "none");
+        Door door17 = new Door("Back", 7, false, "none");
         List<Door> doors9 = new ArrayList<>();
         doors9.add(door17);
 
         //sala 10
-        Door door18 = new Door("Back", room7, false, "none");
+        Door door18 = new Door("Back", 7, false, "none");
         List<Door> doors10 = new ArrayList<>();
         doors10.add(door18);
 
         room1.setDoors(doors1);
         room2.setDoors(doors2);
-        room3.setDoors(doors4);
-        room4.setDoors(doors5);
-        room5.setDoors(doors6);
-        room6.setDoors(doors7);
-        room7.setDoors(doors8);
+        room3.setDoors(doors3);
+        room4.setDoors(doors4);
+        room5.setDoors(doors5);
+        room6.setDoors(doors6);
+        room7.setDoors(doors7);
         room8.setDoors(doors8);
         room9.setDoors(doors9);
         room10.setDoors(doors10);
@@ -173,8 +173,8 @@ public class Main {
 
         Tools.saveGame(Tools.INITIAL_MAP_FILE);*/
 
-//        Tools.map = Tools.loadGame(Tools.INITIAL_MAP_FILE);
-//
-//        System.out.println(Tools.map.get(0).getLoot().getType());
+        /*Tools.map = Tools.loadGame(Tools.SAVE_FILE);
+
+        System.out.println(Tools.findPlayer().getPlayer());*/
     }
 }

@@ -63,11 +63,13 @@ public class Combat {
             Iterator<Enemy> enemyIterator = this.enemies.iterator();
             while(enemyIterator.hasNext()) {
                 Enemy enemy = enemyIterator.next();
-                turns.add(playerAction()); //agregar mostrar turno tras acción
+                System.out.println(this.player.statePlayerInCombat());
+                turns.add(playerAction());
                 if (enemy.getHitPoints() <= 0) {
                     System.out.println(enemy.getName() + " is dead.");
                     enemyIterator.remove();
                     deleteEnemy(enemy);
+                    Menu.waitForKeyboardInput();
                 } else {
                     turns.add(enemy.makeAction(player));
                 }

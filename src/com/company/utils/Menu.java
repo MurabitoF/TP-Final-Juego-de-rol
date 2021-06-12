@@ -14,6 +14,12 @@ import java.util.Scanner;
 
 public abstract class Menu {
 
+    public static void waitForKeyboardInput(){
+        Scanner input = new Scanner(System.in);
+        System.out.print("....");
+        input.nextLine();
+    }
+
     public static void mainMenu(){
         Scanner input = new Scanner(System.in);
         int option = -1;
@@ -28,6 +34,7 @@ public abstract class Menu {
                 option = input.nextInt();
             }catch (InputMismatchException e){
                 System.out.println(Tools.INPUT_ERROR);
+                input.nextLine();
             }
 
         }while (option < 0 || option > 2);
@@ -127,6 +134,7 @@ public abstract class Menu {
         room.getCombat().setPlayer(room.getPlayer());
 
         while(true) {
+            System.out.println(room.getPlayer().statePlayer());
             System.out.println("1. Take look in the room");
             System.out.println("2. Use a item of the backpack");
             if (!room.getCombat().isOver()){
@@ -166,7 +174,14 @@ public abstract class Menu {
                             deadScreen();
                         }
                     }else{
-                        room.getPlayer().pickupLoot(room.getLoot());
+                        if(room.getLoot() != null){
+                            room.getPlayer().pickupLoot(room.getLoot());
+                            System.out.println(room.getPlayer().getName() + " has picked up a " + room.getLoot().getName());
+                            room.setLoot(null);
+                            waitForKeyboardInput();
+                        }else{
+                            System.out.println("There's nothing to pick up");
+                        }
                     }
                     break;
                 case 4:
@@ -176,13 +191,17 @@ public abstract class Menu {
                     }
                     break;
                 case 5:
-                    selectItem = selectItem(room.getPlayer());
-                    while (!(selectItem instanceof Scroll)){
-                        System.out.println("You must choose a scroll");
+                    if(room.getPlayer() instanceof Wizard){
                         selectItem = selectItem(room.getPlayer());
+                        if (!(selectItem instanceof Scroll)){
+                            if (selectItem != null){
+                                System.out.println("You must choose a scroll");
+                            }
+                        }else{
+                            ((Wizard)room.getPlayer()).learnSpell(((Scroll) selectItem).getSpell());
+                            room.getPlayer().updateUses((Consumible) selectItem);
+                        }
                     }
-                    ((Wizard)room.getPlayer()).learnSpell(((Scroll) selectItem).getSpell());
-                    room.getPlayer().updateUses((Consumible) selectItem);
                     break;
                 case  0:
                     pauseMenu();
@@ -206,7 +225,7 @@ public abstract class Menu {
 
             try{
                 System.out.println();
-                System.out.print(">>>");
+                System.out.print(">>> ");
                 option = input.nextInt();
             }catch (InputMismatchException e){
                 System.out.println(Tools.INPUT_ERROR);
@@ -214,6 +233,9 @@ public abstract class Menu {
 
             if (option == 0){
                 pauseMenu();
+            }else if(option == 3 && combat.getPlayer().getEnergy() < 10){
+                System.out.println(combat.getPlayer().getName() + " doesn't have enough energy to make a reckless attack");
+                option = -1;
             }
         }while (option < 1 || option > 4);
 
@@ -261,7 +283,7 @@ public abstract class Menu {
 
             try{
                 System.out.println();
-                System.out.print(">>>");
+                System.out.print(">>> ");
                 option = input.nextInt();
             }catch (InputMismatchException e){
                 System.out.println(Tools.INPUT_ERROR);
@@ -269,6 +291,9 @@ public abstract class Menu {
 
             if(option == 0){
                 pauseMenu();
+            }else if(option == 4 && combat.getPlayer().getEnergy() < 25){
+                System.out.println(combat.getPlayer().getName() + " doesn't have enough energy to make a sneak attack");
+                option = -1;
             }
         }while(option < 1 || option > 4);
 
@@ -316,13 +341,16 @@ public abstract class Menu {
 
             try{
                 System.out.println();
-                System.out.print(">>>");
+                System.out.print(">>> ");
                 option = input.nextInt();
             }catch (InputMismatchException e){
                 System.out.println(Tools.INPUT_ERROR);
             }
             if(option == 0){
                 pauseMenu();
+            }else if(option == 4 && combat.getPlayer().getEnergy() < 10){
+                System.out.println(combat.getPlayer().getName() + " doesn't have enough energy to cast an spell");
+                option = -1;
             }
         }while (option < 1 || option > 4);
 
@@ -482,7 +510,9 @@ public abstract class Menu {
 
         do{
             System.out.println("1. Open door");
-            System.out.println("2. Use a key");
+            if(door.isLocked()){
+                System.out.println("2. Use a key");
+            }
             System.out.println("3. Back to room");
 
             try{
@@ -500,16 +530,19 @@ public abstract class Menu {
                         System.out.println("The door is locked, use a key to open it");
                     }else{
                         room.openDoor(door);
-                        roomMenu(door.getNextRoom());
+                        Room nextRoom = Tools.findRoomById(door.getNextRoomId());
+                        roomMenu(nextRoom);
                     }
                     break;
                 case 2:
-                    Item key = selectItem(room.getPlayer());
-                    if (key instanceof Key && ((Key) key).getSymbol().equals(door.getSymbol())){
-                        door.setLocked(false);
-                    }else {
-                        System.out.println("You can't use this on the door");
-                    }
+                   if(door.isLocked()){
+                       Item key = selectItem(room.getPlayer());
+                       if (key instanceof Key && ((Key) key).getSymbol().equals(door.getSymbol())){
+                           door.setLocked(false);
+                       }else {
+                           System.out.println("You can't use this on the door");
+                       }
+                   }
                     break;
             }
         }while(option != 3);

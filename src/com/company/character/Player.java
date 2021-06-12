@@ -86,28 +86,28 @@ public abstract class Player extends Character {
     {
         if (potion instanceof HealingPotion)
         {
-            if (this.getHitPoints()<= this.getHitPoints()-((HealingPotion) potion).getHealingAmount())
+            if (this.setMaxHp() >= this.getHitPoints() + ((HealingPotion) potion).getHealingAmount())
             {
-                this.setHitPoints(((HealingPotion) potion).getHealingAmount());
+                this.setHitPoints(this.getHitPoints() + ((HealingPotion) potion).getHealingAmount());
                 this.updateUses(potion);
                 return new Turn(this,this,"Drinked:" + potion.getName(), ((HealingPotion) potion).getHealingAmount());
             } else
             {
-                this.setHitPoints(this.setInitialHp());
+                this.setHitPoints(this.setMaxHp());
                 this.updateUses(potion);
                 return new Turn(this,this,"Drinked:" + potion.getName(), ((HealingPotion) potion).getHealingAmount());
             }
         } else
         {
-            if (this.getEnergy()<=this.getEnergy()-((EnergyPotion)potion).getEnergyAmount())
+            if (this.setMaxEnergy() >= this.getEnergy() + ((EnergyPotion)potion).getEnergyAmount())
             {
-                this.setEnergy(((EnergyPotion) potion).getEnergyAmount());
+                this.setEnergy(this.getEnergy() + ((EnergyPotion) potion).getEnergyAmount());
                 this.updateUses(potion);
                 return new Turn(this,this,"Drinked:" + potion.getName(), ((EnergyPotion) potion).getEnergyAmount());
 
             } else
             {
-                this.setEnergy(this.setInitialEnergy());
+                this.setEnergy(this.setMaxEnergy());
                 this.updateUses(potion);
                 return new Turn(this,this,"Drinked:" + potion.getName(), ((EnergyPotion) potion).getEnergyAmount());
             }
@@ -135,4 +135,14 @@ public abstract class Player extends Character {
         }
     }
 
+    public String statePlayer(){
+        String player = this.getName() + "\n";
+        player = player + "HP: " + this.getHitPoints() + "\t Energy: " + this.getEnergy() + "\n";
+
+        player = player + "Weapon equipped: " + this.getEquippedWeapon().getName() + "\tArmor equipped: " + this.getEquippedArmor().getName() + "\n";
+
+        return player;
+    }
+
+    public abstract String statePlayerInCombat();
 }

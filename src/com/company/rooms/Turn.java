@@ -11,7 +11,7 @@ public class Turn {
     public Turn (Character source, Character target,String action, int resultOfAction)
     {
         this.source = source;
-        this.source = target;
+        this.target = target;
         this.action = action;
         this.resultOfAction = resultOfAction;
     }
