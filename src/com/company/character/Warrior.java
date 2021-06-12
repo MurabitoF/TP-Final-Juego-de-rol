@@ -1,8 +1,6 @@
 package com.company.character;
 
-import com.company.items.Armor;
 import com.company.items.Item;
-import com.company.items.Weapon;
 import com.company.rooms.Turn;
 import com.company.utils.Tools;
 import java.util.List;
@@ -14,7 +12,7 @@ public class Warrior extends Player{
     public Warrior (String name, int might, int agility, int intelligence, List<Item> backpack)
     {
         super(name, might, agility, intelligence, "Warrior", backpack);
-        this.isRaging = false; //Se lo puede poner por defecto en false porque nunca va a empezar con rage
+        this.isRaging = false;
     }
 
     public boolean isRaging() {
@@ -27,9 +25,11 @@ public class Warrior extends Player{
 
     public Turn recklessAttack(Character target)
     {
-        if (this.getEnergy()>=10 && Tools.getRandomNumber(20)+this.getMight() +getEquippedWeapon().getAttackBonus()>= target.getArmor() || this.isRaging)
+        if (Tools.getRandomNumber(20)+this.getMight() + getEquippedWeapon().getAttackBonus()>= target.getArmor() || this.isRaging)
         {
+            this.isRaging = false;
             int damage = Tools.getRandomNumber(this.getEquippedWeapon().getDamageDice()) + (this.getMight()*2) +this.getEquippedWeapon().getDamageBonus();
+            this.setEnergy(this.getEnergy() - 10);
             target.setHitPoints(target.getHitPoints()-damage);
             return new Turn(this, target, " reckless attacked ", damage);
         }else
@@ -53,6 +53,7 @@ public class Warrior extends Player{
     public Turn makeAttack(Character target) {
         if (Tools.getRandomNumber(20)+this.getMight()+getEquippedWeapon().getAttackBonus()>=target.getArmor() || this.isRaging)
         {
+            this.isRaging = false;
             int damage = Tools.getRandomNumber(this.getEquippedWeapon().getDamageDice())+this.getMight()+this.getEquippedWeapon().getDamageBonus();
             target.setHitPoints(target.getHitPoints()-damage);
             return new Turn(this, target, " attacked ", damage);
@@ -61,5 +62,15 @@ public class Warrior extends Player{
         }
     }
 
-
+    @Override
+    public String statePlayerInCombat(){
+        String player = this.getName() + "\n";
+        player = player + "HP: " + this.getHitPoints() + "\t Energy: " + this.getEnergy() + "\n";
+        if (this.isRaging){
+            player = player + this.getName() + " is raging";
+        }else {
+            player = player + this.getName() + " is calm down";
+        }
+        return player;
+    }
 }

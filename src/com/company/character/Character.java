@@ -73,12 +73,12 @@ public abstract class Character {
 
     public abstract Turn makeAttack(Character target);
 
-    public int setInitialHp()
+    public int setMaxHp()
     {
         return this.might * 5;
     }
 
-    public int setInitialEnergy()
+    public int setMaxEnergy()
     {
         return this.intelligence * 10;
     }
