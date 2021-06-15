@@ -25,14 +25,14 @@ public class Wizard extends Player implements IMagic{
     }
 
     public Turn recoverEnergy(){
-            if (this.getEnergy()<=this.getEnergy()-this.getIntelligence()*2+1)
+            if (this.setMaxEnergy() >= this.getEnergy() + this.getIntelligence()*2+1)
             {
-                this.setEnergy(this.getIntelligence()*2);
-                return new Turn(this, this, "Recovered energy", this.getIntelligence()*2);
+                this.setEnergy(this.getEnergy() + this.getIntelligence()*2);
+                return new Turn(this, this, " Recovered energy", this.getIntelligence()*2);
             }else
             {
                 this.setEnergy(setMaxEnergy());
-                return new Turn(this, this, "Maxed out energy", this.getEnergy());
+                return new Turn(this, this, " Maxed out energy", this.getEnergy());
             }
         }
 
@@ -65,7 +65,7 @@ public class Wizard extends Player implements IMagic{
         {
             this.setEnergy(this.getEnergy()-spell.getEnergyCost());
             target.setHitPoints(target.getHitPoints() - spell.getDamage() - this.getIntelligence());
-            return new Turn (this, target, " casted " + spell.getName(), spell.getDamage());
+            return new Turn (this, target, " casted " + spell.getName() + " ", spell.getDamage() + this.getIntelligence());
         }else {
             return new Turn (this, target, " missed a spell ", 0);
         }

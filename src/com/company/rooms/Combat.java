@@ -61,7 +61,7 @@ public class Combat {
         this.turns = new ArrayList<>();
         while (!isOver()) {
             Iterator<Enemy> enemyIterator = this.enemies.iterator();
-            while(enemyIterator.hasNext()) {
+            while(enemyIterator.hasNext() && this.player.getHitPoints() > 0) {
                 Enemy enemy = enemyIterator.next();
                 System.out.println(this.player.statePlayerInCombat());
                 turns.add(playerAction());

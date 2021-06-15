@@ -229,7 +229,7 @@ public abstract class Menu {
         Scanner input = new Scanner(System.in);
         int option = -1;
         Enemy target = null;
-        Turn turn;
+        Turn turn = null;
 
         do {
             System.out.println("1. Make an attack");
@@ -252,34 +252,44 @@ public abstract class Menu {
                 System.out.println(combat.getPlayer().getName() + " doesn't have enough energy to make a reckless attack");
                 option = -1;
             }
+
+            switch (option){
+                case 1:
+                    target = showEnemies(combat);
+                    turn = combat.getPlayer().makeAttack(target);
+                    break;
+                case 2:
+                    if(combat.getPlayer().checkConsumibles()){
+                        Item selectItem = selectItem(combat.getPlayer());
+                        while (!(selectItem instanceof Consumible)){
+                            System.out.println("You can't use this item now");
+                            selectItem = selectItem(combat.getPlayer());
+                        }
+                        if (selectItem instanceof Scroll){
+                            target = showEnemies(combat);
+                        }
+                        turn = combat.getPlayer().useItem(selectItem, target);
+                    }else{
+                        System.out.print("You don't have any consumible on the backpack");
+                        waitForKeyboardInput();
+                    }
+                    break;
+                case 3:
+                    target = showEnemies(combat);
+                    turn = ((Warrior)combat.getPlayer()).recklessAttack(target);
+                    break;
+                case 4:
+                    turn = ((Warrior)combat.getPlayer()).rage();
+                    break;
+                default:
+                    turn = null;
+            }
+            if (turn == null){
+                option = -1;
+            }
         }while (option < 1 || option > 4);
 
-        switch (option){
-            case 1:
-                target = showEnemies(combat);
-                turn = combat.getPlayer().makeAttack(target);
-            break;
-            case 2:
-                Item selectItem = selectItem(combat.getPlayer());
-                while (!(selectItem instanceof Consumible)){
-                    System.out.println("You can't use this item now");
-                    selectItem = selectItem(combat.getPlayer());
-                }
-                if (selectItem instanceof Scroll){
-                    target = showEnemies(combat);
-                }
-                turn = combat.getPlayer().useItem(selectItem, target);
-            break;
-            case 3:
-                target = showEnemies(combat);
-                turn = ((Warrior)combat.getPlayer()).recklessAttack(target);
-            break;
-            case 4:
-                turn = ((Warrior)combat.getPlayer()).rage();
-            break;
-            default:
-                turn = null;
-        }
+
         return turn;
     }
 
@@ -287,7 +297,7 @@ public abstract class Menu {
         Scanner input = new Scanner(System.in);
         int option = -1;
         Enemy target = null;
-        Turn turn;
+        Turn turn = null;
 
         do {
             System.out.println("1. Make an attack");
@@ -310,34 +320,41 @@ public abstract class Menu {
                 System.out.println(combat.getPlayer().getName() + " doesn't have enough energy to make a sneak attack");
                 option = -1;
             }
-        }while(option < 1 || option > 4);
-
-        switch (option){
-            case 1:
-                target = showEnemies(combat);
-                turn = combat.getPlayer().makeAttack(target);
-            break;
-            case 2:
-                Item selectItem = selectItem(combat.getPlayer());
-                while (!(selectItem instanceof Consumible)){
-                    System.out.println("You can't use this item now");
-                    selectItem = selectItem(combat.getPlayer());
-                }
-                if (selectItem instanceof Scroll){
+            switch (option){
+                case 1:
                     target = showEnemies(combat);
-                }
-                turn = combat.getPlayer().useItem(selectItem, target);
-            break;
-            case 3:
-                turn = ((Rogue)combat.getPlayer()).aim();
-            break;
-            case 4:
-                target = showEnemies(combat);
-                turn = ((Rogue)combat.getPlayer()).sneakAttack(target);
-            break;
-            default:
-                turn = null;
-        }
+                    turn = combat.getPlayer().makeAttack(target);
+                    break;
+                case 2:
+                    if(combat.getPlayer().checkConsumibles()){
+                        Item selectItem = selectItem(combat.getPlayer());
+                        while (!(selectItem instanceof Consumible)){
+                            System.out.println("You can't use this item now");
+                            selectItem = selectItem(combat.getPlayer());
+                        }
+                        if (selectItem instanceof Scroll){
+                            target = showEnemies(combat);
+                        }
+                        turn = combat.getPlayer().useItem(selectItem, target);
+                    }else{
+                        System.out.print("You don't have any consumible on the backpack");
+                        waitForKeyboardInput();
+                    }
+                    break;
+                case 3:
+                    turn = ((Rogue)combat.getPlayer()).aim();
+                    break;
+                case 4:
+                    target = showEnemies(combat);
+                    turn = ((Rogue)combat.getPlayer()).sneakAttack(target);
+                    break;
+                default:
+                    turn = null;
+            }
+            if (turn == null){
+                option = -1;
+            }
+        }while(option < 1 || option > 4);
         return turn;
     }
 
@@ -345,7 +362,7 @@ public abstract class Menu {
         Scanner input = new Scanner(System.in);
         int option = -1;
         Enemy target = null;
-        Turn turn;
+        Turn turn = null;
 
         do {
             System.out.println("1. Make an attack");
@@ -367,35 +384,44 @@ public abstract class Menu {
                 System.out.println(combat.getPlayer().getName() + " doesn't have enough energy to cast an spell");
                 option = -1;
             }
+
+            switch (option){
+                case 1:
+                    target = showEnemies(combat);
+                    turn = combat.getPlayer().makeAttack(target);
+                    break;
+                case 2:
+                    if(combat.getPlayer().checkConsumibles()){
+                        Item selectItem = selectItem(combat.getPlayer());
+                        while (!(selectItem instanceof Consumible)){
+                            System.out.println("You can't use this item now");
+                            selectItem = selectItem(combat.getPlayer());
+                        }
+                        if (selectItem instanceof Scroll){
+                            target = showEnemies(combat);
+                        }
+                        turn = combat.getPlayer().useItem(selectItem, target);
+                    }else{
+                        System.out.print("You don't have any consumible on the backpack");
+                        waitForKeyboardInput();
+                    }
+                    break;
+                case 3:
+                    turn = ((Wizard)combat.getPlayer()).recoverEnergy();
+                    break;
+                case 4:
+                    target = showEnemies(combat);
+                    Spell selectSpell = selectSpellMenu((Wizard)combat.getPlayer());
+                    turn = ((Wizard)combat.getPlayer()).castSpell(target, selectSpell);
+                    break;
+                default:
+                    turn = null;
+            }
+            if(turn == null){
+                option = -1;
+            }
         }while (option < 1 || option > 4);
 
-        switch (option){
-            case 1:
-                target = showEnemies(combat);
-                turn = combat.getPlayer().makeAttack(target);
-            break;
-            case 2:
-                Item selectItem = selectItem(combat.getPlayer());
-                while (!(selectItem instanceof Consumible)){
-                    System.out.println("You can't use this item now");
-                    selectItem = selectItem(combat.getPlayer());
-                }
-                if (selectItem instanceof Scroll){
-                    target = showEnemies(combat);
-                }
-                turn = combat.getPlayer().useItem(selectItem, target);
-            break;
-            case 3:
-                turn = ((Wizard)combat.getPlayer()).recoverEnergy();
-            break;
-            case 4:
-                target = showEnemies(combat);
-                Spell selectSpell = selectSpellMenu((Wizard)combat.getPlayer());
-                turn = ((Wizard)combat.getPlayer()).castSpell(target, selectSpell);
-            break;
-            default:
-                turn = null;
-        }
         return turn;
     }
 
@@ -404,7 +430,9 @@ public abstract class Menu {
         int option = -1;
 
         for (int i = 0; i<combat.getEnemies().size(); i++){
-            System.out.println("[" + i + "]" + " " + combat.getEnemies().get(i).getName());
+            if(combat.getEnemies().get(i).getHitPoints() >= 0){
+                System.out.println("[" + i + "]" + " " + combat.getEnemies().get(i).getName());
+            }
         }
 
         do {
