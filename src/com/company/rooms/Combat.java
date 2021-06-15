@@ -65,6 +65,7 @@ public class Combat {
                 Enemy enemy = enemyIterator.next();
                 System.out.println(this.player.statePlayerInCombat());
                 turns.add(playerAction());
+                System.out.println(turns.get(turns.size()-1).showTurn() + "\n");
                 if (enemy.getHitPoints() <= 0) {
                     System.out.println(enemy.getName() + " is dead.");
                     enemyIterator.remove();
@@ -72,6 +73,7 @@ public class Combat {
                     Menu.waitForKeyboardInput();
                 } else {
                     turns.add(enemy.makeAction(player));
+                    System.out.println(turns.get(turns.size()-1).showTurn() + "\n");
                 }
             }
         }

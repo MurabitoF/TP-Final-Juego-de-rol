@@ -7,6 +7,7 @@ import com.company.rooms.Door;
 import com.company.rooms.Room;
 import com.company.rooms.Turn;
 
+import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.InputMismatchException;
@@ -96,7 +97,12 @@ public abstract class Menu {
         System.out.print("Insert a name for the character: ");
         name = input.nextLine();
 
-        System.out.println("Texto de inicio del dungeon ");
+        System.out.println("\nYou have finally reached it.The Dungeon of Objects." +
+                "\nAs the legend says, in it there is a scroll with the ultimate secret," +
+                "\nand this journey only purpose is to obtain it and gain it's knowledge."+
+                "\nYou open the first door, made of stone and metal. But with the right words" +
+                "\nit moves as if it was made of the lightlest wood." +
+                "\nYou descend through the lightless stairs until you reach the first room...");
 
         switch (option){
             case 1:
@@ -132,9 +138,10 @@ public abstract class Menu {
         int option = -1;
 
         room.getCombat().setPlayer(room.getPlayer());
+        System.out.println("\n" + room.getDescription());
 
         while(true) {
-            System.out.println(room.getPlayer().statePlayer());
+            System.out.println("\n" + room.getPlayer().statePlayer());
             System.out.println("1. Take look in the room");
             System.out.println("2. Use a item of the backpack");
             if (!room.getCombat().isOver()){

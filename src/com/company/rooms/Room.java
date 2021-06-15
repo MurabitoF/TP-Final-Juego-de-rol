@@ -83,4 +83,6 @@ public class Room {
            System.out.println("An error has ocurred");
        }
     }
+
+    //hacer toString
 }

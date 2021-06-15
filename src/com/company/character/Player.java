@@ -49,11 +49,11 @@ public abstract class Player extends Character {
     public Turn useItem(Item item, Enemy target) {
         if (item instanceof Armor) {
             this.equipArmor((Armor)item);
-            return new Turn(this,this,"Equipped: " + item.getName(), 0);
+            return new Turn(this,this," equipped " + item.getName(), 0);
         } else if (item instanceof Weapon)
             {
                 this.equipWeapon((Weapon)item);
-                return new Turn(this,this,"Equipped: " + item.getName(), 0);
+                return new Turn(this,this," equipped " + item.getName(), 0);
             } else
             {
                 if (item instanceof Scroll)
@@ -90,12 +90,12 @@ public abstract class Player extends Character {
             {
                 this.setHitPoints(this.getHitPoints() + ((HealingPotion) potion).getHealingAmount());
                 this.updateUses(potion);
-                return new Turn(this,this,"Drinked:" + potion.getName(), ((HealingPotion) potion).getHealingAmount());
+                return new Turn(this,this," drinked " + potion.getName(), ((HealingPotion) potion).getHealingAmount());
             } else
             {
                 this.setHitPoints(this.setMaxHp());
                 this.updateUses(potion);
-                return new Turn(this,this,"Drinked:" + potion.getName(), ((HealingPotion) potion).getHealingAmount());
+                return new Turn(this,this," drinked " + potion.getName(), ((HealingPotion) potion).getHealingAmount());
             }
         } else
         {
@@ -103,13 +103,13 @@ public abstract class Player extends Character {
             {
                 this.setEnergy(this.getEnergy() + ((EnergyPotion) potion).getEnergyAmount());
                 this.updateUses(potion);
-                return new Turn(this,this,"Drinked:" + potion.getName(), ((EnergyPotion) potion).getEnergyAmount());
+                return new Turn(this,this," drinked " + potion.getName(), ((EnergyPotion) potion).getEnergyAmount());
 
             } else
             {
                 this.setEnergy(this.setMaxEnergy());
                 this.updateUses(potion);
-                return new Turn(this,this,"Drinked:" + potion.getName(), ((EnergyPotion) potion).getEnergyAmount());
+                return new Turn(this,this," drinked " + potion.getName(), ((EnergyPotion) potion).getEnergyAmount());
             }
         }
     }
@@ -120,9 +120,9 @@ public abstract class Player extends Character {
         {
             target.setHitPoints(target.getHitPoints()-scroll.getSpell().getDamage());
             updateUses(scroll);
-            return new Turn (this, target, "Use scroll of: " + scroll.getSpell().getName(), scroll.getSpell().getDamage());
+            return new Turn (this, target, " used scroll of " + scroll.getSpell().getName(), scroll.getSpell().getDamage());
         }else {
-            return new Turn (this, target, "Failed to use a scroll", 0);
+            return new Turn (this, target, " failed to use a scroll ", 0);
         }
     }
 

@@ -40,6 +40,6 @@ public class Weapon extends Item{
     @Override
     public String toString()
     {
-        return " Arma: " + this.getName() + "\nDado de daño: 1d" + this.getDamageDice() + "\nBonus al ataque: " + this.getAttackBonus() + "\nBonus de daño: " + this.getDamageBonus();
+        return "Weapon: " + this.getName() + "\n\tDamage dice: 1d" + this.getDamageDice() + "\n\tAttack bonus: " + this.getAttackBonus() + "\n\tDamage bonus: " + this.getDamageBonus();
     }
 }

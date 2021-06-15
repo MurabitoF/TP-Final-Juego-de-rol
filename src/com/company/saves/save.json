@@ -1,28 +1,87 @@
 [
   {
     "id": 1,
-    "description": "",
+    "description": "You reach to the first room\nYou can see a room made with clean cut stone, embeded on the walls there are thick columns of the same stone that raises towards the ceiling.\nBefore you stands a humanoid figure, covered in armor with sword in hand. They\u0027re ready to fight but waiting for your first move.",
+    "loot": null,
+    "player": null,
+    "combat": {
+      "player": {
+        "isRaging": false,
+        "type": "Warrior",
+        "backpack": [
+          {
+            "size": "Small",
+            "healingAmount": 5,
+            "uses": 3,
+            "type": "HealingPotion",
+            "name": "Healing Potion"
+          },
+          {
+            "armorBonus": 0,
+            "type": "Armor",
+            "name": "Unarmored"
+          },
+          {
+            "damageDice": 2,
+            "attackBonus": 0,
+            "damageBonus": 1,
+            "type": "Weapon",
+            "name": "Unarmed"
+          },
+          {
+            "size": "Small",
+            "energyAmount": 10,
+            "uses": 3,
+            "type": "EnergyPotion",
+            "name": "Energy potion"
+          }
+        ],
+        "equippedWeapon": {
+          "damageDice": 6,
+          "attackBonus": 1,
+          "damageBonus": 1,
+          "type": "Weapon",
+          "name": "Short Sword"
+        },
+        "equippedArmor": {
+          "armorBonus": 2,
+          "type": "Armor",
+          "name": "Studded Leather"
+        },
+        "name": "Pepe",
+        "hitPoints": 50,
+        "energy": 30,
+        "might": 10,
+        "agility": 6,
+        "intelligence": 4
+      },
+      "enemies": []
+    },
+    "doors": [
+      {
+        "direction": "Front",
+        "nextRoomId": 2,
+        "isLocked": false,
+        "symbol": "none"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "description": "As you cross the door a new room stands before you. Similar in construction as the one before but this one is bigger, longer.\nIt seems to be made specifically with out cover. On the other side a man with long robes is looking at you.\n He slowly raises his arm and on his hand you can see a wand pulsing with magical energy.",
     "loot": {
-      "size": "Small",
-      "energyAmount": 10,
-      "uses": 3,
-      "type": "EnergyPotion",
-      "name": "Energy potion"
+      "spell": {
+        "name": "Necrotic Ray",
+        "energyCost": 25,
+        "damage": 8
+      },
+      "uses": 1,
+      "type": "Scroll",
+      "name": "Scroll of Necrotic Ray"
     },
     "player": {
-      "spellBook": [
-        {
-          "name": "Magic Missile",
-          "energyCost": 10,
-          "damage": 4
-        },
-        {
-          "name": "Acid Orb",
-          "energyCost": 15,
-          "damage": 6
-        }
-      ],
-      "type": "Wizard",
+      "isRaging": false,
+      "type": "Warrior",
       "backpack": [
         {
           "size": "Small",
@@ -42,67 +101,85 @@
           "damageBonus": 1,
           "type": "Weapon",
           "name": "Unarmed"
+        },
+        {
+          "size": "Small",
+          "energyAmount": 10,
+          "uses": 3,
+          "type": "EnergyPotion",
+          "name": "Energy potion"
         }
       ],
       "equippedWeapon": {
-        "damageDice": 4,
+        "damageDice": 6,
         "attackBonus": 1,
         "damageBonus": 1,
         "type": "Weapon",
-        "name": "Dagger"
+        "name": "Short Sword"
       },
       "equippedArmor": {
-        "armorBonus": 1,
+        "armorBonus": 2,
         "type": "Armor",
-        "name": "Leather"
+        "name": "Studded Leather"
       },
-      "name": "Agustin",
-      "hitPoints": 15,
-      "energy": 100,
-      "might": 3,
-      "agility": 7,
-      "intelligence": 10
+      "name": "Pepe",
+      "hitPoints": 50,
+      "energy": 30,
+      "might": 10,
+      "agility": 6,
+      "intelligence": 4
     },
     "combat": {
-      "player": null,
-      "enemies": [
-        {
-          "armorBonus": 0,
-          "type": "Soldier",
-          "name": "Soldier",
-          "hitPoints": 25,
-          "energy": 20,
-          "might": 5,
-          "agility": 3,
-          "intelligence": 2
-        }
-      ]
-    },
-    "doors": [
-      {
-        "direction": "Front",
-        "nextRoomId": 2,
-        "isLocked": false,
-        "symbol": "none"
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "description": "",
-    "loot": {
-      "spell": {
-        "name": "Necrotic Ray",
-        "energyCost": 25,
-        "damage": 8
+      "player": {
+        "isRaging": false,
+        "type": "Warrior",
+        "backpack": [
+          {
+            "size": "Small",
+            "healingAmount": 5,
+            "uses": 3,
+            "type": "HealingPotion",
+            "name": "Healing Potion"
+          },
+          {
+            "armorBonus": 0,
+            "type": "Armor",
+            "name": "Unarmored"
+          },
+          {
+            "damageDice": 2,
+            "attackBonus": 0,
+            "damageBonus": 1,
+            "type": "Weapon",
+            "name": "Unarmed"
+          },
+          {
+            "size": "Small",
+            "energyAmount": 10,
+            "uses": 3,
+            "type": "EnergyPotion",
+            "name": "Energy potion"
+          }
+        ],
+        "equippedWeapon": {
+          "damageDice": 6,
+          "attackBonus": 1,
+          "damageBonus": 1,
+          "type": "Weapon",
+          "name": "Short Sword"
+        },
+        "equippedArmor": {
+          "armorBonus": 2,
+          "type": "Armor",
+          "name": "Studded Leather"
+        },
+        "name": "Pepe",
+        "hitPoints": 50,
+        "energy": 30,
+        "might": 10,
+        "agility": 6,
+        "intelligence": 4
       },
-      "uses": 1,
-      "type": "Scroll",
-      "name": "Scroll of Necrotic Ray"
-    },
-    "player": null,
-    "combat": {
-      "player": null,
       "enemies": [
         {
           "spellBook": [
@@ -150,7 +227,7 @@
   },
   {
     "id": 3,
-    "description": "",
+    "description": "You push open the door, it\u0027s heavy and quite hard to move. On the other side you inmediately hear a growl. A weird creture, like a small black panther.\nTwo tentacles, similar to those of a squid, protude from its back. Behind it there\u0027s a pedestal with a weird looking key on top of it.",
     "loot": {
       "symbol": "Square",
       "type": "Key",
@@ -182,7 +259,7 @@
   },
   {
     "id": 4,
-    "description": "",
+    "description": "You unlock the door with the strange square like symbol. As you push it open the next room stands before you.\n A row of columns hold the ceiling a some meters above you and, standing before the next door, you see two figure.\n One with weapon in hand and the other obviously a arcane practitioner.",
     "loot": {
       "armorBonus": 3,
       "type": "Armor",
@@ -242,7 +319,7 @@
   },
   {
     "id": 5,
-    "description": "",
+    "description": "The door opens. Before you a room extends as much long as it is wide. More decorated than the ones before.\n It\u0027s columns have wide golden rings and bands of marble go from floor to ceiling along the walls. Guarding the next door there are two armors seemingly empty inside.\nOne with a longsword and the other with a big war axe",
     "loot": {
       "damageDice": 10,
       "attackBonus": 2,
@@ -293,7 +370,7 @@
   },
   {
     "id": 6,
-    "description": "",
+    "description": "As the door opens a wicked stench fills the air. The next room has the floor stained with a nauseating brownish red liquid.\nStaying still, against the left wall, you see a huge figure. It\u0027s flesh exposed and hole going deep to the bone\npart of it\u0027s face is hanging lose exposing its jaw and teeth.",
     "loot": {
       "size": "Big",
       "healingAmount": 15,
@@ -333,7 +410,7 @@
   },
   {
     "id": 7,
-    "description": "",
+    "description": "This huge room is decorated with rows of white marble columns and on it\u0027s walls velvet hangings of red and gold.\nIt\u0027s vaulted ceiling has stained glass which, strangely, let\u0027s light come through filling the room with beautiful colours.\nAs guardians of this room a figure in armor and two arcane looking humanoids stand in your way.",
     "loot": {
       "spell": {
         "name": "Radiant Flame",
@@ -431,7 +508,7 @@
   },
   {
     "id": 8,
-    "description": "",
+    "description": "Another stained window adorns this room. This time on the back wall. In front of it stands another pedestal with a key.\nProtecting it two cloaked figure. You can see their skeleton looking faces under their hoods.",
     "loot": {
       "symbol": "Triangle",
       "type": "Key",
@@ -496,7 +573,7 @@
   },
   {
     "id": 9,
-    "description": "",
+    "description": "You open the door with the triangle looking symbol. On the other side you see what you assume is the last key above another pedestal.\nThe room is barely lit, only the light emitted by the key let\u0027s you see. Two figure are guarding it, an arcane user and another knight or warrior.",
     "loot": {
       "symbol": "Circle",
       "type": "Key",
@@ -550,7 +627,7 @@
   },
   {
     "id": 10,
-    "description": "",
+    "description": "The final door is open. It\u0027s heavy wings against the wall. You hear a roar, loud enough to make you tremble along with the walls and ceiling.\nRock and dust fall against the floor and before a huge and horrendous beast, with multiple eyes and fangs like a spider.\nSkin of purplish color and elongated arms and legs ending in two sharp claws each. It skitter along the wall towards you, rising a couple of meters in size.\nBehind it you see, in some kind of altar, a scroll. But not any scroll, the ono which holds the ultimate secret and so, you get ready to fight the final guardian.",
     "loot": null,
     "player": null,
     "combat": {

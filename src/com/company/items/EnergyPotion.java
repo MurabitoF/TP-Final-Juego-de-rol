@@ -30,6 +30,6 @@ public class EnergyPotion extends Consumible{
     @Override
     public String toString()
     {
-        return " " + this.getName() + "\nUsos: " + this.getUses() + "\nTamaño: " + this.getSize() + "\nCantidad de energía: " + this.getEnergyAmount();
+        return this.getName() + "\n\tUses: " + this.getUses() + "\n\tSize: " + this.getSize() + "\n\tAmaount of energy restored: " + this.getEnergyAmount();
     }
 }

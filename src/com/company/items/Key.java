@@ -19,6 +19,6 @@ public class Key extends Item{
     @Override
     public String toString()
     {
-        return " " + this.getName() + "\nSimbolo: " + this.getSymbol();
+        return this.getName() + "\n\tSymbol: " + this.getSymbol();
     }
 }

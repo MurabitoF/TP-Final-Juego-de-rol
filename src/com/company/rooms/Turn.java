@@ -47,4 +47,15 @@ public class Turn {
     public void setResultOfAction(int resultOfAction) {
         this.resultOfAction = resultOfAction;
     }
+
+    public String showTurn()
+    {
+        if (this.source.equals(this.target))
+        {
+            return this.source.getName() + this.action;
+        } else
+        {
+        return this.source.getName() + this.action + "against " + this.target.getName() + " for " + this.resultOfAction + " damage.";
+        }
+    }
 }

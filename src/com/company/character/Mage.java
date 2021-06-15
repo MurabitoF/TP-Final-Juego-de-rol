@@ -26,7 +26,7 @@ public class Mage extends Enemy implements IMagic{
         int energyDrained = 10 + Tools.getRandomNumber(10);
         target.setEnergy(target.getEnergy() - energyDrained);
         this.setEnergy(this.getEnergy() + energyDrained);
-        return new Turn(this, target, "drained energy", energyDrained);
+        return new Turn(this, target, " drained energy from ", energyDrained);
     }
 
     @Override
@@ -53,9 +53,9 @@ public class Mage extends Enemy implements IMagic{
         if(Tools.getRandomNumber(20) >= target.getArmor()){
             int damage = Tools.getRandomNumber(4) + this.getAgility();
             target.setHitPoints(target.getHitPoints() - damage);
-            return new Turn(this, target, "attacked", damage);
+            return new Turn(this, target, " attacked ", damage);
         }else{
-            return new Turn(this, target, "missed attack", 0);
+            return new Turn(this, target, " missed an attack ", 0);
         }
     }
 
@@ -64,9 +64,9 @@ public class Mage extends Enemy implements IMagic{
         if(Tools.getRandomNumber(20)+this.getIntelligence() > Tools.getRandomNumber(20)+ target.getIntelligence()){
             this.setEnergy(this.getEnergy() - spell.getEnergyCost());
             target.setHitPoints(target.getHitPoints() - spell.getDamage());
-            return new Turn(this, target, "Cast: " + spell.getName(), spell.getDamage());
+            return new Turn(this, target, " casted " + spell.getName(), spell.getDamage());
         }else{
-            return new Turn(this, target, "miss a spell", 0);
+            return new Turn(this, target, " missed a spell ", 0);
         }
     }
 }

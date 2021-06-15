@@ -18,4 +18,9 @@ public class Scroll extends Consumible{
     public void setSpell(Spell spell) {
         this.spell = spell;
     }
+
+    public String toString()
+    {
+        return this.getName() + "\n\tUses: " + this.getUses() + "\n\tDamage: " + this.getSpell().getDamage();
+    }
 }
