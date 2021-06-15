@@ -140,8 +140,12 @@ public abstract class Menu {
             if (!room.getCombat().isOver()){
                 System.out.println("3. Get in combat");
             }else {
-                System.out.println("3. Take loot");
-                System.out.println("4. Exit the room");
+                if(room.getId() != 10){
+                    System.out.println("3. Take loot");
+                    System.out.println("4. Exit the room");
+                }else{
+                    System.out.println("3. Enter in the last room");
+                }
             }
             if(room.getPlayer() instanceof Wizard){
                 System.out.println("5. Learn spell");
@@ -174,13 +178,17 @@ public abstract class Menu {
                             deadScreen();
                         }
                     }else{
-                        if(room.getLoot() != null){
-                            room.getPlayer().pickupLoot(room.getLoot());
-                            System.out.println(room.getPlayer().getName() + " has picked up a " + room.getLoot().getName());
-                            room.setLoot(null);
-                            waitForKeyboardInput();
+                        if(room.getId() != 10){
+                            if(room.getLoot() != null){
+                                room.getPlayer().pickupLoot(room.getLoot());
+                                System.out.println(room.getPlayer().getName() + " has picked up a " + room.getLoot().getName());
+                                room.setLoot(null);
+                                waitForKeyboardInput();
+                            }else{
+                                System.out.println("There's nothing to pick up");
+                            }
                         }else{
-                            System.out.println("There's nothing to pick up");
+                            winScreen();
                         }
                     }
                     break;
@@ -526,8 +534,9 @@ public abstract class Menu {
             switch (option){
                 case 1:
                     if(door.isLocked()){
-                        System.out.println("The door has a inscription, private is private");
-                        System.out.println("The door is locked, use a key to open it");
+                        System.out.println("The door has a inscription: \"privado es privado\"");
+                        System.out.println("You tink it says the door is locked, you should use a key to open it");
+                        waitForKeyboardInput();
                     }else{
                         room.openDoor(door);
                         Room nextRoom = Tools.findRoomById(door.getNextRoomId());
@@ -541,6 +550,7 @@ public abstract class Menu {
                            door.setLocked(false);
                        }else {
                            System.out.println("You can't use this on the door");
+                           waitForKeyboardInput();
                        }
                    }
                     break;
@@ -552,6 +562,7 @@ public abstract class Menu {
         Scanner input = new Scanner(System.in);
         int option = -1;
         System.out.println("You are dead!");
+        waitForKeyboardInput();
         do {
             System.out.println("1. Load game");
             System.out.println("2. Exit game");
@@ -579,6 +590,20 @@ public abstract class Menu {
                 System.exit(0);
                 break;
         }
+    }
+
+    public static void winScreen(){
+        System.out.print("You enter the last room and see a pedestal in the center of the room");
+        waitForKeyboardInput();
+        System.out.println("\n\n");
+        System.out.print("when you get closer you can see a parchment on top of it");
+        waitForKeyboardInput();
+        System.out.println("\n\n");
+        System.out.print("as you read it, you realize that it is written in a language you do not understand, says");
+        waitForKeyboardInput();
+        System.out.println("\n\n");
+        System.out.println("\"A donde va el padre va el hijo\"");
+        System.exit(0);
     }
 
 }
