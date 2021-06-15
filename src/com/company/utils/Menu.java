@@ -7,7 +7,6 @@ import com.company.rooms.Door;
 import com.company.rooms.Room;
 import com.company.rooms.Turn;
 
-import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.InputMismatchException;
@@ -90,6 +89,7 @@ public abstract class Menu {
                 input.nextLine();
             }catch (InputMismatchException e){
                 System.out.println(Tools.INPUT_ERROR);
+                input.nextLine();
             }
 
         }while (option <1 || option > 3);
@@ -165,6 +165,7 @@ public abstract class Menu {
                 option = input.nextInt();
             }catch (Exception e){
                 System.out.println(Tools.INPUT_ERROR);
+                input.nextLine();
             }
 
             switch (option){
@@ -244,6 +245,7 @@ public abstract class Menu {
                 option = input.nextInt();
             }catch (InputMismatchException e){
                 System.out.println(Tools.INPUT_ERROR);
+                input.nextLine();
             }
 
             if (option == 0){
@@ -312,6 +314,7 @@ public abstract class Menu {
                 option = input.nextInt();
             }catch (InputMismatchException e){
                 System.out.println(Tools.INPUT_ERROR);
+                input.nextLine();
             }
 
             if(option == 0){
@@ -377,6 +380,7 @@ public abstract class Menu {
                 option = input.nextInt();
             }catch (InputMismatchException e){
                 System.out.println(Tools.INPUT_ERROR);
+                input.nextLine();
             }
             if(option == 0){
                 pauseMenu();
@@ -442,6 +446,7 @@ public abstract class Menu {
                 option = input.nextInt();
             }catch (InputMismatchException e){
                 System.out.println(Tools.INPUT_ERROR);
+                input.nextLine();
             }
         }while (option < 0 || option > combat.getEnemies().size());
 
@@ -463,6 +468,7 @@ public abstract class Menu {
                 option = input.nextInt();
             }catch (InputMismatchException e){
                 System.out.println(Tools.INPUT_ERROR);
+                input.nextLine();
             }
         }while (option < 0 || option > player.getSpellBook().size());
 
@@ -484,6 +490,7 @@ public abstract class Menu {
                 option = input.nextInt();
             }catch (InputMismatchException e){
                 System.out.println(Tools.INPUT_ERROR);
+                input.nextLine();
             }
         }while (option < 0 || option > room.getDoors().size());
 
@@ -507,6 +514,7 @@ public abstract class Menu {
                 option = input.nextInt();
             }catch (InputMismatchException e){
                 System.out.println(Tools.INPUT_ERROR);
+                input.nextLine();
             }
         }while (option < 0 || option > player.getBackpack().size());
 
@@ -532,6 +540,7 @@ public abstract class Menu {
                 option = input.nextInt();
             }catch (InputMismatchException e){
                 System.out.println(Tools.INPUT_ERROR);
+                input.nextLine();
             }
 
             switch (option){
@@ -564,6 +573,7 @@ public abstract class Menu {
                 option = input.nextInt();
             }catch (InputMismatchException e){
                 System.out.println(Tools.INPUT_ERROR);
+                input.nextLine();
             }
 
             switch (option){
@@ -608,6 +618,7 @@ public abstract class Menu {
                 option = input.nextInt();
             }catch (InputMismatchException e){
                 System.out.println(Tools.INPUT_ERROR);
+                input.nextLine();
             }
         }while (option < 1 || option > 2);
 
