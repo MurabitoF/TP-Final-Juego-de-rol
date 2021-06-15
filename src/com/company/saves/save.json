@@ -1,13 +1,29 @@
 [
   {
     "id": 1,
-    "description": "You reach to the first room\nYou can see a room made with clean cut stone, embeded on the walls there are thick columns of the same stone that raises towards the ceiling.\nBefore you stands a humanoid figure, covered in armor with sword in hand. They\u0027re ready to fight but waiting for your first move.",
+    "description": "You can see a room made with clean cutted stone, embeded on the walls there are thick columns of the same material that raises towards the ceiling.\nBefore you stands a humanoid figure, covered in armor with sword in hand. They\u0027re ready to fight but waiting for your first move.\nBehind him there\u0027s a door of heavy wood and reinforced with metal.",
     "loot": null,
     "player": null,
     "combat": {
       "player": {
-        "isRaging": false,
-        "type": "Warrior",
+        "spellBook": [
+          {
+            "name": "Magic Missile",
+            "energyCost": 10,
+            "damage": 4
+          },
+          {
+            "name": "Acid Orb",
+            "energyCost": 15,
+            "damage": 6
+          },
+          {
+            "name": "Necrotic Ray",
+            "energyCost": 25,
+            "damage": 8
+          }
+        ],
+        "type": "Wizard",
         "backpack": [
           {
             "size": "Small",
@@ -31,29 +47,29 @@
           {
             "size": "Small",
             "energyAmount": 10,
-            "uses": 3,
+            "uses": 2,
             "type": "EnergyPotion",
             "name": "Energy potion"
           }
         ],
         "equippedWeapon": {
-          "damageDice": 6,
+          "damageDice": 4,
           "attackBonus": 1,
           "damageBonus": 1,
           "type": "Weapon",
-          "name": "Short Sword"
+          "name": "Dagger"
         },
         "equippedArmor": {
-          "armorBonus": 2,
+          "armorBonus": 1,
           "type": "Armor",
-          "name": "Studded Leather"
+          "name": "Leather"
         },
-        "name": "Pepe",
-        "hitPoints": 50,
-        "energy": 30,
-        "might": 10,
-        "agility": 6,
-        "intelligence": 4
+        "name": "Agustin",
+        "hitPoints": 9,
+        "energy": 75,
+        "might": 3,
+        "agility": 7,
+        "intelligence": 10
       },
       "enemies": []
     },
@@ -68,76 +84,34 @@
   },
   {
     "id": 2,
-    "description": "As you cross the door a new room stands before you. Similar in construction as the one before but this one is bigger, longer.\nIt seems to be made specifically with out cover. On the other side a man with long robes is looking at you.\n He slowly raises his arm and on his hand you can see a wand pulsing with magical energy.",
-    "loot": {
-      "spell": {
-        "name": "Necrotic Ray",
-        "energyCost": 25,
-        "damage": 8
-      },
-      "uses": 1,
-      "type": "Scroll",
-      "name": "Scroll of Necrotic Ray"
-    },
-    "player": {
-      "isRaging": false,
-      "type": "Warrior",
-      "backpack": [
-        {
-          "size": "Small",
-          "healingAmount": 5,
-          "uses": 3,
-          "type": "HealingPotion",
-          "name": "Healing Potion"
-        },
-        {
-          "armorBonus": 0,
-          "type": "Armor",
-          "name": "Unarmored"
-        },
-        {
-          "damageDice": 2,
-          "attackBonus": 0,
-          "damageBonus": 1,
-          "type": "Weapon",
-          "name": "Unarmed"
-        },
-        {
-          "size": "Small",
-          "energyAmount": 10,
-          "uses": 3,
-          "type": "EnergyPotion",
-          "name": "Energy potion"
-        }
-      ],
-      "equippedWeapon": {
-        "damageDice": 6,
-        "attackBonus": 1,
-        "damageBonus": 1,
-        "type": "Weapon",
-        "name": "Short Sword"
-      },
-      "equippedArmor": {
-        "armorBonus": 2,
-        "type": "Armor",
-        "name": "Studded Leather"
-      },
-      "name": "Pepe",
-      "hitPoints": 50,
-      "energy": 30,
-      "might": 10,
-      "agility": 6,
-      "intelligence": 4
-    },
+    "description": "As you cross the door a new room stands before you. Similar in construction as the one before but this one is bigger, longer.\nIt seems to be made specifically with out cover. On the other side a man with long robes is looking at you.\nHe slowly raises his arm and on his hand you can see a wand pulsing with magical energy.\nBehind him there\u0027s another door of stone with a strange\n looking symbol of square like shape and to the left a second door of similar making\n as the one from which you entered this room.",
+    "loot": null,
+    "player": null,
     "combat": {
       "player": {
-        "isRaging": false,
-        "type": "Warrior",
+        "spellBook": [
+          {
+            "name": "Magic Missile",
+            "energyCost": 10,
+            "damage": 4
+          },
+          {
+            "name": "Acid Orb",
+            "energyCost": 15,
+            "damage": 6
+          },
+          {
+            "name": "Necrotic Ray",
+            "energyCost": 25,
+            "damage": 8
+          }
+        ],
+        "type": "Wizard",
         "backpack": [
           {
             "size": "Small",
             "healingAmount": 5,
-            "uses": 3,
+            "uses": 2,
             "type": "HealingPotion",
             "name": "Healing Potion"
           },
@@ -156,59 +130,42 @@
           {
             "size": "Small",
             "energyAmount": 10,
-            "uses": 3,
+            "uses": 2,
             "type": "EnergyPotion",
             "name": "Energy potion"
+          },
+          {
+            "symbol": "Square",
+            "type": "Key",
+            "name": "Square key"
           }
         ],
         "equippedWeapon": {
-          "damageDice": 6,
+          "damageDice": 4,
           "attackBonus": 1,
           "damageBonus": 1,
           "type": "Weapon",
-          "name": "Short Sword"
+          "name": "Dagger"
         },
         "equippedArmor": {
-          "armorBonus": 2,
+          "armorBonus": 1,
           "type": "Armor",
-          "name": "Studded Leather"
+          "name": "Leather"
         },
-        "name": "Pepe",
-        "hitPoints": 50,
-        "energy": 30,
-        "might": 10,
-        "agility": 6,
-        "intelligence": 4
+        "name": "Agustin",
+        "hitPoints": 12,
+        "energy": 50,
+        "might": 3,
+        "agility": 7,
+        "intelligence": 10
       },
-      "enemies": [
-        {
-          "spellBook": [
-            {
-              "name": "Magic Missile",
-              "energyCost": 10,
-              "damage": 4
-            },
-            {
-              "name": "Acid Orb",
-              "energyCost": 15,
-              "damage": 6
-            }
-          ],
-          "type": "Mage",
-          "name": "Mage",
-          "hitPoints": 20,
-          "energy": 50,
-          "might": 4,
-          "agility": 3,
-          "intelligence": 5
-        }
-      ]
+      "enemies": []
     },
     "doors": [
       {
         "direction": "Front",
         "nextRoomId": 4,
-        "isLocked": true,
+        "isLocked": false,
         "symbol": "Square"
       },
       {
@@ -227,26 +184,82 @@
   },
   {
     "id": 3,
-    "description": "You push open the door, it\u0027s heavy and quite hard to move. On the other side you inmediately hear a growl. A weird creture, like a small black panther.\nTwo tentacles, similar to those of a squid, protude from its back. Behind it there\u0027s a pedestal with a weird looking key on top of it.",
-    "loot": {
-      "symbol": "Square",
-      "type": "Key",
-      "name": "Square key"
-    },
+    "description": "You push open the door, it\u0027s heavy and quite hard to move. On the other side you inmediately hear a growl.\nA weird looking creture, like a small black panther stands before you. Two tentacles, similar to those of a squid, protude from its back.\nBehind it there\u0027s a pedestal with a weird looking key on top of it.",
+    "loot": null,
     "player": null,
     "combat": {
-      "player": null,
-      "enemies": [
-        {
-          "type": "Monster",
-          "name": "Monster",
-          "hitPoints": 20,
-          "energy": 20,
-          "might": 4,
-          "agility": 5,
-          "intelligence": 2
-        }
-      ]
+      "player": {
+        "spellBook": [
+          {
+            "name": "Magic Missile",
+            "energyCost": 10,
+            "damage": 4
+          },
+          {
+            "name": "Acid Orb",
+            "energyCost": 15,
+            "damage": 6
+          },
+          {
+            "name": "Necrotic Ray",
+            "energyCost": 25,
+            "damage": 8
+          }
+        ],
+        "type": "Wizard",
+        "backpack": [
+          {
+            "size": "Small",
+            "healingAmount": 5,
+            "uses": 2,
+            "type": "HealingPotion",
+            "name": "Healing Potion"
+          },
+          {
+            "armorBonus": 0,
+            "type": "Armor",
+            "name": "Unarmored"
+          },
+          {
+            "damageDice": 2,
+            "attackBonus": 0,
+            "damageBonus": 1,
+            "type": "Weapon",
+            "name": "Unarmed"
+          },
+          {
+            "size": "Small",
+            "energyAmount": 10,
+            "uses": 2,
+            "type": "EnergyPotion",
+            "name": "Energy potion"
+          },
+          {
+            "symbol": "Square",
+            "type": "Key",
+            "name": "Square key"
+          }
+        ],
+        "equippedWeapon": {
+          "damageDice": 4,
+          "attackBonus": 1,
+          "damageBonus": 1,
+          "type": "Weapon",
+          "name": "Dagger"
+        },
+        "equippedArmor": {
+          "armorBonus": 1,
+          "type": "Armor",
+          "name": "Leather"
+        },
+        "name": "Agustin",
+        "hitPoints": 12,
+        "energy": 50,
+        "might": 3,
+        "agility": 7,
+        "intelligence": 10
+      },
+      "enemies": []
     },
     "doors": [
       {
@@ -259,15 +272,155 @@
   },
   {
     "id": 4,
-    "description": "You unlock the door with the strange square like symbol. As you push it open the next room stands before you.\n A row of columns hold the ceiling a some meters above you and, standing before the next door, you see two figure.\n One with weapon in hand and the other obviously a arcane practitioner.",
+    "description": "You unlock the door with the strange square like symbol. As you push it open the next room stands before you.\n A row of columns hold the ceiling a some meters above you and, standing to your right, you see two figure.\n One with weapon in hand and the other obviously a arcane practitioner. A door of wood and metal lays behind them",
     "loot": {
       "armorBonus": 3,
       "type": "Armor",
       "name": "Hide armor"
     },
-    "player": null,
+    "player": {
+      "spellBook": [
+        {
+          "name": "Magic Missile",
+          "energyCost": 10,
+          "damage": 4
+        },
+        {
+          "name": "Acid Orb",
+          "energyCost": 15,
+          "damage": 6
+        },
+        {
+          "name": "Necrotic Ray",
+          "energyCost": 25,
+          "damage": 8
+        }
+      ],
+      "type": "Wizard",
+      "backpack": [
+        {
+          "size": "Small",
+          "healingAmount": 5,
+          "uses": 2,
+          "type": "HealingPotion",
+          "name": "Healing Potion"
+        },
+        {
+          "armorBonus": 0,
+          "type": "Armor",
+          "name": "Unarmored"
+        },
+        {
+          "damageDice": 2,
+          "attackBonus": 0,
+          "damageBonus": 1,
+          "type": "Weapon",
+          "name": "Unarmed"
+        },
+        {
+          "size": "Small",
+          "energyAmount": 10,
+          "uses": 2,
+          "type": "EnergyPotion",
+          "name": "Energy potion"
+        },
+        {
+          "symbol": "Square",
+          "type": "Key",
+          "name": "Square key"
+        }
+      ],
+      "equippedWeapon": {
+        "damageDice": 4,
+        "attackBonus": 1,
+        "damageBonus": 1,
+        "type": "Weapon",
+        "name": "Dagger"
+      },
+      "equippedArmor": {
+        "armorBonus": 1,
+        "type": "Armor",
+        "name": "Leather"
+      },
+      "name": "Agustin",
+      "hitPoints": 12,
+      "energy": 50,
+      "might": 3,
+      "agility": 7,
+      "intelligence": 10
+    },
     "combat": {
-      "player": null,
+      "player": {
+        "spellBook": [
+          {
+            "name": "Magic Missile",
+            "energyCost": 10,
+            "damage": 4
+          },
+          {
+            "name": "Acid Orb",
+            "energyCost": 15,
+            "damage": 6
+          },
+          {
+            "name": "Necrotic Ray",
+            "energyCost": 25,
+            "damage": 8
+          }
+        ],
+        "type": "Wizard",
+        "backpack": [
+          {
+            "size": "Small",
+            "healingAmount": 5,
+            "uses": 2,
+            "type": "HealingPotion",
+            "name": "Healing Potion"
+          },
+          {
+            "armorBonus": 0,
+            "type": "Armor",
+            "name": "Unarmored"
+          },
+          {
+            "damageDice": 2,
+            "attackBonus": 0,
+            "damageBonus": 1,
+            "type": "Weapon",
+            "name": "Unarmed"
+          },
+          {
+            "size": "Small",
+            "energyAmount": 10,
+            "uses": 2,
+            "type": "EnergyPotion",
+            "name": "Energy potion"
+          },
+          {
+            "symbol": "Square",
+            "type": "Key",
+            "name": "Square key"
+          }
+        ],
+        "equippedWeapon": {
+          "damageDice": 4,
+          "attackBonus": 1,
+          "damageBonus": 1,
+          "type": "Weapon",
+          "name": "Dagger"
+        },
+        "equippedArmor": {
+          "armorBonus": 1,
+          "type": "Armor",
+          "name": "Leather"
+        },
+        "name": "Agustin",
+        "hitPoints": 12,
+        "energy": 50,
+        "might": 3,
+        "agility": 7,
+        "intelligence": 10
+      },
       "enemies": [
         {
           "armorBonus": 0,
@@ -319,7 +472,7 @@
   },
   {
     "id": 5,
-    "description": "The door opens. Before you a room extends as much long as it is wide. More decorated than the ones before.\n It\u0027s columns have wide golden rings and bands of marble go from floor to ceiling along the walls. Guarding the next door there are two armors seemingly empty inside.\nOne with a longsword and the other with a big war axe",
+    "description": "The door opens. Before you a room extends as much long as it is wide. More decorated than the ones before.\n It\u0027s columns have wide golden rings and bands of marble go from floor to ceiling along the walls.\nGuarding the next door there are two armors seemingly empty inside. One with a longsword and the other with a big war axe.\nOn the wall behind them there\u0027s another door, this one made with dark metal.",
     "loot": {
       "damageDice": 10,
       "attackBonus": 2,
@@ -370,7 +523,7 @@
   },
   {
     "id": 6,
-    "description": "As the door opens a wicked stench fills the air. The next room has the floor stained with a nauseating brownish red liquid.\nStaying still, against the left wall, you see a huge figure. It\u0027s flesh exposed and hole going deep to the bone\npart of it\u0027s face is hanging lose exposing its jaw and teeth.",
+    "description": "As the door opens a wicked stench fills the air. The next room has the floor stained with a nauseating brownish red liquid.\nStaying still, against the left wall, you see a huge figure. It\u0027s flesh exposed and hole going deep to the bone\npart of it\u0027s face is hanging lose exposing its jaw and teeth. It seems, undead.\nOn the wall on the other side of the room, another door of black metal stands before you",
     "loot": {
       "size": "Big",
       "healingAmount": 15,
@@ -410,7 +563,7 @@
   },
   {
     "id": 7,
-    "description": "This huge room is decorated with rows of white marble columns and on it\u0027s walls velvet hangings of red and gold.\nIt\u0027s vaulted ceiling has stained glass which, strangely, let\u0027s light come through filling the room with beautiful colours.\nAs guardians of this room a figure in armor and two arcane looking humanoids stand in your way.",
+    "description": "This huge room is decorated with rows of white marble columns and on it\u0027s walls velvet hangings of red and gold.\nIt\u0027s vaulted ceiling has stained glass which, strangely, let\u0027s light come through filling the room with beautiful colours.\nAs guardians of this room a figure in armor and two arcane looking humanoids stand in your way.\nThis room has three doors besides the one from which you entered. One to the left, also of black metal.\nAnother one to the right, this one made of stone and with another weird symbol, now shaped like a triangle.\nAnd finally a two winged door of heavy stone, a circle like symbol on the middle\n and a strange looking face sculpted on the material.",
     "loot": {
       "spell": {
         "name": "Radiant Flame",

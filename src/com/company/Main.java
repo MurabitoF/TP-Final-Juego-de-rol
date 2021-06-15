@@ -5,7 +5,7 @@ import com.company.utils.Menu;
 public class Main {
 
     public static void main(String[] args) {
-        Menu.winScreen();
+        Menu.mainMenu();
 
     }
 }

@@ -120,7 +120,7 @@ public abstract class Player extends Character {
         {
             target.setHitPoints(target.getHitPoints()-scroll.getSpell().getDamage());
             updateUses(scroll);
-            return new Turn (this, target, " used scroll of " + scroll.getSpell().getName(), scroll.getSpell().getDamage());
+            return new Turn (this, target, " used scroll of " + scroll.getSpell().getName() + " ", scroll.getSpell().getDamage());
         }else {
             return new Turn (this, target, " failed to use a scroll ", 0);
         }
@@ -145,4 +145,13 @@ public abstract class Player extends Character {
     }
 
     public abstract String statePlayerInCombat();
+
+    public boolean checkConsumibles(){
+        for (Item item : this.backpack) {
+            if (item instanceof Consumible) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
