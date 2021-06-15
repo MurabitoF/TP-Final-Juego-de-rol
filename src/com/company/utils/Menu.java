@@ -97,7 +97,7 @@ public abstract class Menu {
         System.out.print("Insert a name for the character: ");
         name = input.nextLine();
 
-        System.out.println("\nYou have finally reached it.The Dungeon of Objects." +
+        System.out.println("\nYou have finally reached it.The Hidden Dungeon of the Java Isles." +
                 "\nAs the legend says, in it there is a scroll with the ultimate secret," +
                 "\nand this journey only purpose is to obtain it and gain it's knowledge."+
                 "\nYou open the first door, made of stone and metal. But with the right words" +
