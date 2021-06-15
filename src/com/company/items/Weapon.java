@@ -5,9 +5,9 @@ public class Weapon extends Item{
     private int attackBonus;
     private int damageBonus;
 
-    public Weapon (String name, int id, int attackBonus, int damageBonus, int damageDice)
+    public Weapon (String name, int attackBonus, int damageBonus, int damageDice)
     {
-        super(name, id);
+        super(name, "Weapon");
         this.damageDice = damageDice;
         this.attackBonus = attackBonus;
         this.damageBonus = damageBonus;
@@ -40,6 +40,6 @@ public class Weapon extends Item{
     @Override
     public String toString()
     {
-        return " Arma: " + this.getName() + "\nDado de daño: 1d" + this.getDamageDice() + "\nBonus al ataque: " + this.getAttackBonus() + "\nBonus de daño: " + this.getDamageBonus();
+        return "Weapon: " + this.getName() + "\n\tDamage dice: 1d" + this.getDamageDice() + "\n\tAttack bonus: " + this.getAttackBonus() + "\n\tDamage bonus: " + this.getDamageBonus();
     }
 }

@@ -1,13 +1,21 @@
 package com.company.items;
 
 public abstract class Item {
+    String type;
     String name;
-    int id;
 
-    public Item (String name, int id)
+    public Item (String name, String type)
     {
+        this.type = type;
         this.name = name;
-        this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getName() {
@@ -16,14 +24,6 @@ public abstract class Item {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
 }

@@ -5,8 +5,8 @@ public class EnergyPotion extends Consumible{
     private String size;
     private int energyAmount;
 
-    public EnergyPotion(String name, int id, int uses, String size, int energyAmount) {
-        super(name, id, uses);
+    public EnergyPotion(String name, int uses, String size, int energyAmount) {
+        super(name, uses, "EnergyPotion");
         this.size = size;
         this.energyAmount = energyAmount;
     }
@@ -30,6 +30,6 @@ public class EnergyPotion extends Consumible{
     @Override
     public String toString()
     {
-        return " " + this.getName() + "\nUsos: " + this.getUses() + "\nTamaño: " + this.getSize() + "\nCantidad de energía: " + this.getEnergyAmount();
+        return this.getName() + "\n\tUses: " + this.getUses() + "\n\tSize: " + this.getSize() + "\n\tAmaount of energy restored: " + this.getEnergyAmount();
     }
 }

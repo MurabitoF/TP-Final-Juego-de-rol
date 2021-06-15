@@ -10,7 +10,7 @@ public class Mage extends Enemy implements IMagic{
     private List<Spell> spellBook;
 
     public Mage(String name, int might, int agility, int intelligence, List<Spell> spellBook) {
-        super(name, might, agility, intelligence);
+        super(name, might, agility, intelligence, "Mage");
         this.spellBook = spellBook;
     }
 
@@ -26,12 +26,12 @@ public class Mage extends Enemy implements IMagic{
         int energyDrained = 10 + Tools.getRandomNumber(10);
         target.setEnergy(target.getEnergy() - energyDrained);
         this.setEnergy(this.getEnergy() + energyDrained);
-        return new Turn(this, target, "drained energy", energyDrained);
+        return new Turn(this, target, " drained energy from ", energyDrained);
     }
 
     @Override
     public int getArmor() {
-        return 5 + this.getMight();
+        return 5 + this.getAgility();
     }
 
     @Override
@@ -40,7 +40,7 @@ public class Mage extends Enemy implements IMagic{
 
         if (action <= 35 || this.getEnergy() < 10){
             return makeAttack(target);
-        }else if (this.getEnergy() <= this.setInitialEnergy() * 0.3){
+        }else if (this.getEnergy() <= this.setMaxEnergy() * 0.3){
             return drainEnergy(target);
         }else{
             int spell = Tools.getRandomNumber(this.spellBook.size()) - 1;
@@ -51,22 +51,22 @@ public class Mage extends Enemy implements IMagic{
     @Override
     public Turn makeAttack(Character target) {
         if(Tools.getRandomNumber(20) >= target.getArmor()){
-            int damage = Tools.getRandomNumber(4) + this.getMight();
+            int damage = Tools.getRandomNumber(4) + this.getAgility();
             target.setHitPoints(target.getHitPoints() - damage);
-            return new Turn(this, target, "attacked", damage);
+            return new Turn(this, target, " attacked ", damage);
         }else{
-            return new Turn(this, target, "missed attack", 0);
+            return new Turn(this, target, " missed an attack ", 0);
         }
     }
 
     @Override
     public Turn castSpell(Character target, Spell spell) {
-        if(Tools.getRandomNumber(20) + this.getIntelligence() >= 10 + target.getIntelligence()){
+        if(Tools.getRandomNumber(20)+this.getIntelligence() > Tools.getRandomNumber(20)+ target.getIntelligence()){
             this.setEnergy(this.getEnergy() - spell.getEnergyCost());
             target.setHitPoints(target.getHitPoints() - spell.getDamage());
-            return new Turn(this, target, "Cast: " + spell.getName(), spell.getDamage());
+            return new Turn(this, target, " casted " + spell.getName(), spell.getDamage());
         }else{
-            return new Turn(this, target, "miss a spell", 0);
+            return new Turn(this, target, " missed a spell ", 0);
         }
     }
 }

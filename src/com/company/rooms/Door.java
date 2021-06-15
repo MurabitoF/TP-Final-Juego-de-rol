@@ -1,16 +1,14 @@
 package com.company.rooms;
 
-import com.company.items.Key;
-
 public class Door {
     private String direction;
-    private Room nextRoom;
+    private int nextRoomId;
     private boolean isLocked;
     private String symbol;
 
-    public Door(String direction, Room nextRoom, boolean isLocked, String symbol) {
+    public Door(String direction, int nextRoomId, boolean isLocked, String symbol) {
         this.direction = direction;
-        this.nextRoom = nextRoom;
+        this.nextRoomId = nextRoomId;
         this.isLocked = isLocked;
         this.symbol = symbol;
     }
@@ -23,12 +21,12 @@ public class Door {
         this.direction = direction;
     }
 
-    public Room getNextRoom() {
-        return nextRoom;
+    public int getNextRoomId() {
+        return nextRoomId;
     }
 
-    public void setNextRoom(Room nextRoom) {
-        this.nextRoom = nextRoom;
+    public void setNextRoom(int nextRoomId) {
+        this.nextRoomId = nextRoomId;
     }
 
     public boolean isLocked() {

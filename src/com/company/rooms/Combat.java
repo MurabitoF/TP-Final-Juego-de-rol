@@ -5,22 +5,20 @@ import com.company.character.Player;
 import com.company.character.Rogue;
 import com.company.character.Warrior;
 import com.company.utils.Menu;
-import com.company.utils.Tools;
 
-import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Combat {
     private Player player;
     private List<Enemy> enemies;
-    private List<Turn> turns;
+    private transient List<Turn> turns;
 
     public Combat (Player player, List<Enemy> enemies)
     {
         this.player = player;
         this.enemies = enemies;
-        this.turns = new ArrayList<>();
     }
 
     public Player getPlayer() {
@@ -51,7 +49,7 @@ public class Combat {
     public boolean isOver(){ //Se fija si la lista de enemigos esta vacia, en ese caso devuelve verdadero
         if (player.getHitPoints()<=0)
         {
-            return false;
+            return true;
         }else
         {
             return enemies.isEmpty();
@@ -60,13 +58,22 @@ public class Combat {
     }
 
     public void beginCombat(){
+        this.turns = new ArrayList<>();
         while (!isOver()) {
-            for (Enemy enemy : enemies) {
+            Iterator<Enemy> enemyIterator = this.enemies.iterator();
+            while(enemyIterator.hasNext()) {
+                Enemy enemy = enemyIterator.next();
+                System.out.println(this.player.statePlayerInCombat());
                 turns.add(playerAction());
+                System.out.println(turns.get(turns.size()-1).showTurn() + "\n");
                 if (enemy.getHitPoints() <= 0) {
+                    System.out.println(enemy.getName() + " is dead.");
+                    enemyIterator.remove();
                     deleteEnemy(enemy);
+                    Menu.waitForKeyboardInput();
                 } else {
-                    enemy.makeAction(player);
+                    turns.add(enemy.makeAction(player));
+                    System.out.println(turns.get(turns.size()-1).showTurn() + "\n");
                 }
             }
         }
@@ -85,25 +92,4 @@ public class Combat {
             return Menu.wizardCombatMenu(this);
         }
     }
-
-    /*private List<Character> rollInitiative()
-    {
-        List<Character> initiative = new ArrayList<>();
-        initiative.add(0,this.player);
-        for (Enemy enemy : this.enemies)
-        {
-            for(Character init : initiative)
-            {
-                if (init.getAgility>enemy.getAgility())
-                {
-                        initiative.add(enemy);
-                } else
-                {
-                    initiative.add(initiative.indexOf(init), enemy);
-                }
-            }
-
-        }
-    }*/  //{monstruo(7), jugador(6), Soldado(6)}
-
 }

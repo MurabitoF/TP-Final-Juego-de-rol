@@ -14,8 +14,8 @@ public abstract class Character {
     public Character (String name, int might, int agility, int intelligence)
     {
         this.name = name;
-        this.hitPoints = setInitialHp();
-        this.energy = setInitialEnergy();
+        this.hitPoints = might * 5;
+        this.energy = intelligence * 10;
         this.might = might;
         this.agility = agility;
         this.intelligence = intelligence;
@@ -73,12 +73,12 @@ public abstract class Character {
 
     public abstract Turn makeAttack(Character target);
 
-    public int setInitialHp()
+    public int setMaxHp()
     {
         return this.might * 5;
     }
 
-    public int setInitialEnergy()
+    public int setMaxEnergy()
     {
         return this.intelligence * 10;
     }

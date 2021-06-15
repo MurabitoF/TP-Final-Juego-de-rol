@@ -1,8 +1,6 @@
 package com.company.character;
 
-import com.company.items.Armor;
 import com.company.items.Item;
-import com.company.items.Weapon;
 import com.company.rooms.Turn;
 import com.company.utils.Tools;
 import java.util.List;
@@ -13,8 +11,8 @@ public class Warrior extends Player{
 
     public Warrior (String name, int might, int agility, int intelligence, List<Item> backpack)
     {
-        super(name, might, agility, intelligence, backpack);
-        this.isRaging = false; //Se lo puede poner por defecto en false porque nunca va a empezar con rage
+        super(name, might, agility, intelligence, "Warrior", backpack);
+        this.isRaging = false;
     }
 
     public boolean isRaging() {
@@ -27,21 +25,23 @@ public class Warrior extends Player{
 
     public Turn recklessAttack(Character target)
     {
-        if (this.getEnergy()>=10 && Tools.getRandomNumber(20)+this.getMight() +getEquippedWeapon().getAttackBonus()>= target.getArmor() || this.isRaging)
+        if (Tools.getRandomNumber(20)+this.getMight() + getEquippedWeapon().getAttackBonus()>= target.getArmor() || this.isRaging)
         {
+            this.isRaging = false;
             int damage = Tools.getRandomNumber(this.getEquippedWeapon().getDamageDice()) + (this.getMight()*2) +this.getEquippedWeapon().getDamageBonus();
+            this.setEnergy(this.getEnergy() - 10);
             target.setHitPoints(target.getHitPoints()-damage);
-            return new Turn(this, target, "Reckless Attacked ", damage);
+            return new Turn(this, target, " reckless attacked ", damage);
         }else
         {
-            return new Turn(this, target, "missed ", 0);
+            return new Turn(this, target, " missed against ", 0);
         }
     }
 
     public Turn rage()
     {
-        this.setRaging(true); //agregar beneficio de rage
-        return new Turn(this, this, "raging", 0);
+        this.setRaging(true);
+        return new Turn(this, this, " raged", 0);
     }
 
     @Override
@@ -53,13 +53,24 @@ public class Warrior extends Player{
     public Turn makeAttack(Character target) {
         if (Tools.getRandomNumber(20)+this.getMight()+getEquippedWeapon().getAttackBonus()>=target.getArmor() || this.isRaging)
         {
-            int damage = Tools.getRandomNumber(6)+this.getMight()+this.getEquippedWeapon().getDamageBonus();
+            this.isRaging = false;
+            int damage = Tools.getRandomNumber(this.getEquippedWeapon().getDamageDice())+this.getMight()+this.getEquippedWeapon().getDamageBonus();
             target.setHitPoints(target.getHitPoints()-damage);
-            return new Turn(this, target, "attacked ", damage);
+            return new Turn(this, target, " attacked ", damage);
         } else{
-            return new Turn(this, target, "missed ", 0);
+            return new Turn(this, target, " missed ", 0);
         }
     }
 
-
+    @Override
+    public String statePlayerInCombat(){
+        String player = this.getName() + "\n";
+        player = player + "HP: " + this.getHitPoints() + "\t Energy: " + this.getEnergy() + "\n";
+        if (this.isRaging){
+            player = player + this.getName() + " is raging";
+        }else {
+            player = player + this.getName() + " is calm down";
+        }
+        return player;
+    }
 }

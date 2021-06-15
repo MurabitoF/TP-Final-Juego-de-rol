@@ -4,23 +4,22 @@ import com.company.items.*;
 import com.company.rooms.Turn;
 import com.company.utils.Tools;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Player extends Character {
+    String type;
     List<Item> backpack;
     Weapon equippedWeapon;
     Armor equippedArmor;
-    int exp;
 
 
-    public  Player (String name, int might, int agility, int intelligence, List<Item> backpack)
+    public  Player (String name, int might, int agility, int intelligence, String type,List<Item> backpack)
     {
         super(name,might,agility,intelligence);
+        this.type = type;
         this.backpack = backpack;
-        this.equippedArmor = new Armor("Sin armadura", 0, 0);
-        this.equippedWeapon = new Weapon("Desarmado", 0, 0, 1, 2);
-        this.exp = 0;
+        this.equippedArmor = new Armor("Unarmored", 0);
+        this.equippedWeapon = new Weapon("Unarmed", 0, 1, 2);
     }
 
     public List<Item> getBackpack() {
@@ -47,47 +46,26 @@ public abstract class Player extends Character {
         this.equippedArmor = equippedArmor;
     }
 
-    public int getExp() {
-        return exp;
-    }
-
-    public void setExp(int exp) {
-        this.exp = exp;
-    }
-
-    private Turn useItem(Item item) {
+    public Turn useItem(Item item, Enemy target) {
         if (item instanceof Armor) {
             this.equipArmor((Armor)item);
-            return new Turn(this,this,"Equipped: " + item.getName(), 0);
+            return new Turn(this,this," equipped " + item.getName(), 0);
         } else if (item instanceof Weapon)
             {
                 this.equipWeapon((Weapon)item);
-                return new Turn(this,this,"Equipped: " + item.getName(), 0);
+                return new Turn(this,this," equipped " + item.getName(), 0);
             } else
             {
-                /*if (item instanceof Scroll)
+                if (item instanceof Scroll)
                 {
-                    Enemy target = Tools.showEnemies()
-                    return this.useScroll((Scroll) item);
-                }*/ //En estado pendiente
+                    return this.useScroll((Scroll) item, target);
+                }
                 return this.useConsumible((Consumible) item);
             }
         }
 
     public void pickupLoot(Item loot) {
         this.backpack.add(loot);
-    }
-
-    public Item searchBackpack(int id) {
-        return backpack.get(id);
-    }
-
-
-    public void openBackpack() {
-        for (Item item : backpack)
-        {
-            System.out.println(backpack.indexOf(item) + ". " + item.toString());
-        }
     }
 
     private void equipArmor(Armor armor)
@@ -108,47 +86,47 @@ public abstract class Player extends Character {
     {
         if (potion instanceof HealingPotion)
         {
-            if (this.getHitPoints()<= this.getHitPoints()-((HealingPotion) potion).getHealingAmount())
+            if (this.setMaxHp() >= this.getHitPoints() + ((HealingPotion) potion).getHealingAmount())
             {
-                this.setHitPoints(((HealingPotion) potion).getHealingAmount());
+                this.setHitPoints(this.getHitPoints() + ((HealingPotion) potion).getHealingAmount());
                 this.updateUses(potion);
-                return new Turn(this,this,"Drinked:" + potion.getName(), ((HealingPotion) potion).getHealingAmount());
+                return new Turn(this,this," drinked " + potion.getName(), ((HealingPotion) potion).getHealingAmount());
             } else
             {
-                this.setHitPoints(this.setInitialHp());
+                this.setHitPoints(this.setMaxHp());
                 this.updateUses(potion);
-                return new Turn(this,this,"Drinked:" + potion.getName(), ((HealingPotion) potion).getHealingAmount());
+                return new Turn(this,this," drinked " + potion.getName(), ((HealingPotion) potion).getHealingAmount());
             }
         } else
         {
-            if (this.getEnergy()<=this.getEnergy()-((EnergyPotion)potion).getEnergyAmount())
+            if (this.setMaxEnergy() >= this.getEnergy() + ((EnergyPotion)potion).getEnergyAmount())
             {
-                this.setEnergy(((EnergyPotion) potion).getEnergyAmount());
+                this.setEnergy(this.getEnergy() + ((EnergyPotion) potion).getEnergyAmount());
                 this.updateUses(potion);
-                return new Turn(this,this,"Drinked:" + potion.getName(), ((EnergyPotion) potion).getEnergyAmount());
+                return new Turn(this,this," drinked " + potion.getName(), ((EnergyPotion) potion).getEnergyAmount());
 
             } else
             {
-                this.setEnergy(this.setInitialEnergy());
+                this.setEnergy(this.setMaxEnergy());
                 this.updateUses(potion);
-                return new Turn(this,this,"Drinked:" + potion.getName(), ((EnergyPotion) potion).getEnergyAmount());
+                return new Turn(this,this," drinked " + potion.getName(), ((EnergyPotion) potion).getEnergyAmount());
             }
         }
     }
 
-    /*private Turn useScroll (Scroll scroll)
+    private Turn useScroll (Scroll scroll, Enemy target)
     {
-        if (this.getEnergy()>=10 && Tools.getRandomNumber(20)+this.getIntelligence() > Tools.getRandomNumber(20)+ target.getIntelligence())
+        if (Tools.getRandomNumber(20) + this.getIntelligence() > Tools.getRandomNumber(20) + target.getIntelligence())
         {
             target.setHitPoints(target.getHitPoints()-scroll.getSpell().getDamage());
             updateUses(scroll);
-            return new Turn (this, target, "Cast: " + spell.getName(), spell.getDamage());
+            return new Turn (this, target, " used scroll of " + scroll.getSpell().getName(), scroll.getSpell().getDamage());
         }else {
-            return new Turn (this, target, "Missed a spell", 0);
+            return new Turn (this, target, " failed to use a scroll ", 0);
         }
-    }*/ //En estado pendiente
+    }
 
-    private void updateUses (Consumible consumible)
+    public void updateUses (Consumible consumible)
     {
         consumible.setUses(consumible.getUses()-1);
         if (consumible.getUses() == 0)
@@ -157,4 +135,14 @@ public abstract class Player extends Character {
         }
     }
 
+    public String statePlayer(){
+        String player = this.getName() + "\n";
+        player = player + "HP: " + this.getHitPoints() + "\t Energy: " + this.getEnergy() + "\n";
+
+        player = player + "Weapon equipped: " + this.getEquippedWeapon().getName() + "\tArmor equipped: " + this.getEquippedArmor().getName() + "\n";
+
+        return player;
+    }
+
+    public abstract String statePlayerInCombat();
 }

@@ -3,9 +3,9 @@ package com.company.items;
 public class Armor extends Item {
     private int armorBonus;
 
-    public Armor (String name, int id, int armor)
+    public Armor (String name, int armor)
     {
-        super(name, id);
+        super(name, "Armor");
         this.armorBonus = armor;
     }
 
@@ -20,6 +20,6 @@ public class Armor extends Item {
     @Override
     public String toString()
     {
-        return " Armadura: " + this.getName() + "\nBonus de armadura: " + this.getArmorBonus();
+        return "\n\tArmor: " + this.getName() + "\n\tArmor bonus: " + this.getArmorBonus();
     }
 }
