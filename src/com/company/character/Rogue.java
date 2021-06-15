@@ -1,8 +1,6 @@
 package com.company.character;
 
-import com.company.items.Armor;
 import com.company.items.Item;
-import com.company.items.Weapon;
 import com.company.rooms.Turn;
 import com.company.utils.Tools;
 import java.util.List;
